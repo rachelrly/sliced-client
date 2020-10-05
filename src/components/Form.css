@@ -1,0 +1,28 @@
+section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+
+}
+
+form {
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    margin: 0 0 12px;
+    height: 20px;
+}
+
+textarea {
+    margin-bottom: 12px;
+    height: 150px;
+}
+
+.form_button {
+    width: 100px;
+    height: 35px;
+}
