@@ -1,0 +1,17 @@
+section {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.recipe_thumb {
+    width: 120px;
+}
+
+.recipe_thumb h3 {
+    font-size: 18px;
+    font-weight: 300;
+}
