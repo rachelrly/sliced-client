@@ -17,7 +17,9 @@ class RecipePage extends Component {
     }
 
     componentDidMount() {
-        UserRecipesApiService.getFullRecipeById(1)
+        const id = Number(this.props.match.params.id)
+
+        UserRecipesApiService.getFullRecipeById(id)
             .then(rec => {
                 this.setState({
                     recipe_id: rec.id,
@@ -26,31 +28,20 @@ class RecipePage extends Component {
                     url: rec.original_url,
                     ingredients: rec.ingredients
                 })
-
-
             })
-
-
-
 
     }
 
     render() {
-        console.log(this.state)
+
         return (
             <section className='recipe_full'>
                 <h2>{this.state.title}</h2>
                 <p className='date'>Added {this.state.date_created}</p>
                 <h3>Ingredients</h3>
-                <ul>
+                <ul className='ingredients_wrapper'>
                     <RecipePageIngredients ingredients={this.state.ingredients} />
                 </ul>
-
-
-
-
-
-
                 <a target='_blank' href={this.state.url} rel="noopener noreferrer"><p className='url'>Original recipe</p></a>
             </section>
         )

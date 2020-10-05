@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import UserRecipesApiService from '../../services/user-recipes-api-service'
 import RecipeThumbnails from './RecipeThumbnails'
 
@@ -28,8 +29,12 @@ class RecipeList extends Component {
     render() {
 
         return (
-            <section>
+            <section className='recipe_list'>
                 <RecipeThumbnails recipes={this.state.recipes} />
+
+                <Link to='/add-recipe'>
+                    <button className='add_recipe'>Add Recipe</button>
+                </Link>
             </section>
         )
     }

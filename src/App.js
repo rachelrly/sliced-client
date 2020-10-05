@@ -36,7 +36,7 @@ class App extends Component {
               component={AddRecipe}
             />
             <Route
-              path='/recipe'
+              path='/recipe/:id'
               component={RecipePage}
             />
 

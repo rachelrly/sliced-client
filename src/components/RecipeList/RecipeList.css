@@ -2,16 +2,22 @@ section {
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-wrap: wrap;
+    flex-direction: column;
 }
 
 .recipe_thumb {
-    width: 120px;
+
+    display: flex;
+    padding: 6px;
 }
 
 .recipe_thumb h3 {
     font-size: 18px;
     font-weight: 300;
+}
+
+.recipe_list div {
+    width: inherit;
+    display: flex;
+    flex-direction: row;
 }
