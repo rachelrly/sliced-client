@@ -92,7 +92,9 @@ class App extends Component {
             />
             <Route
               path='/recipe/:id'
-              render={props => <RecipePage deleteRecipe={(id) => this.deleteRecipe(id)} />}
+              render={props =>
+                <RecipePage {...props}
+                  deleteRecipe={(id) => this.deleteRecipe(id)} />}
             />
 
 

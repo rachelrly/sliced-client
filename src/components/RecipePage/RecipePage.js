@@ -5,8 +5,8 @@ import './RecipePage.css'
 
 class RecipePage extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             recipe_id: null,
             title: null,
@@ -17,8 +17,8 @@ class RecipePage extends Component {
     }
 
     componentDidMount() {
+        console.log(this.props)
         const id = Number(this.props.match.params.id)
-
         UserRecipesApiService.getFullRecipeById(id)
             .then(rec => {
                 this.setState({
@@ -32,10 +32,12 @@ class RecipePage extends Component {
 
     }
 
-    deleteRecipe(id) {
-        UserRecipesApiService.deleteRecipe(id)
-            .then(this.props.history.push('/recipe'))
-    }
+    // handleDeleteRecipe() {
+    //     console.log(this.props.history)
+    //     //console.log(deleteRecipe)
+    //     // this.props.deleteRecipe(this.state.recipe_id)
+    //     //     .then(() => this.history.push('/'))
+    // }
 
     render() {
         return (
@@ -59,7 +61,10 @@ class RecipePage extends Component {
                 </ul>
                 <p className='date'>Added {this.state.date_created}</p>
                 <a target='_blank' href={this.state.url} rel="noopener noreferrer"><p className='url'>Original recipe</p></a>
-                <p onClick={() => this.deleteRecipe(this.state.recipe_id)}>delete recipe</p>
+                <p onClick={
+                    (id) => this.props.deleteRecipe(this.state.recipe_id)
+                        .then(this.props.history.push('/recipe'))
+                }>delete recipe</p>
             </section>
         )
     }

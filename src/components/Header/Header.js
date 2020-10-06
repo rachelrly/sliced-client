@@ -5,7 +5,7 @@ import './Header.css'
 function Header() {
     return (
         <header>
-            <Link to='/'>
+            <Link to='/recipe'>
                 <h1>Sliced</h1>
             </Link>
         </header>
