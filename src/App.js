@@ -33,7 +33,7 @@ class App extends Component {
 
   addRecipe(recipe) {
     let withTempId = { ...recipe, id: cuid() }
-    let newReicpe = [...this.state.recipes, withTempId]
+    let newReicpe = [withTempId, ...this.state.recipes]
     this.setState({
       recipes: newReicpe
     })

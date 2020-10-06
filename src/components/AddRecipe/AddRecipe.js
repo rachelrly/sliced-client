@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { useHistory } from 'react-router-dom';
+import ParseIngredientsService from '../../services/parse-ingredients-service'
 import '../Form.css';
 
 class AddRecipe extends Component {
@@ -17,43 +17,52 @@ class AddRecipe extends Component {
     parseTextAreaInput(e) {
         const textAreaInput = e.target.value;
         const splitLine = String.fromCharCode(13, 10);
-        const formattedInput = textAreaInput.replaceAll('\\n', splitLine)
+        const formattedInput = textAreaInput
+            .replaceAll('\\n', splitLine)
+            .split('\n')
+            .map(ing => {
+                let ingArr = ing.split(' ')
+                let amount_str = ingArr.splice(0, 2).join(' ');
+                let title = ingArr.join(' ')
+
+                return {
+                    title,
+                    amount_str,
+                    description: null
+
+                };
+            })
+
+
         this.setState({
             ingredients: formattedInput
         })
+
     }
+
+
+
+
 
 
     render() {
 
-        const ingredients = [
-            {
-                title: this.state.title,
-                description: 'this is a description',
-                amount_str: '1 TBSP'
-            },
-            {
-                title: this.state.title,
-                description: 'this is a second description',
-                amount_str: '1 tsp'
-            },
-            {
-                title: this.state.title,
-                description: 'this is a third description',
-                amount_str: '1/2 Cup'
-            },
-        ]
-
         const recipe = {
             url: this.state.url,
             title: this.state.title,
-            ingredients
+            ingredients: this.state.ingredients
         }
-
 
         return (
             <section className='AddRecipe_section' >
-                <form className='AddRecipe_form'>
+                <form className='AddRecipe_form'
+                    onSubmit={
+                        rec => {
+
+                            return this.props.addRecipe(recipe)
+                                .then(this.props.history.push('/recipe'))
+                        }
+                    }>
                     <label htmlFor='title'>Title</label>
                     <input
                         name='title'
@@ -77,10 +86,7 @@ class AddRecipe extends Component {
                     <button
                         type='submit'
                         className='form_button'
-                        onClick={
-                            rec => this.props.addRecipe(recipe)
-                                .then(this.props.history.push('/recipe'))
-                        }>Submit</button>
+                    >Submit</button>
                 </form>
             </section>
         )

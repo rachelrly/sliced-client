@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 function RecipeThumbnails(props) {
-    console.log(props.recipe)
     return (
         <div className='recipe_thumb_wrapper'>
             {props.recipes.map(rec => {
