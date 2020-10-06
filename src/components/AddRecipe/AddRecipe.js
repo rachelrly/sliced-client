@@ -32,7 +32,7 @@ function AddRecipe(props) {
         }
 
         UserRecipesApiService.createRecipe(recipe)
-            .then(props.history.push('/recipes'))
+            .then(props.history.push('/recipe'))
     }
 
     return (

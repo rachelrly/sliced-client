@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Header from './components/Header/Header'
 import { Route, Switch } from 'react-router-dom'
 
+import UserRecipesApiService from './services/user-recipes-api-service'
+
 import LandingPage from './components/LandingPage/LandingPage'
 import Login from './components/Login/Login'
 import AddRecipe from './components/AddRecipe/AddRecipe'
@@ -9,6 +11,24 @@ import RecipeList from './components/RecipeList/RecipeList'
 import RecipePage from './components/RecipePage/RecipePage'
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      recipes: []
+    }
+  }
+
+  componentDidMount() {
+
+    UserRecipesApiService.getRecipes()
+      .then(res => {
+        this.setState({
+          recipes: res
+        })
+
+      })
+      .catch(err => console.log(err.message))
+  }
 
   render() {
     return (
@@ -26,8 +46,9 @@ class App extends Component {
               component={Login}
             />
             <Route
-              path='/recipes'
-              component={RecipeList}
+              exact
+              path='/recipe'
+              render={props => <RecipeList recipes={this.state.recipes} />}
             />
             <Route
               path='/add-recipe'

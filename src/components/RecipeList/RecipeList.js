@@ -7,31 +7,12 @@ import './RecipeList.css'
 
 
 class RecipeList extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            recipes: []
-        }
-    }
-
-    componentDidMount() {
-        UserRecipesApiService.getRecipes()
-            .then(res => {
-                this.setState({
-                    recipes: res
-                })
-
-            })
-            .catch(err => console.log(err.message))
-
-
-    }
 
     render() {
 
         return (
             <section className='recipe_list'>
-                <RecipeThumbnails recipes={this.state.recipes} />
+                <RecipeThumbnails recipes={this.props.recipes} />
 
                 <Link to='/add-recipe'>
                     <button className='add_recipe'>Add Recipe</button>

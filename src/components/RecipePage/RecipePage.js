@@ -34,7 +34,7 @@ class RecipePage extends Component {
 
     deleteRecipe(id) {
         UserRecipesApiService.deleteRecipe(id)
-            .then(this.props.history.push('/recipes'))
+            .then(this.props.history.push('/recipe'))
     }
 
     render() {
@@ -44,6 +44,17 @@ class RecipePage extends Component {
                 <h2>{this.state.title}</h2>
 
                 <h3>Ingredients</h3>
+                <div className='slider_container'>
+                    <label htmlFor='slider'></label>
+                    <input
+                        type="range"
+                        min='1'
+                        max='100'
+                        defaultValue='100'
+                        name='slider'
+                        className='slider'
+                        id='mySlider' />
+                </div>
                 <ul className='ingredients_wrapper'>
                     <RecipePageIngredients ingredients={this.state.ingredients} />
                 </ul>
