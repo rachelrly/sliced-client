@@ -1,12 +1,13 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import UserRecipesApiService from '../../services/user-recipes-api-service';
 import '../Form.css';
 
 function AddRecipe(props) {
+    const history = useHistory();
 
     const handleAddRecipe = (e) => {
         e.preventDefault();
-
         const ingredients = [
             {
                 title: e.target.ingredients.value,
@@ -31,8 +32,9 @@ function AddRecipe(props) {
             ingredients
         }
 
-        UserRecipesApiService.createRecipe(recipe)
-            .then(props.history.push('/recipe'))
+        props.addRecipe(recipe)
+            .then(() => history.push('/recipe'))
+
     }
 
     return (

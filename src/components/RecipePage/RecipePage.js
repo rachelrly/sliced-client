@@ -38,7 +38,6 @@ class RecipePage extends Component {
     }
 
     render() {
-
         return (
             <section className='recipe_full'>
                 <h2>{this.state.title}</h2>

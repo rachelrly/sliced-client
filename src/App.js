@@ -19,7 +19,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-
     UserRecipesApiService.getRecipes()
       .then(res => {
         this.setState({
@@ -28,6 +27,43 @@ class App extends Component {
 
       })
       .catch(err => console.log(err.message))
+  }
+
+
+
+  addRecipe(recipe) {
+    let newReicpe = [...this.state.recipes, recipe]
+    this.setState({
+      recipes: newReicpe
+    })
+
+    return UserRecipesApiService.createRecipe(recipe)
+      .then(() => UserRecipesApiService.getRecipes())
+      .then(res => {
+        this.setState({
+          recipes: res
+        })
+
+      })
+      .catch(err => console.log(err.message));
+  }
+
+  deleteRecipe(id) {
+    let newRecipes = this.state.recipes.filter(rec => rec.id !== id)
+    this.setState({
+      recipes: newRecipes
+    })
+
+    return UserRecipesApiService.deleteRecipe(id)
+      .then(() => UserRecipesApiService.getRecipes())
+      .then(res => {
+        this.setState({
+          recipes: res
+        })
+      })
+
+      .catch(err => console.log(err.message))
+
   }
 
   render() {
@@ -52,11 +88,11 @@ class App extends Component {
             />
             <Route
               path='/add-recipe'
-              component={AddRecipe}
+              render={props => <AddRecipe addRecipe={(rec) => this.addRecipe(rec)} />}
             />
             <Route
               path='/recipe/:id'
-              component={RecipePage}
+              render={props => <RecipePage deleteRecipe={(id) => this.deleteRecipe(id)} />}
             />
 
 
