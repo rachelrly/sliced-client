@@ -4,7 +4,6 @@ import React from 'react'
 /*This component takes in an array of ingredients and renders them as list items*/
 
 function RecipePageIngredients(props) {
-    console.log(props.ingredients)
     return (
         <>
             {props.ingredients.map(ing => {

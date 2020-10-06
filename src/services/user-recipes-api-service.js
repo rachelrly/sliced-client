@@ -16,10 +16,26 @@ const UserRecipesApiService = {
             .then(res => {
                 const { created, id, original_url, title } = res[0];
                 const fullRecipe = { created, id, original_url, title, ingredients: res[1] }
-
                 return fullRecipe
             })
             .catch(err => console.log(err))
+    },
+    createRecipe(recipe) {
+        return fetch(`${config.API_ENDPOINT}/recipes`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(recipe)
+        })
+    },
+    deleteRecipe(id) {
+        return fetch(`${config.API_ENDPOINT}/recipes/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
     }
 }
 

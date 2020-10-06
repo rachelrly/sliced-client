@@ -32,17 +32,24 @@ class RecipePage extends Component {
 
     }
 
+    deleteRecipe(id) {
+        UserRecipesApiService.deleteRecipe(id)
+            .then(this.props.history.push('/recipes'))
+    }
+
     render() {
 
         return (
             <section className='recipe_full'>
                 <h2>{this.state.title}</h2>
-                <p className='date'>Added {this.state.date_created}</p>
+
                 <h3>Ingredients</h3>
                 <ul className='ingredients_wrapper'>
                     <RecipePageIngredients ingredients={this.state.ingredients} />
                 </ul>
+                <p className='date'>Added {this.state.date_created}</p>
                 <a target='_blank' href={this.state.url} rel="noopener noreferrer"><p className='url'>Original recipe</p></a>
+                <p onClick={() => this.deleteRecipe(this.state.recipe_id)}>delete recipe</p>
             </section>
         )
     }

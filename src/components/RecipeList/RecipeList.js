@@ -22,6 +22,7 @@ class RecipeList extends Component {
                 })
 
             })
+            .catch(err => console.log(err.message))
 
 
     }

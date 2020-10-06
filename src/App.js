@@ -13,9 +13,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header>
-          <Header />
-        </header>
+        <Header />
         <main>
           <Switch>
             <Route
