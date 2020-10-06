@@ -32,13 +32,6 @@ class RecipePage extends Component {
 
     }
 
-    // handleDeleteRecipe() {
-    //     console.log(this.props.history)
-    //     //console.log(deleteRecipe)
-    //     // this.props.deleteRecipe(this.state.recipe_id)
-    //     //     .then(() => this.history.push('/'))
-    // }
-
     render() {
         return (
             <section className='recipe_full'>

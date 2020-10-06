@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import UserRecipesApiService from '../../services/user-recipes-api-service'
 import RecipeThumbnails from './RecipeThumbnails'
 
 import './RecipeList.css'
