@@ -1,3 +1,3 @@
 export default {
-    API_ENDPOINT: 'http://localhost:8000/api'
+    API_ENDPOINT: 'https://mighty-badlands-05784.herokuapp.com/api'
 }
