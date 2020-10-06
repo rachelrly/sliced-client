@@ -9,7 +9,7 @@ import './RecipeList.css'
 class RecipeList extends Component {
 
     render() {
-        console.log(this.props.recipes)
+
         return (
             <section className='recipe_list'>
                 <RecipeThumbnails recipes={this.props.recipes} />

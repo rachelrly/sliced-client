@@ -3,7 +3,7 @@ import Header from './components/Header/Header'
 import { Route, Switch } from 'react-router-dom'
 
 import UserRecipesApiService from './services/user-recipes-api-service'
-
+import cuid from 'cuid'
 import LandingPage from './components/LandingPage/LandingPage'
 import Login from './components/Login/Login'
 import AddRecipe from './components/AddRecipe/AddRecipe'
@@ -32,7 +32,8 @@ class App extends Component {
 
 
   addRecipe(recipe) {
-    let newReicpe = [...this.state.recipes, recipe]
+    let withTempId = { ...recipe, id: cuid() }
+    let newReicpe = [...this.state.recipes, withTempId]
     this.setState({
       recipes: newReicpe
     })
@@ -88,7 +89,9 @@ class App extends Component {
             />
             <Route
               path='/add-recipe'
-              render={props => <AddRecipe addRecipe={(rec) => this.addRecipe(rec)} />}
+              render={props =>
+                <AddRecipe {...props}
+                  addRecipe={rec => this.addRecipe(rec)} />}
             />
             <Route
               path='/recipe/:id'

@@ -17,7 +17,7 @@ class RecipePage extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props)
+
         const id = Number(this.props.match.params.id)
         UserRecipesApiService.getFullRecipeById(id)
             .then(rec => {
