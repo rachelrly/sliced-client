@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import ParseIngredientsService from '../../services/parse-ingredients-service'
 import '../Form.css';
 
 class AddRecipe extends Component {
-    // const history = useHistory();
+
 
     constructor(props) {
         super(props);
@@ -16,8 +15,7 @@ class AddRecipe extends Component {
 
     parseIngredientLine(str) {
         let arr = str.split(' ')
-        let title = ''
-        let amount_str = ''
+
         const validTypes = [
             'tsp',
             'tbsp',
@@ -96,7 +94,6 @@ class AddRecipe extends Component {
 
 
     render() {
-        console.log(this.state.ingredients)
         const recipe = {
             url: this.state.url,
             title: this.state.title,
