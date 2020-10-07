@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import RecipeThumbnails from './RecipeThumbnails'
-import { testFunc } from '../../services/test'
 import './RecipeList.css'
 
 
