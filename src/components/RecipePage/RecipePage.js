@@ -12,15 +12,18 @@ class RecipePage extends Component {
             title: null,
             date_created: null,
             url: null,
-            ingredients: []
+            ingredients: [],
         }
     }
 
     componentDidMount() {
-
         const id = Number(this.props.match.params.id)
         UserRecipesApiService.getFullRecipeById(id)
             .then(rec => {
+                if (!rec.id) {
+                    (console.log('should return nothing'))
+                    return null
+                }
                 this.setState({
                     recipe_id: rec.id,
                     title: rec.title,
@@ -29,13 +32,14 @@ class RecipePage extends Component {
                     ingredients: rec.ingredients
                 })
             })
+            .catch(err => console.log(err))
 
     }
 
     render() {
         return (
             <section className='recipe_full'>
-                <h2>{this.state.title}</h2>
+                <h2 className='recipe_title'>{this.state.title}</h2>
 
                 <h3>Ingredients</h3>
                 <div className='slider_container'>
@@ -52,12 +56,15 @@ class RecipePage extends Component {
                 <ul className='ingredients_wrapper'>
                     <RecipePageIngredients ingredients={this.state.ingredients} />
                 </ul>
-                <p className='date'>Added {this.state.date_created}</p>
-                <a target='_blank' href={this.state.url} rel="noopener noreferrer"><p className='url'>Original recipe</p></a>
-                <p onClick={
-                    (id) => this.props.deleteRecipe(this.state.recipe_id)
-                        .then(this.props.history.push('/recipe'))
-                }>delete recipe</p>
+                <div className='recipe_info'>
+                    <p className='date'>Added {this.state.date_created}</p>
+                    <a target='_blank' href={this.state.url} rel="noopener noreferrer"><p className='url'>Original recipe</p></a>
+                    <button onClick={
+                        (id) => this.props.deleteRecipe(this.state.recipe_id)
+                            .then(this.props.history.push('/recipe'))
+                    }>Delete</button>
+
+                </div>
             </section>
         )
     }

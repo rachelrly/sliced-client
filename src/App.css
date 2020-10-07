@@ -12,14 +12,7 @@
     --colors--accent: #72173A;
 }
 
-header {
-    width: 100%;
-    height: 45px;
-    text-align: center;
-    padding: var(--spacer--lg);
-    font-size: var(--fontsize--lg);
-}
-
-header h1 {
-    color: var(--colors--text)
+main {
+    flex: 4;
+    height: 100%;
 }

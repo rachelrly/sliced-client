@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import Header from './components/Header/Header'
-import { Route, Switch } from 'react-router-dom'
+import { Redirect, Route, Switch } from 'react-router-dom'
 
 import UserRecipesApiService from './services/user-recipes-api-service'
 import cuid from 'cuid'
 import LandingPage from './components/LandingPage/LandingPage'
 import Login from './components/Login/Login'
+import PageNotFound from './components/PageNotFound/PageNotFound'
 import AddRecipe from './components/AddRecipe/AddRecipe'
 import RecipeList from './components/RecipeList/RecipeList'
 import RecipePage from './components/RecipePage/RecipePage'
+
+import './App.css'
 
 class App extends Component {
   constructor() {
@@ -99,11 +102,11 @@ class App extends Component {
                 <RecipePage {...props}
                   deleteRecipe={(id) => this.deleteRecipe(id)} />}
             />
-
-
-
-
-
+            <Route
+              path='/404'
+              component={PageNotFound}
+            />
+            <Redirect to='/404' />
           </Switch>
 
         </main>

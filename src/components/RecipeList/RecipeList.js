@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import RecipeThumbnails from './RecipeThumbnails'
-
+import { testFunc } from '../../services/test'
 import './RecipeList.css'
 
 
 class RecipeList extends Component {
 
     render() {
-
         return (
             <section className='recipe_list'>
-                <RecipeThumbnails recipes={this.props.recipes} />
+
 
                 <Link to='/add-recipe'>
                     <button className='add_recipe'>Add Recipe</button>
                 </Link>
+
+                <RecipeThumbnails recipes={this.props.recipes} />
             </section>
         )
     }

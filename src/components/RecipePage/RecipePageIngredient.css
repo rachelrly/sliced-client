@@ -12,14 +12,13 @@
     --colors--accent: #72173A;
 }
 
-header {
+.ing_item {
     width: 100%;
-    height: 45px;
-    text-align: center;
-    padding: var(--spacer--lg);
-    font-size: var(--fontsize--lg);
+    padding: var(--spacer--sm);
+    margin: var(--spacer--sm)
 }
 
-header h1 {
-    color: var(--colors--text)
+.ing_amount {
+    margin-right: var(--spacer--med);
+    font-weight: bold;
 }
