@@ -38,16 +38,14 @@ class RecipePage extends Component {
     }
 
     getMultiplyBy = (e) => {
-
-
+        const multiply = e.target.value
         this.setState({
-            multiplyBy: e.target.value
+            multiplyBy: multiply
         })
 
     }
 
     render() {
-
         return (
             <section className='recipe_full'>
                 <h2 className='recipe_title'>{this.state.title}</h2>

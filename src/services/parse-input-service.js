@@ -60,7 +60,7 @@ export function parseInput(str) {
             }
         }
     } else {
-        let amount_str = ''
+        let amount_str = null
         let title = splitStr.join(' ');
         return {
             amount_str,

@@ -1,35 +1,39 @@
 import React, { Component } from 'react'
 import { parseAmount } from '../../services/parse-amount-service'
+import { scale } from '../../services/scale-service'
 
 class Ingredient extends Component {
 
-    //const isNumber = (arr, num) => (arr[num].match(/(?:[1-9][0-9]*|0)(?:\/[1-9][0-9]*)?/g))
-    //change this into a class
-    //store amount for each ingredient here
-
-    //check against number regex
-    //parseInt = true
     constructor(props) {
         super(props)
 
         this.state = {
-            num: 0,
-            unit: 'cups',
-            multiplyBy: 1
+            num: null,
+            unit: null,
+
         }
     }
 
     componentDidMount() {
+        const { num, unit } = parseAmount(this.props.amount_str)
+
         this.setState({
-            amount: this.props.multiplyBy
+            num,
+            unit
         })
     }
 
+
+
     render() {
-        const amount = parseAmount(this.props.amount_str, this.state.multiplyBy)
+        const test = scale(this.state.num, this.state.unit, this.props.multiplyBy)
+        const amount = this.props.amount_str
+            ? <span className='ing_amount'>{test}</span>
+            : null
+
         return (
             <>
-                <span className='ing_amount'>{amount}</span>
+                {amount}
                 <span className='ing_title'>{this.props.title}</span>
             </>
 
