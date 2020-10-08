@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import UserRecipesApiService from '../../services/user-recipes-api-service'
-import RecipePageIngredients from './RecipePageIngredients'
 import './RecipePage.css'
+import RecipePageIngredients from './RecipePageIngredients';
 
 class RecipePage extends Component {
 
@@ -47,6 +47,7 @@ class RecipePage extends Component {
     }
 
     render() {
+
         return (
             <section className='recipe_full'>
                 <h2 className='recipe_title'>{this.state.title}</h2>
@@ -64,9 +65,9 @@ class RecipePage extends Component {
                         className='slider'
                         onChange={(e) => this.getMultiplyBy(e)} />
                 </div>
-                <ul className='ingredients_wrapper'>
-                    <RecipePageIngredients ingredients={this.state.ingredients} />
-                </ul>
+
+                <RecipePageIngredients ingredients={this.state.ingredients} />
+
                 <div className='recipe_info'>
                     <p className='date'>Added {this.state.date_created}</p>
                     <a target='_blank' href={this.state.url} rel="noopener noreferrer"><p className='url'>Original recipe</p></a>
