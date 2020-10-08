@@ -13,7 +13,9 @@
 }
 
 header {
-    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
     height: 45px;
     text-align: center;
     padding: var(--spacer--lg);
@@ -22,4 +24,9 @@ header {
 
 header h1 {
     color: var(--colors--text)
+}
+
+header button{
+    padding: var(--spacer--sm);
+    margin-left: var(--spacer--med)
 }
