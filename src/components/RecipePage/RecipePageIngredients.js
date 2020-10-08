@@ -15,7 +15,7 @@ function RecipePageIngredients(props) {
 
                 return (
                     <li key={ing.id} className='ing_item'>
-                        <Ingredient {...ing} />
+                        <Ingredient multiplyBy={props.multiplyBy} {...ing} />
                     </li>
                 )
             })}

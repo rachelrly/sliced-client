@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { parseAmount } from '../../services/parse-amount-service'
 
 class Ingredient extends Component {
 
@@ -13,15 +14,22 @@ class Ingredient extends Component {
 
         this.state = {
             num: 0,
-            unit: 'cups'
-
+            unit: 'cups',
+            multiplyBy: 1
         }
     }
 
+    componentDidMount() {
+        this.setState({
+            amount: this.props.multiplyBy
+        })
+    }
+
     render() {
+        const amount = parseAmount(this.props.amount_str, this.state.multiplyBy)
         return (
             <>
-                <span className='ing_amount'>{this.props.amount_str}</span>
+                <span className='ing_amount'>{amount}</span>
                 <span className='ing_title'>{this.props.title}</span>
             </>
 

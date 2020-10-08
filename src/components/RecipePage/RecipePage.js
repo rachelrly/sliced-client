@@ -13,7 +13,7 @@ class RecipePage extends Component {
             date_created: null,
             url: null,
             ingredients: [],
-            multiplyBy: 0
+            multiplyBy: 1
         }
     }
 
@@ -60,13 +60,13 @@ class RecipePage extends Component {
                         step='0.25'
                         min='0.25'
                         max='1'
-                        defaultValue='100'
+                        defaultValue='1'
                         name='slider'
                         className='slider'
                         onChange={(e) => this.getMultiplyBy(e)} />
                 </div>
 
-                <RecipePageIngredients ingredients={this.state.ingredients} />
+                <RecipePageIngredients multiplyBy={this.state.multiplyBy} ingredients={this.state.ingredients} />
 
                 <div className='recipe_info'>
                     <p className='date'>Added {this.state.date_created}</p>

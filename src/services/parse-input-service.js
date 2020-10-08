@@ -3,7 +3,6 @@
 
 export function parseInput(str) {
     let splitStr = str.split(' ')
-    let description = null;
     const validTypes = [
         'tsp',
         'tbsp',
@@ -31,7 +30,7 @@ export function parseInput(str) {
                 return {
                     amount_str,
                     title,
-                    description
+
                 }
             } else {
                 let amount_str = splitStr.splice(0, 2).join(' ');
@@ -39,7 +38,7 @@ export function parseInput(str) {
                 return {
                     amount_str,
                     title,
-                    description
+
                 }
             }
         } else if (isValidType(splitStr[1])) {
@@ -48,7 +47,7 @@ export function parseInput(str) {
             return {
                 amount_str,
                 title,
-                description
+
             }
 
         } else {
@@ -57,7 +56,7 @@ export function parseInput(str) {
             return {
                 amount_str,
                 title,
-                description
+
             }
         }
     } else {
@@ -66,7 +65,7 @@ export function parseInput(str) {
         return {
             amount_str,
             title,
-            description
+
         }
     }
 
