@@ -13,6 +13,7 @@ class RecipePage extends Component {
             date_created: null,
             url: null,
             ingredients: [],
+            multiplyBy: 0
         }
     }
 
@@ -36,6 +37,15 @@ class RecipePage extends Component {
 
     }
 
+    getMultiplyBy = (e) => {
+
+
+        this.setState({
+            multiplyBy: e.target.value
+        })
+
+    }
+
     render() {
         return (
             <section className='recipe_full'>
@@ -46,12 +56,13 @@ class RecipePage extends Component {
                     <label htmlFor='slider'></label>
                     <input
                         type="range"
-                        min='1'
-                        max='100'
+                        step='0.25'
+                        min='0.25'
+                        max='1'
                         defaultValue='100'
                         name='slider'
                         className='slider'
-                        id='mySlider' />
+                        onChange={(e) => this.getMultiplyBy(e)} />
                 </div>
                 <ul className='ingredients_wrapper'>
                     <RecipePageIngredients ingredients={this.state.ingredients} />
