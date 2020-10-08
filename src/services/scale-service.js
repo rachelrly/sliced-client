@@ -5,6 +5,6 @@ export function scale(num, unit, multiply) {
     let string = `${amount} ${unit}`
 
 
-    return string
+    return string;
 
 }
