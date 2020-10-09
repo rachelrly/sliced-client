@@ -1,16 +1,45 @@
 import React, { Component } from 'react';
-import tokenService from '../../services/token-service'
-import '../Form.css'
-
+import { Redirect } from 'react-router-dom';
+import AuthApiService from '../../services/auth-api-service';
+import TokenService from '../../services/token-service';
+import '../Form.css';
 
 export class Login extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { error: null }
+    }
+
+    handleSubmitAuth = e => {
+        e.preventDefault();
+        this.setState({ error: null });
+        const { email, password } = e.target
+
+        AuthApiService.postLogin({
+            email: email.value,
+            password: password.value
+        })
+            .then(res => {
+                email.value = ''
+                password.value = ''
+                TokenService.saveAuthToken(res.authToken)
+            })
+            .then(dir => <Redirect push to={'/recipe'} />)
+            .catch(res => {
+                this.setState({ error: res.error })
+            })
+    }
+
 
 
 
     render() {
         return (
             <section className='Login_section'>
-                <form className='Login_form'>
+                <form
+                    className='Login_form'
+                    onSubmit={this.handleSubmitAuth}>
+
                     <label htmlFor='email'></label>
                     <input name='email' type='text' />
 

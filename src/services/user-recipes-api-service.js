@@ -1,15 +1,28 @@
 import config from '../config';
+import TokenService from '../services/token-service'
 
 const UserRecipesApiService = {
     getRecipes() {
-        return fetch(`${config.API_ENDPOINT}/recipes`)
+        return fetch(`${config.API_ENDPOINT}/recipes`, {
+            headers: {
+                'authorization': `bearer ${TokenService.getAuthToken()}`
+            }
+        })
             .then(res => res.json())
             .catch(err => console.log(err))
     },
     getFullRecipeById(id) {
-        const getRecipe = fetch(`${config.API_ENDPOINT}/recipes/${id}`)
+        const getRecipe = fetch(`${config.API_ENDPOINT}/recipes/${id}`, {
+            headers: {
+                'Authorization': `bearer ${TokenService.getAuthToken()}`
+            }
+        })
             .then(res => res.json())
-        const getIngredients = fetch(`${config.API_ENDPOINT}/recipes/${id}/ingredients`)
+        const getIngredients = fetch(`${config.API_ENDPOINT}/recipes/${id}/ingredients`, {
+            headers: {
+                'Authorization': `bearer ${TokenService.getAuthToken()}`
+            }
+        })
             .then(res => res.json())
 
         return Promise.all([getRecipe, getIngredients])
@@ -24,7 +37,8 @@ const UserRecipesApiService = {
         return fetch(`${config.API_ENDPOINT}/recipes`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `bearer ${TokenService.getAuthToken()}`
             },
             body: JSON.stringify(recipe)
         })
@@ -33,7 +47,8 @@ const UserRecipesApiService = {
         return fetch(`${config.API_ENDPOINT}/recipes/${id}`, {
             method: 'DELETE',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `bearer ${TokenService.getAuthToken()}`
             }
         })
     }

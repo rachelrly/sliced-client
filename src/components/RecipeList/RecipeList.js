@@ -6,7 +6,14 @@ import './RecipeList.css'
 
 class RecipeList extends Component {
 
+    componentDidMount() {
+        this.props.fetchRecipes()
+    }
+
     render() {
+        const recipeList = !this.props.recipes.length
+            ? <h2>There are no recipes</h2>
+            : <RecipeThumbnails recipes={this.props.recipes} />
         return (
             <section className='recipe_list'>
 
@@ -15,7 +22,7 @@ class RecipeList extends Component {
                     <button className='add_recipe'>Add Recipe</button>
                 </Link>
 
-                <RecipeThumbnails recipes={this.props.recipes} />
+                {recipeList}
             </section>
         )
     }

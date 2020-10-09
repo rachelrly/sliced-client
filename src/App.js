@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Header from './components/Header/Header'
 import { Redirect, Route, Switch } from 'react-router-dom'
-
 import UserRecipesApiService from './services/user-recipes-api-service'
 import cuid from 'cuid'
 import LandingPage from './components/LandingPage/LandingPage'
@@ -10,6 +9,8 @@ import PageNotFound from './components/PageNotFound/PageNotFound'
 import AddRecipe from './components/AddRecipe/AddRecipe'
 import RecipeList from './components/RecipeList/RecipeList'
 import RecipePage from './components/RecipePage/RecipePage'
+import PrivateRoute from './components/Routes/PrivateRoute'
+import PublicRoute from './components/Routes/PublicRoute'
 
 import './App.css'
 
@@ -32,7 +33,9 @@ class App extends Component {
       .catch(err => console.log(err.message))
   }
 
+  fetchRecipes() {
 
+  }
 
   addRecipe(recipe) {
     let withTempId = { ...recipe, id: cuid() }
@@ -81,22 +84,24 @@ class App extends Component {
               path="/"
               component={LandingPage}
             />
-            <Route
+            <PublicRoute
               path='/login'
               component={Login}
             />
-            <Route
+            <PrivateRoute
               exact
               path='/recipe'
-              render={props => <RecipeList recipes={this.state.recipes} />}
+              render={props => <RecipeList
+                recipes={this.state.recipes}
+                fetchRecipes={this.fetchRecipes} />}
             />
-            <Route
+            <PrivateRoute
               path='/add-recipe'
               render={props =>
                 <AddRecipe {...props}
                   addRecipe={rec => this.addRecipe(rec)} />}
             />
-            <Route
+            <PrivateRoute
               path='/recipe/:id'
               render={props =>
                 <RecipePage {...props}
