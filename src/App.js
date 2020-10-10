@@ -15,25 +15,31 @@ import UserContext from './user-context'
 import TokenService from './services/token-service'
 
 import './App.css'
+import AuthApiService from './services/auth-api-service';
 
 class App extends Component {
 
-  constructor() {
-    super();
-    this.state = {
-      currentAuthToken: null,
-      user_id: null,
-      recipes: []
-    }
+  state = {
+    currentAuthToken: null,
+    user_id: null,
+    recipes: []
   }
+
+  componentDidMount = () => {
+    this.getRecipes(this.state.user_id)
+  }
+
 
   onLogin = (user_id) => {
 
-    if (TokenService.hasAuthToken()) {
-      this.setState({
-        user_id
-      })
-    }
+    let currentAuthToken = TokenService.getAuthToken()
+    return UserRecipesApiService.getRecipes(user_id)
+      .then(rec => this.setState({
+        currentAuthToken: currentAuthToken,
+        user_id: user_id,
+        recipes: rec
+      }))
+
   }
 
   onLogout = () => {
@@ -46,22 +52,13 @@ class App extends Component {
     })
   }
 
-  componentDidMount() {
-    this.getRecipes(this.state.user_id)
-  }
 
   getRecipes(user) {
-    if (user) {
-      return UserRecipesApiService.getRecipes(user)
-        .then(res => {
-          this.setState({
-            recipes: res
-          })
-
-        })
-        .catch(err => console.log(err.message))
-    }
+    UserRecipesApiService.getRecipes(user)
+      .then(rec => this.setState({ recipes: rec }))
+      .catch(err => console.log(err.message))
   }
+
 
   addRecipe(recipe) {
     let withTempId = { ...recipe, id: cuid() }
@@ -108,8 +105,13 @@ class App extends Component {
       onLogout: this.onLogout,
       addRecipe: this.addRecipe,
       deleteRecipe: this.deleteRecipe,
-      getRecipes: this.getRecipes,
+      getRecipes: this.getRecipes
     }
+
+
+
+    console.log(value)
+
     return (
       <UserContext.Provider value={value}>
         <div className="App">

@@ -6,16 +6,15 @@ import './RecipeList.css'
 
 
 class RecipeList extends Component {
+
     static contextType = UserContext;
 
-    componentDidMount() {
-        if (this.context.user_id) {
-            this.context.getRecipes(this.context.user_id)
 
-        }
-    }
+
 
     render() {
+
+        console.log(this.context)
         const recipeList = !this.context.recipes
             ? <h2>There are no recipes</h2>
             : <RecipeThumbnails user={this.context.user_id} recipes={this.context.recipes} />

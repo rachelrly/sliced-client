@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default React.createContext({
+let UserContext = React.createContext({
     currentAuthToken: null,
     user_id: null,
     recipes: [],
@@ -11,6 +11,8 @@ export default React.createContext({
     getRecipes: () => { }
 })
 
+
+export default UserContext;
 
 
 

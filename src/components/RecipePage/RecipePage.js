@@ -22,6 +22,7 @@ class RecipePage extends Component {
     }
 
     componentDidMount() {
+
         const id = Number(this.props.match.params.id)
 
         if (this.context.user_id) {
