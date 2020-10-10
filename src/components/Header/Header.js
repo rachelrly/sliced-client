@@ -2,17 +2,18 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import TokenService from '../../services/token-service'
 import './Header.css'
+import UserContext from '../../user-context'
 
-import LogoutButton from './LogoutButton';
-import LoginButton from './LoginButton';
 
 class Header extends Component {
+
+    static contextType = UserContext;
 
     render() {
 
         const toggleButtons = TokenService.hasAuthToken()
-            ? <LogoutButton />
-            : <LoginButton />
+            ? <button onClick={this.context.onLogout}>Log out</button>
+            : <Link to='/login'><button>Log in</button></Link>
         return (
             <header>
                 <Link to='/'>

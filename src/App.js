@@ -12,6 +12,7 @@ import RecipePage from './components/RecipePage/RecipePage'
 import PrivateRoute from './components/Routes/PrivateRoute'
 import PublicRoute from './components/Routes/PublicRoute'
 import UserContext from './user-context'
+import TokenService from './services/token-service'
 
 import './App.css'
 
@@ -21,17 +22,28 @@ class App extends Component {
     super();
     this.state = {
       currentAuthToken: null,
-      user_id: 1,
+      user_id: null,
       recipes: []
     }
   }
 
-  onLogin = () => {
-    console.log('logged in')
+  onLogin = (user_id) => {
+
+    if (TokenService.hasAuthToken()) {
+      this.setState({
+        user_id
+      })
+    }
   }
 
   onLogout = () => {
-    console.log('logged out')
+    TokenService.clearAuthToken()
+
+    this.setState({
+      currentAuthToken: null,
+      user_id: null,
+      recipes: []
+    })
   }
 
   componentDidMount() {
@@ -40,9 +52,9 @@ class App extends Component {
 
   getRecipes(user) {
     if (user) {
-      UserRecipesApiService.getRecipes(user)
+      return UserRecipesApiService.getRecipes(user)
         .then(res => {
-          return this.setState({
+          this.setState({
             recipes: res
           })
 

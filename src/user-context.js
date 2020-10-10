@@ -38,11 +38,7 @@ export default React.createContext({
 //     }
 
 //     onLogout = () => {
-//         this.setState({
-//             currentAuthToken: null,
-//             user_id: null,
-//             recipes: []
-//         })
+
 //     }
 
 //     onLogin = (user_id) => {

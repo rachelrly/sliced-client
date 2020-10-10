@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import AuthApiService from '../../services/auth-api-service';
 import TokenService from '../../services/token-service';
+import UserContext from '../../user-context';
 import '../Form.css';
 
 class Login extends Component {
+    static contextType = UserContext;
+
     constructor(props) {
         super(props);
         this.state = { error: null }
@@ -31,7 +34,7 @@ class Login extends Component {
                 email.value = ''
                 password.value = ''
                 TokenService.saveAuthToken(res.authToken)
-                //save user id in context res.user_id context 'onLogin'
+                this.context.onLogin(res.user_id);
             })
             .catch(res => {
                 this.setState({ error: res.error })
