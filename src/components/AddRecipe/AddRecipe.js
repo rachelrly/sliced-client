@@ -48,7 +48,7 @@ class AddRecipe extends Component {
                     onSubmit={
                         rec => {
 
-                            return this.props.addRecipe(recipe)
+                            return this.context.addRecipe(recipe)
                                 .then(this.props.history.push('/recipe'))
                         }
                     }>
