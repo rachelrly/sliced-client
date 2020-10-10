@@ -1,19 +1,24 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import RecipeThumbnails from './RecipeThumbnails'
+import UserContext from '../../user-context'
 import './RecipeList.css'
 
 
 class RecipeList extends Component {
+    static contextType = UserContext;
 
     componentDidMount() {
-        this.props.fetchRecipes()
+        if (this.context.user_id) {
+            this.context.getRecipes(this.context.user_id)
+
+        }
     }
 
     render() {
-        const recipeList = !this.props.recipes.length
+        const recipeList = !this.context.recipes
             ? <h2>There are no recipes</h2>
-            : <RecipeThumbnails recipes={this.props.recipes} />
+            : <RecipeThumbnails user={this.context.user_id} recipes={this.context.recipes} />
         return (
             <section className='recipe_list'>
 

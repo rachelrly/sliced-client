@@ -2,23 +2,27 @@ import config from '../config';
 import TokenService from '../services/token-service'
 
 const UserRecipesApiService = {
-    getRecipes() {
-        return fetch(`${config.API_ENDPOINT}/recipes`, {
-            headers: {
-                'authorization': `bearer ${TokenService.getAuthToken()}`
-            }
-        })
-            .then(res => res.json())
-            .catch(err => console.log(err))
-    },
-    getFullRecipeById(id) {
-        const getRecipe = fetch(`${config.API_ENDPOINT}/recipes/${id}`, {
+
+    //adjust to take in user_id
+    getRecipes(user_id) {
+        return fetch(`${config.API_ENDPOINT}/recipes/${user_id}`, {
             headers: {
                 'Authorization': `bearer ${TokenService.getAuthToken()}`
             }
         })
             .then(res => res.json())
-        const getIngredients = fetch(`${config.API_ENDPOINT}/recipes/${id}/ingredients`, {
+            .catch(err => console.log(err))
+    },
+
+    //adjust to take in user_id
+    getFullRecipeById(id, user_id) {
+        const getRecipe = fetch(`${config.API_ENDPOINT}/recipes/${user_id}/${id}`, {
+            headers: {
+                'Authorization': `bearer ${TokenService.getAuthToken()}`
+            }
+        })
+            .then(res => res.json())
+        const getIngredients = fetch(`${config.API_ENDPOINT}/recipes/${user_id}/${id}/ingredients`, {
             headers: {
                 'Authorization': `bearer ${TokenService.getAuthToken()}`
             }
@@ -33,8 +37,8 @@ const UserRecipesApiService = {
             })
             .catch(err => console.log(err))
     },
-    createRecipe(recipe) {
-        return fetch(`${config.API_ENDPOINT}/recipes`, {
+    createRecipe(recipe, user_id) {
+        return fetch(`${config.API_ENDPOINT}/recipes/${user_id}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -43,8 +47,8 @@ const UserRecipesApiService = {
             body: JSON.stringify(recipe)
         })
     },
-    deleteRecipe(id) {
-        return fetch(`${config.API_ENDPOINT}/recipes/${id}`, {
+    deleteRecipe(id, user_id) {
+        return fetch(`${config.API_ENDPOINT}/recipes/${user_id}/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',

@@ -1,9 +1,13 @@
 import React, { Component } from 'react'
 import UserRecipesApiService from '../../services/user-recipes-api-service'
+import { Redirect } from 'react-router'
 import './RecipePage.css'
 import RecipePageIngredients from './RecipePageIngredients';
+import UserContext from '../../user-context'
+
 
 class RecipePage extends Component {
+    static contextType = UserContext;
 
     constructor(props) {
         super(props);
@@ -19,7 +23,13 @@ class RecipePage extends Component {
 
     componentDidMount() {
         const id = Number(this.props.match.params.id)
-        UserRecipesApiService.getFullRecipeById(id)
+
+        if (this.context.user_id) {
+            this.context.getRecipes(this.context.user_id)
+
+        }
+
+        UserRecipesApiService.getFullRecipeById(id, this.context.user_id)
             .then(rec => {
                 if (!rec.id) {
                     (console.log('should return nothing'))
@@ -70,8 +80,8 @@ class RecipePage extends Component {
                     <p className='date'>Added {this.state.date_created}</p>
                     <a target='_blank' href={this.state.url} rel="noopener noreferrer"><p className='url'>Original recipe</p></a>
                     <button onClick={
-                        (id) => this.props.deleteRecipe(this.state.recipe_id)
-                            .then(this.props.history.push('/recipe'))
+                        (id) => this.context.deleteRecipe(this.state.recipe_id, this.context.user_id)
+                            .then(del => <Redirect to={'/'} />)
                     }>Delete</button>
 
                 </div>

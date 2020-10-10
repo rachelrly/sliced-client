@@ -11,30 +11,44 @@ import RecipeList from './components/RecipeList/RecipeList'
 import RecipePage from './components/RecipePage/RecipePage'
 import PrivateRoute from './components/Routes/PrivateRoute'
 import PublicRoute from './components/Routes/PublicRoute'
+import UserContext from './user-context'
 
 import './App.css'
 
 class App extends Component {
+
   constructor() {
     super();
     this.state = {
+      currentAuthToken: null,
+      user_id: 1,
       recipes: []
     }
   }
 
-  componentDidMount() {
-    UserRecipesApiService.getRecipes()
-      .then(res => {
-        this.setState({
-          recipes: res
-        })
-
-      })
-      .catch(err => console.log(err.message))
+  onLogin = () => {
+    console.log('logged in')
   }
 
-  fetchRecipes() {
+  onLogout = () => {
+    console.log('logged out')
+  }
 
+  componentDidMount() {
+    this.getRecipes(this.state.user_id)
+  }
+
+  getRecipes(user) {
+    if (user) {
+      UserRecipesApiService.getRecipes(user)
+        .then(res => {
+          return this.setState({
+            recipes: res
+          })
+
+        })
+        .catch(err => console.log(err.message))
+    }
   }
 
   addRecipe(recipe) {
@@ -44,8 +58,8 @@ class App extends Component {
       recipes: newReicpe
     })
 
-    return UserRecipesApiService.createRecipe(recipe)
-      .then(() => UserRecipesApiService.getRecipes())
+    return UserRecipesApiService.createRecipe(recipe, this.state.user_id)
+      .then(() => UserRecipesApiService.getRecipes(this.state.user_id))
       .then(res => {
         this.setState({
           recipes: res
@@ -55,13 +69,13 @@ class App extends Component {
       .catch(err => console.log(err.message));
   }
 
-  deleteRecipe(id) {
-    let newRecipes = this.state.recipes.filter(rec => rec.id !== id)
-    this.setState({
-      recipes: newRecipes
-    })
+  deleteRecipe(id, user) {
+    // let newRecipes = this.state.recipes.filter(rec => rec.id !== id)
+    // this.setState({
+    //   recipes: newRecipes
+    // })
 
-    return UserRecipesApiService.deleteRecipe(id)
+    return UserRecipesApiService.deleteRecipe(id, user)
       .then(() => UserRecipesApiService.getRecipes())
       .then(res => {
         this.setState({
@@ -74,48 +88,57 @@ class App extends Component {
   }
 
   render() {
+    const value = {
+      currentAuthToken: this.state.currentAuthToken,
+      user_id: this.state.user_id,
+      recipes: this.state.recipes,
+      onLogin: this.onLogin,
+      onLogout: this.onLogout,
+      addRecipe: this.addRecipe,
+      deleteRecipe: this.deleteRecipe,
+      getRecipes: this.getRecipes,
+    }
     return (
-      <div className="App">
-        <Header />
-        <main>
-          <Switch>
-            <Route
-              exact
-              path="/"
-              component={LandingPage}
-            />
-            <PublicRoute
-              path='/login'
-              component={Login}
-            />
-            <PrivateRoute
-              exact
-              path='/recipe'
-              render={props => <RecipeList
-                recipes={this.state.recipes}
-                fetchRecipes={this.fetchRecipes} />}
-            />
-            <PrivateRoute
-              path='/add-recipe'
-              render={props =>
-                <AddRecipe {...props}
-                  addRecipe={rec => this.addRecipe(rec)} />}
-            />
-            <PrivateRoute
-              path='/recipe/:id'
-              render={props =>
-                <RecipePage {...props}
-                  deleteRecipe={(id) => this.deleteRecipe(id)} />}
-            />
-            <Route
-              path='/404'
-              component={PageNotFound}
-            />
-            <Redirect to='/404' />
-          </Switch>
+      <UserContext.Provider value={value}>
+        <div className="App">
+          <Header />
+          <main>
+            <Switch>
+              <Route
+                exact
+                path="/"
+                component={LandingPage}
+              />
+              <PublicRoute
+                path='/login'
+                component={Login}
+              />
+              <Route
+                exact
+                path='/recipe'
+                component={RecipeList}
+              />
+              <Route
+                path='/add-recipe'
+                render={props =>
+                  <AddRecipe {...props}
+                    addRecipe={rec => this.addRecipe(rec)} />}
+              />
+              <Route
+                path='/recipe/:id'
+                component={RecipePage}
+              />
 
-        </main>
-      </div>
+              <Route
+                path='/404'
+                component={PageNotFound}
+              />
+              <Redirect to={'/404'} />
+            </Switch>
+
+          </main>
+        </div>
+      </UserContext.Provider>
     )
   }
 }

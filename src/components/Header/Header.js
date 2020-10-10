@@ -7,7 +7,6 @@ import LogoutButton from './LogoutButton';
 import LoginButton from './LoginButton';
 
 class Header extends Component {
-    //get state of loggedin in app.js
 
     render() {
 

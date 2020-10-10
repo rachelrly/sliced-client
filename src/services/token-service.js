@@ -3,7 +3,7 @@ import config from '../config'
 const TokenService = {
 
     saveAuthToken(token) {
-        return window.localStorage.setItem(config.TOKEN_KEY, token)
+        window.localStorage.setItem(config.TOKEN_KEY, token)
     },
 
     getAuthToken() {
@@ -15,7 +15,7 @@ const TokenService = {
     },
 
     hasAuthToken() {
-        return TokenService.getAuthToken()
+        return !!TokenService.getAuthToken()
     }
 }
 
