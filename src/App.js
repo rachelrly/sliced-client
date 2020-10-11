@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Header from './components/Header/Header'
-import { Redirect, Route, Switch } from 'react-router-dom'
 import UserRecipesApiService from './services/user-recipes-api-service'
 import cuid from 'cuid'
+import jwt_decode from "jwt-decode";
 import UserContext from './user-context'
 import TokenService from './services/token-service'
 import Router from './Router'
@@ -13,13 +13,24 @@ class App extends Component {
 
   state = {
     currentAuthToken: null,
-    user_id: 1,
+    user_id: null,
     recipes: []
   }
 
   componentDidMount = () => {
-    this.getRecipes(this.state.user_id)
+    const token = TokenService.getAuthToken();
+    const user_id = jwt_decode(token).user_id;
+
+    UserRecipesApiService.getRecipes(user_id)
+      .then(rec => {
+        this.setState({
+          currentAuthToken: token,
+          user_id,
+          recipes: rec
+        })
+      })
   }
+
 
 
   onLogin = (user_id) => {
