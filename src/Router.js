@@ -4,6 +4,7 @@ import AddRecipe from './components/AddRecipe/AddRecipe'
 import LandingPage from './components/LandingPage/LandingPage'
 import Login from './components/Login/Login'
 import PublicRoute from './components/Routes/PublicRoute'
+import PrivateRoute from './components/Routes/PrivateRoute'
 import PageNotFound from './components/PageNotFound/PageNotFound'
 import RecipeList from './components/RecipeList/RecipeList'
 import RecipePage from './components/RecipePage/RecipePage'
@@ -22,16 +23,16 @@ const Router = () => (
             path='/login'
             component={Login}
         />
-        <Route
+        <PrivateRoute
             exact
             path='/recipe'
             component={RecipeList}
         />
-        <Route
+        <PrivateRoute
             path='/add-recipe'
             component={AddRecipe}
         />
-        <Route
+        <PrivateRoute
             path='/recipe/:id'
             component={RecipePage}
         />

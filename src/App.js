@@ -18,17 +18,19 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    const token = TokenService.getAuthToken();
-    const user_id = jwt_decode(token).user_id;
+    if (TokenService.hasAuthToken()) {
+      const token = TokenService.getAuthToken();
+      const user_id = jwt_decode(token).user_id;
 
-    UserRecipesApiService.getRecipes(user_id)
-      .then(rec => {
-        this.setState({
-          currentAuthToken: token,
-          user_id,
-          recipes: rec
+      UserRecipesApiService.getRecipes(user_id)
+        .then(rec => {
+          this.setState({
+            currentAuthToken: token,
+            user_id,
+            recipes: rec
+          })
         })
-      })
+    }
   }
 
 
@@ -93,18 +95,6 @@ class App extends Component {
     this.setState({
       recipes: filtered
     })
-    // const token = TokenService.getAuthToken();
-    // const user_id = jwt_decode(token).user_id;
-
-    // UserRecipesApiService.getRecipes(user_id)
-    //   .then(rec => {
-    //     this.setState({
-    //       currentAuthToken: token,
-    //       user_id,
-    //       recipes: rec
-    //     })
-    //   })
-
 
   }
 
