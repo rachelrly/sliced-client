@@ -5,6 +5,7 @@ import RecipePageIngredients from './RecipePageIngredients';
 import UserContext from '../../user-context';
 import jwt_decode from 'jwt-decode';
 import TokenService from '../../services/token-service';
+import formatRecipeTitle from '../../services/capitalize-recipe-title-service'
 
 
 class RecipePage extends Component {
@@ -14,7 +15,7 @@ class RecipePage extends Component {
         super(props);
         this.state = {
             recipe_id: null,
-            title: null,
+            title: '',
             date_created: null,
             url: null,
             ingredients: [],
@@ -68,9 +69,10 @@ class RecipePage extends Component {
     }
 
     render() {
+        const capitalizedTitle = this.state.title ? formatRecipeTitle(this.state.title) : this.state.title
         return (
             <section className='recipe_full'>
-                <h2 className='recipe_title'>{this.state.title}</h2>
+                <h2 className='recipe_title'>{capitalizedTitle}</h2>
 
                 <h3>Ingredients</h3>
                 <div className='slider_container'>
