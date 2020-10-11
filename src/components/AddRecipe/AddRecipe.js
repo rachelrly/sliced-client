@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { parseInput } from '../../services/parse-input-service'
 import UserRecipesApiService from '../../services/user-recipes-api-service'
 import jwt_decode from 'jwt-decode'
+import cuid from 'cuid'
 import TokenService from '../../services/token-service'
 import UserContext from '../../user-context'
 import '../Form.css';
@@ -55,7 +56,8 @@ class AddRecipe extends Component {
         const recipe = {
             url: this.state.url,
             title: this.state.title,
-            ingredients: this.state.ingredients
+            ingredients: this.state.ingredients,
+            id: cuid()
         }
 
         return (

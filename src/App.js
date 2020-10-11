@@ -81,8 +81,8 @@ class App extends Component {
 
 
   addRecipe = (recipe) => {
-    let withTempId = { ...recipe, id: cuid() }
-    let newReicpe = [withTempId, ...this.state.recipes]
+
+    let newReicpe = [recipe, ...this.state.recipes]
     this.setState({
       recipes: newReicpe
     })
@@ -112,10 +112,6 @@ class App extends Component {
       getRecipes: this.getRecipes,
       getRecipesAfterDelete: this.getRecipesAfterDelete
     }
-
-
-
-    console.log(value)
 
     return (
       <UserContext.Provider value={value}>

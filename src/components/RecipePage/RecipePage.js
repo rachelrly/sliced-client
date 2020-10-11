@@ -24,7 +24,7 @@ class RecipePage extends Component {
 
     componentDidMount() {
 
-        const id = Number(this.props.match.params.id)
+        const id = this.props.match.params.id
 
         if (this.context.user_id) {
             this.context.getRecipes(this.context.user_id)
@@ -34,7 +34,6 @@ class RecipePage extends Component {
         UserRecipesApiService.getFullRecipeById(id, this.context.user_id)
             .then(rec => {
                 if (!rec.id) {
-                    (console.log('should return nothing'))
                     return null
                 }
                 this.setState({
