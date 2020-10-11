@@ -9,15 +9,11 @@ class RecipeList extends Component {
 
     static contextType = UserContext;
 
-    componentDidMount() {
-        this.context.getRecipes()
-    }
 
 
 
     render() {
-
-        console.log(this.context)
+        console.log(this.context.recipes)
         const recipeList = !this.context.recipes.length
             ? <h2>There are no recipes</h2>
             : <RecipeThumbnails user={this.context.user_id} recipes={this.context.recipes} />

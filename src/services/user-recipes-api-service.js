@@ -38,6 +38,7 @@ const UserRecipesApiService = {
             .catch(err => console.log(err))
     },
     createRecipe(recipe, user_id) {
+
         return fetch(`${config.API_ENDPOINT}/recipes/${user_id}`, {
             method: 'POST',
             headers: {

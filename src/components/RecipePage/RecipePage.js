@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import UserRecipesApiService from '../../services/user-recipes-api-service'
-import { Redirect } from 'react-router'
 import './RecipePage.css'
 import RecipePageIngredients from './RecipePageIngredients';
-import UserContext from '../../user-context'
+import UserContext from '../../user-context';
+import jwt_decode from 'jwt-decode';
+import TokenService from '../../services/token-service';
 
 
 class RecipePage extends Component {
@@ -56,6 +57,17 @@ class RecipePage extends Component {
 
     }
 
+    handleDeleteRecipe = () => {
+        const token = TokenService.getAuthToken();
+        const user_id = jwt_decode(token).user_id;
+
+        UserRecipesApiService.deleteRecipe(this.state.recipe_id, user_id)
+            .then(this.context.getRecipesAfterDelete(user_id, this.state.recipe_id))
+            .then(() => this.props.history.push('/recipe'))
+            .catch(err => console.log(err.message))
+
+    }
+
     render() {
         return (
             <section className='recipe_full'>
@@ -80,15 +92,16 @@ class RecipePage extends Component {
                 <div className='recipe_info'>
                     <p className='date'>Added {this.state.date_created}</p>
                     <a target='_blank' href={this.state.url} rel="noopener noreferrer"><p className='url'>Original recipe</p></a>
-                    <button onClick={
-                        (id) => this.context.deleteRecipe(this.state.recipe_id, this.context.user_id)
-                            .then(del => <Redirect to={'/'} />)
-                    }>Delete</button>
+                    <button onClick={this.handleDeleteRecipe}>Delete</button>
 
                 </div>
             </section>
         )
     }
 }
+//get userId from token
+//get DeleteRecipes from db
+//get recipes from db
+//send 
 
 export default RecipePage

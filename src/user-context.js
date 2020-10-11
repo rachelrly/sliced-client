@@ -8,7 +8,8 @@ let UserContext = React.createContext({
     onLogout: () => { },
     addRecipe: () => { },
     deleteRecipe: () => { },
-    getRecipes: () => { }
+    getRecipes: () => { },
+    getRecipesAfterDelete: () => { }
 })
 
 

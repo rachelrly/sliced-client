@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import { parseInput } from '../../services/parse-input-service'
+import UserRecipesApiService from '../../services/user-recipes-api-service'
+import jwt_decode from 'jwt-decode'
+import TokenService from '../../services/token-service'
+import UserContext from '../../user-context'
 import '../Form.css';
 
 class AddRecipe extends Component {
 
-
+    static contextType = UserContext;
     constructor(props) {
         super(props);
         this.state = {
@@ -32,7 +36,19 @@ class AddRecipe extends Component {
 
     }
 
+    handleFormSubmit = (e, recipe) => {
+        e.preventDefault();
 
+        const token = TokenService.getAuthToken();
+        const user_id = jwt_decode(token).user_id;
+
+        UserRecipesApiService.createRecipe(recipe, user_id)
+            .then(this.context.addRecipe(recipe))
+            .then(this.props.history.push('/recipe'))
+            .catch(err => console.log(err.message))
+
+
+    }
 
 
     render() {
@@ -45,13 +61,7 @@ class AddRecipe extends Component {
         return (
             <section className='AddRecipe_section' >
                 <form className='AddRecipe_form'
-                    onSubmit={
-                        rec => {
-
-                            return this.context.addRecipe(recipe)
-                                .then(this.props.history.push('/recipe'))
-                        }
-                    }>
+                    onSubmit={(e) => this.handleFormSubmit(e, recipe)}>
                     <label htmlFor='title'>Title</label>
                     <input
                         name='title'

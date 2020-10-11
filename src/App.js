@@ -66,40 +66,45 @@ class App extends Component {
       .catch(err => console.log(err.message))
   }
 
+  getRecipesAfterDelete = (user_id, recipe_id) => {
+    UserRecipesApiService.getRecipes(user_id)
+      .then(rec => rec.filter(r => r.id !== recipe_id))
+      .then(filtered => {
+        this.setState({
+          recipes: filtered
+        })
+      })
+      .catch(err => console.log(err.message))
+  }
 
-  addRecipe(recipe) {
+
+  addRecipe = (recipe) => {
     let withTempId = { ...recipe, id: cuid() }
     let newReicpe = [withTempId, ...this.state.recipes]
     this.setState({
       recipes: newReicpe
     })
 
-    return UserRecipesApiService.createRecipe(recipe, this.state.user_id)
-      .then(() => UserRecipesApiService.getRecipes(this.state.user_id))
-      .then(res => {
-        this.setState({
-          recipes: res
-        })
-
-      })
-      .catch(err => console.log(err.message));
   }
 
-  deleteRecipe(id, user) {
-    // let newRecipes = this.state.recipes.filter(rec => rec.id !== id)
-    // this.setState({
-    //   recipes: newRecipes
-    // })
+  deleteRecipe(recipes, recipe_id) {
+    const filtered = recipes.filter(rec => rec.id !== recipe_id)
 
-    return UserRecipesApiService.deleteRecipe(id, user)
-      .then(() => UserRecipesApiService.getRecipes())
-      .then(res => {
-        this.setState({
-          recipes: res
-        })
-      })
+    this.setState({
+      recipes: filtered
+    })
+    // const token = TokenService.getAuthToken();
+    // const user_id = jwt_decode(token).user_id;
 
-      .catch(err => console.log(err.message))
+    // UserRecipesApiService.getRecipes(user_id)
+    //   .then(rec => {
+    //     this.setState({
+    //       currentAuthToken: token,
+    //       user_id,
+    //       recipes: rec
+    //     })
+    //   })
+
 
   }
 
@@ -114,7 +119,8 @@ class App extends Component {
       onLogout: this.onLogout,
       addRecipe: this.addRecipe,
       deleteRecipe: this.deleteRecipe,
-      getRecipes: this.getRecipes
+      getRecipes: this.getRecipes,
+      getRecipesAfterDelete: this.getRecipesAfterDelete
     }
 
 
