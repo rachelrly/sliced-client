@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import RecipeThumbnails from './RecipeThumbnails'
 import UserContext from '../../user-context'
 import './RecipeList.css'
+import { VscAdd } from 'react-icons/vsc'
 
 
 class RecipeList extends Component {
@@ -19,7 +20,9 @@ class RecipeList extends Component {
 
 
                 <Link to='/add-recipe'>
-                    <button className='add_recipe'>Add Recipe</button>
+                    <button className='add_recipe' aria-label="Add New Recipe">
+                        <VscAdd className='plus' />
+                    </button>
                 </Link>
 
                 {recipeList}

@@ -6,6 +6,7 @@ import UserContext from '../../user-context';
 import jwt_decode from 'jwt-decode';
 import TokenService from '../../services/token-service';
 import formatRecipeTitle from '../../services/capitalize-recipe-title-service'
+import { VscTrash, VscReply } from 'react-icons/vsc'
 
 
 class RecipePage extends Component {
@@ -73,9 +74,17 @@ class RecipePage extends Component {
         const originalLink = this.state.url ? <a className='link-to-original' target='_blank' href={this.state.url} rel="noopener noreferrer"><p className='url'>Original recipe</p></a> : null;
         return (
             <section className='recipe_full'>
-                <h2 className='recipe_title'>{capitalizedTitle}</h2>
+                <div className='goBack_wrapper'>
+                    <button
+                        className='goBack'
+                        onClick={() => this.props.history.push('/recipe')}
+                        aria-label="Go back to the previous page"
+                    >
+                        <VscReply className='arrow' />
+                    </button>
 
-                <h3>Ingredients</h3>
+                </div>
+                <h2 className='recipe_title'>{capitalizedTitle}</h2>
                 <div className='slider_container'>
                     <label htmlFor='slider'></label>
                     <input
@@ -96,7 +105,10 @@ class RecipePage extends Component {
                     {originalLink}
                     <button
                         onClick={this.handleDeleteRecipe}
-                        className='delete_button'>Delete</button>
+                        className='delete_button'
+                        aria-label="Delete this Recipe">
+                        <VscTrash className='trash' />
+                    </button>
 
                 </div>
             </section>

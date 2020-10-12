@@ -45,9 +45,6 @@ class Login extends Component {
 
     render() {
 
-        //input ref = {emailINput}
-        //input ref = {passwordInput}
-        //button onClick{handleSubmitAuth}
         return (
             <section className='Login_section'>
                 <form

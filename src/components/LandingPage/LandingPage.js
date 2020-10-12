@@ -1,9 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 function LandingPage() {
+    // if user is logged in, view my recipes at bottom of page
+
     return (
         <section>
-            <Link to='/recipe'><h2>View my recipes</h2></Link>
+            <h2>Welcome to Sliced!</h2>
+            <p>An app that allows you to scale down your recipes</p>
         </section>
     )
 }

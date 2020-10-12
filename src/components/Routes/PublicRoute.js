@@ -9,7 +9,7 @@ function PublicRoute({ component, ...props }) {
             {...props}
             render={componentProps => (
                 TokenService.hasAuthToken()
-                    ? <Redirect to={'/'} />
+                    ? <Redirect to={'/recipe'} />
                     : <Component {...componentProps} />
             )}
         />

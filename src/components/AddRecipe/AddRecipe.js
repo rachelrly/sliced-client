@@ -6,6 +6,7 @@ import cuid from 'cuid'
 import TokenService from '../../services/token-service'
 import UserContext from '../../user-context'
 import '../Form.css';
+import { VscReply } from 'react-icons/vsc'
 
 class AddRecipe extends Component {
 
@@ -62,6 +63,15 @@ class AddRecipe extends Component {
 
         return (
             <section className='AddRecipe_section' >
+                <div className='goBack_wrapper'>
+                    <button
+                        className='goBack'
+                        onClick={() => this.props.history.push('/recipe')}
+                        aria-label="Go back to the previous page"
+                    >
+                        <VscReply className='arrow' />
+                    </button>
+                </div>
                 <form className='AddRecipe_form'
                     onSubmit={(e) => this.handleFormSubmit(e, recipe)}>
                     <label htmlFor='title'>Title</label>

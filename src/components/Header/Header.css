@@ -22,4 +22,8 @@ header button{
     border: 0;
     color: var(--colors--light);
     border-radius: 8px;
+    margin: var(--spacer--sm);
+    cursor: pointer;
+    font-size: var(--fontsize--sm);
+    
 }

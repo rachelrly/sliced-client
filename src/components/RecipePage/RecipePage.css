@@ -11,13 +11,16 @@
 }
 
 .recipe_info {
-    margin-top: var(--spacer--lg);
-    text-align: center;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   padding-top: var(--spacer--med);
 
 }
 
 .recipe_info a {
-    color: var(--colors--text);
+    color: var(--colors--dark);
 }
 
 ul {
@@ -43,9 +46,17 @@ input[type=range]{
 
 .slider::-webkit-slider-thumb{
     -webkit-appearance: none;
-    width: 25px;
-    height: 17px;
-    border-radius: 8px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--colors--accent-extreme);
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
     background: var(--colors--accent-extreme);
     cursor: pointer;
 }
@@ -57,5 +68,55 @@ input[type=range]{
 
 .delete_button{
     background-color: var(--colors--muted);
-    color: var(--colors--light)
+    color: var(--colors--light);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    text-align: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.delete_button:hover{
+    border: 2px solid var(--colors--accent-bright);
+}
+.trash{
+    font-size: 34px;
+    padding: 2px 0 0 2px;
+    margin: 0;
+    color: var(--colors--light);
+}
+
+.goBack_wrapper{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.goBack{
+    background-color: var(--colors--muted);
+    color: var(--colors--light);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    text-align: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrow{
+    font-size: 36px;
+    padding: 0 2px 2px 0;
+    margin: 0;
+    color: var(--colors--light);
+}
+
+
+.goBack:hover{
+    border: 2px solid var(--colors--muted);
 }

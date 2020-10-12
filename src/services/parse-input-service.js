@@ -18,7 +18,10 @@ export function parseInput(str) {
         'cups',
         'pound',
         'pounds',
-        'lbs.'
+        'lbs.',
+        'oz.',
+        'oz',
+        'can',
     ]
 
     const isNumber = (arr, num) => (arr[num].match(/(?:[1-9][0-9]*|0)(?:\/[1-9][0-9]*)?/g))

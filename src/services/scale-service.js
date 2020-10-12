@@ -16,7 +16,7 @@ export function scale(num, unit, multiply) {
 
 
     if (cup.find(c => c === unit) && newAmount < 0.2) {
-        newAmount = newAmount * 4;
+        newAmount = newAmount * 8;
         newUnit = 'tbsp'
     }
 
