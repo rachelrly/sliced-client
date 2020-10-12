@@ -1,6 +1,7 @@
 
 .recipe_full {
     display: flex;
+    width: inherit;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;

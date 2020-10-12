@@ -1,12 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway:wght@300;400;600&display=swap');
+
+
 :root {
   --spacer--sm: .3rem;
   --spacer--med: 0.9rem;
   --spacer--lg: 1.8rem;
 
-  --fontsize--sm: 12px;
-  --fontsize--med: 18px;
+  --fontsize--sm: 16px;
+  --fontsize--med: 20px;
   --fontsize--lg: 24px;
+  --font--open-sans: 'Open Sans', sans-serif;
 
   --colors--light: #F5F5F5;
   --colors--accent-light: #FBE9E7;
@@ -28,13 +31,14 @@
 body {
   height: 100%;
   width: 100%;
-  background-color: var(--colors--light);
-  font-family: 'Comfortaa', sans-serif;
+  font-family: 'Raleway', sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
 }
+
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

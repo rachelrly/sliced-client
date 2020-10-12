@@ -1,11 +1,13 @@
 
-
+.ingredients_wrapper{
+    width: inherit;
+}
 .ing_item {
-    width: 100%;
-    padding: var(--spacer--sm);
+    width: inherit;
+    padding: var(--spacer--sm) var(--spacer--med);
 }
 
 .ing_amount {
     margin-right: var(--spacer--sm);
-    font-weight: bold;
+    font-weight: 600;
 }

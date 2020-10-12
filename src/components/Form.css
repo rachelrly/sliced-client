@@ -1,15 +1,7 @@
 
 
-section {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-
-
-}
-
 form {
-    max-width: 450px;
+    width: 90vw;
     margin-top: var(--spacer--lg);
     display: flex;
     flex-direction: column;
@@ -18,11 +10,21 @@ form {
 input {
     margin: 0 0 var(--spacer--sm);
     height: 35px;
+    outline: 0;
 }
 
 textarea {
     margin-bottom: var(--spacer--sm);
     height: 150px;
+    outline: 0;
+}
+
+input:focus{
+    outline: 2px solid var(--colors--accent-bright);
+}
+
+textarea:focus{
+    outline: 2px solid var(--colors--accent-bright);
 }
 
 .form_button {

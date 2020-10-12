@@ -1,18 +1,14 @@
-:root {
-    --spacer--sm: .3rem;
-    --spacer--med: 0.9rem;
-    --spacer--lg: 1.8rem;
-
-    --fontsize--sm: 14px;
-    --fontsize--med: 18px;
-    --fontsize--lg: 24px;
-
-    --colors--text: #020202;
-    --colors--background: #F3F1E6;
-    --colors--accent: #72173A;
-}
 
 main {
     flex: 4;
     height: 100%;
+    width: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
+
+main p, main span{
+    font-family: var(--font--open-sans);
+    font-size: var(--fontsize--sm);
+  }

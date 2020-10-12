@@ -1,13 +1,18 @@
 
 
 section {
-    padding: var(--spacer--sm) var(--spacer--med);
+    padding: var(--spacer--med);
     height: 100%;
     width: inherit;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+}
+
+h2{
+    padding-bottom: var(--spacer--sm);
+    font-size: var(--fontsize--med);
 }
 
 section button {
