@@ -5,8 +5,6 @@ import Ingredient from './Ingredient'
 
 /*This component takes in an array of ingredients and renders them as list items*/
 
-//this component will need to call helper function that 
-//multiplies everything by multiplyBy
 function RecipePageIngredients(props) {
 
     return (

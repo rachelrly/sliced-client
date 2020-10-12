@@ -26,9 +26,9 @@ class Ingredient extends Component {
 
 
     render() {
-        const test = scale(this.state.num, this.state.unit, this.props.multiplyBy)
+        const num = scale(this.state.num, this.state.unit, this.props.multiplyBy)
         const amount = this.props.amount_str
-            ? <span className='ing_amount'>{test}</span>
+            ? <span className='ing_amount'>{num}</span>
             : null
 
         return (

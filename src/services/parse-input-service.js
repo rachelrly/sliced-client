@@ -5,16 +5,20 @@ export function parseInput(str) {
     let splitStr = str.split(' ')
     const validTypes = [
         'tsp',
-        'tbsp',
         'teaspoon',
+        'tsp.',
         'teaspoons',
+        'tbsp',
+        'tbsp.',
         'tablespoons',
         'tablespoon',
         'c',
+        'c.',
         'cup',
         'cups',
         'pound',
-        'pounds'
+        'pounds',
+        'lbs.'
     ]
 
     const isNumber = (arr, num) => (arr[num].match(/(?:[1-9][0-9]*|0)(?:\/[1-9][0-9]*)?/g))
