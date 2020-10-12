@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Header from './components/Header/Header'
 import UserRecipesApiService from './services/user-recipes-api-service'
-import cuid from 'cuid'
 import jwt_decode from "jwt-decode";
 import UserContext from './user-context'
 import TokenService from './services/token-service'
@@ -116,7 +115,7 @@ class App extends Component {
     return (
       <UserContext.Provider value={value}>
         <Header />
-        <Router />
+        <main><Router /></main>
       </UserContext.Provider>
     )
   }

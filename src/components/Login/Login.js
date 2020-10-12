@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
 import AuthApiService from '../../services/auth-api-service';
 import TokenService from '../../services/token-service';
 import UserContext from '../../user-context';

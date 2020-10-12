@@ -1,32 +1,25 @@
-:root {
-    --spacer--sm: .3rem;
-    --spacer--med: 0.9rem;
-    --spacer--lg: 1.8rem;
 
-    --fontsize--sm: 14px;
-    --fontsize--med: 18px;
-    --fontsize--lg: 24px;
-
-    --colors--text: #020202;
-    --colors--background: #F3F1E6;
-    --colors--accent: #72173A;
-}
 
 header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100vw;
-    height: 45px;
+    height: 100%;
     text-align: center;
-    padding: var(--spacer--lg);
+    padding: var(--spacer--med);
     font-size: var(--fontsize--lg);
+    background-color: var(--colors--dark);
 }
 
-header h1 {
-    color: var(--colors--text)
+h1{
+    color: var(--colors--accent-light)
 }
 
 header button{
-    padding: var(--spacer--sm);
-    margin-left: var(--spacer--med)
+    padding: var(--spacer--sm) var(--spacer--med);
+    background-color: var(--colors--muted);
+    border: 0;
+    color: var(--colors--light);
+    border-radius: 8px;
 }

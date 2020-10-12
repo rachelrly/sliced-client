@@ -1,21 +1,9 @@
-:root {
-    --spacer--sm: .3rem;
-    --spacer--med: 0.9rem;
-    --spacer--lg: 1.8rem;
 
-    --fontsize--sm: 14px;
-    --fontsize--med: 18px;
-    --fontsize--lg: 24px;
-
-    --colors--text: #020202;
-    --colors--background: #F3F1E6;
-    --colors--accent: #72173A;
-}
 
 section {
     padding: var(--spacer--lg) var(--spacer--med);
     height: 100%;
-    width: 100%;
+    width: inherit;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -25,13 +13,19 @@ section {
 section button {
     padding: var(--spacer--sm) var(--spacer--med);
     margin: var(--spacer--med);
+    font-size: var(--fontsize--med);
+    background-color: var(--colors--accent-bright);
+    border: 0;
+    color: var(--colors--dark);
+    border-radius: 8px;
+    cursor: pointer;
 }
 
 .recipe_thumb {
 
     display: flex;
     padding: var(--spacer--med);
-    color: var(--colors--text)
+    color: var(--colors--black)
 }
 
 .recipe_thumb h3 {

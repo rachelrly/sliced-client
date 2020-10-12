@@ -1,16 +1,3 @@
-:root {
-    --spacer--sm: .3rem;
-    --spacer--med: 0.9rem;
-    --spacer--lg: 1.8rem;
-
-    --fontsize--sm: 14px;
-    --fontsize--med: 18px;
-    --fontsize--lg: 24px;
-
-    --colors--text: #020202;
-    --colors--background: #F3F1E6;
-    --colors--accent: #72173A;
-}
 
 .recipe_full {
     display: flex;
@@ -37,6 +24,38 @@ ul {
     list-style: none;
 }
 
-.slider {
-    width: 200px;
+.slider_container{
+    width: inherit;
+}
+
+
+input[type=range]{
+    appearance: none;
+    width: 75vw;
+    height: var(--spacer--sm);
+    border: 0;
+    border-radius: 8px;
+    outline: none;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+    background: var(--colors--accent-bright); 
+}
+
+.slider::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    width: 25px;
+    height: 17px;
+    border-radius: 8px;
+    background: var(--colors--accent-extreme);
+    cursor: pointer;
+}
+
+.link-to-original:hover{
+    cursor: pointer;
+    color: var(--colors--accent-bright);
+}
+
+.delete_button{
+    background-color: var(--colors--muted);
+    color: var(--colors--light)
 }

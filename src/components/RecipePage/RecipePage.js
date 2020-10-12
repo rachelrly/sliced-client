@@ -70,6 +70,7 @@ class RecipePage extends Component {
 
     render() {
         const capitalizedTitle = this.state.title ? formatRecipeTitle(this.state.title) : this.state.title
+        const originalLink = this.state.url ? <a className='link-to-original' target='_blank' href={this.state.url} rel="noopener noreferrer"><p className='url'>Original recipe</p></a> : null;
         return (
             <section className='recipe_full'>
                 <h2 className='recipe_title'>{capitalizedTitle}</h2>
@@ -92,8 +93,10 @@ class RecipePage extends Component {
 
                 <div className='recipe_info'>
                     <p className='date'>Added {this.state.date_created}</p>
-                    <a target='_blank' href={this.state.url} rel="noopener noreferrer"><p className='url'>Original recipe</p></a>
-                    <button onClick={this.handleDeleteRecipe}>Delete</button>
+                    {originalLink}
+                    <button
+                        onClick={this.handleDeleteRecipe}
+                        className='delete_button'>Delete</button>
 
                 </div>
             </section>
