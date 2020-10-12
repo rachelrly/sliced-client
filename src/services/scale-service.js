@@ -17,12 +17,12 @@ export function scale(num, unit, multiply) {
 
     if (cup.find(c => c === unit) && newAmount < 0.2) {
         newAmount = newAmount * 4;
-        newUnit = 'tablespoon'
+        newUnit = 'tbsp'
     }
 
     if (tbsp.find(t => t === unit) && newAmount < 0.5) {
         newAmount = newAmount * 3;
-        newUnit = 'teaspoon'
+        newUnit = 'tsp'
     }
 
     let formatNum = ''
