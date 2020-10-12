@@ -13,12 +13,12 @@ class Header extends Component {
     render() {
         const title = <><span>S</span><RiKnifeLine /><span>iced</span></>
         const toggleButtons = TokenService.hasAuthToken()
-            ? <button onClick={this.context.onLogout}>Log out</button>
-            : <Link to='/login'><button>Log in</button></Link>
+            ? <button onClick={this.context.onLogout} aria-lable='Log out'>Log out</button>
+            : <Link to='/login'><button aria-lable='Log in'>Log in</button></Link>
         return (
             <header>
                 <Link to='/'>
-                    <h1>{title}</h1>
+                    <h1 aria-label='Sliced'>{title}</h1>
                 </Link>
                 <div className='header-link-wrapper'>
                     {toggleButtons}
