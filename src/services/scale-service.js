@@ -27,13 +27,18 @@ export function scale(num, unit, multiply) {
 
     let formatNum = ''
 
+    const getMixedNumber = (num) => {
+        const arr = num.toString().split('')
+        return `${arr[0]} 1/2`
+    }
 
 
     newAmount === 0.5
         ? formatNum = '1/2' : newAmount === 0.25
             ? formatNum = '1/4' : newAmount === 0.75
-                ? formatNum = '3/4' :
-                formatNum = newAmount
+                ? formatNum = '3/4' : newAmount.toString().length === 3 && newAmount % 0.5 === 0
+                    ? formatNum = getMixedNumber(newAmount)
+                    : formatNum = newAmount
 
 
     let string = `${formatNum} ${newUnit}`
