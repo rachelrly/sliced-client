@@ -50,7 +50,7 @@ section button {
 
 .recipe_thumb h3 {
     font-size: var(--fontsize--med);
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .recipe_list div {

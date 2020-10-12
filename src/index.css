@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 :root {
   --spacer--sm: .3rem;
   --spacer--med: 0.9rem;
@@ -28,9 +29,7 @@ body {
   height: 100%;
   width: 100%;
   background-color: var(--colors--light);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Comfortaa', sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

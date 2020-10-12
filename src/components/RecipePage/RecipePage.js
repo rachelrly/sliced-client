@@ -95,7 +95,8 @@ class RecipePage extends Component {
                         defaultValue='1'
                         name='slider'
                         className='slider'
-                        onChange={(e) => this.getMultiplyBy(e)} />
+                        onChange={(e) => this.getMultiplyBy(e)}
+                        aria-label='A range slider that scales down the recipe by 3/4, 1 / 2, 1/4' />
                 </div>
 
                 <RecipePageIngredients multiplyBy={this.state.multiplyBy} ingredients={this.state.ingredients} />

@@ -26,7 +26,7 @@ class Login extends Component {
         const { email, password } = e.target
 
         AuthApiService.postLogin({
-            email: email.value,
+            email: email.value.toLowerCase(),
             password: password.value
         })
             .then(res => {

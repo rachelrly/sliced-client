@@ -3,10 +3,9 @@
 .ing_item {
     width: 100%;
     padding: var(--spacer--sm);
-    margin: var(--spacer--sm)
 }
 
 .ing_amount {
-    margin-right: var(--spacer--med);
+    margin-right: var(--spacer--sm);
     font-weight: bold;
 }
