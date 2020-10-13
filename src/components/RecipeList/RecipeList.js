@@ -13,7 +13,7 @@ class RecipeList extends Component {
 
     render() {
 
-        const recipeList = !this.context.recipes.length
+        const recipeList = !this.context.recipes
             ? <h2>There are no recipes</h2>
             : <RecipeThumbnails user={this.context.user_id} recipes={this.context.recipes} />
         return (

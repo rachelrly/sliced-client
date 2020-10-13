@@ -10,6 +10,7 @@ header {
     padding: var(--spacer--med);
     font-size: var(--fontsize--lg);
     background-color: var(--colors--dark);
+    overflow-x: hidden;
 }
 
 h1{
@@ -49,7 +50,8 @@ header button:focus{
 
 @media all and (min-width: 600px){
     header{
-        padding: var(--spacer--med) var(--spacer--lg)
+        padding: var(--spacer--med) var(--spacer--lg);
+        
     }
 
     header button{

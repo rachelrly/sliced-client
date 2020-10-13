@@ -31,7 +31,5 @@ export function parseAmount(str) {
 
     })
 
-    //check if unit matches valid types, get the matching values
-    //const unit = validtypes.find(u => u.input === unit)
     return { num, unit }
 }

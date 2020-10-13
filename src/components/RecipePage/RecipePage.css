@@ -65,6 +65,7 @@ input[type=range]:focus{
     border-radius: 50%;
     background: var(--colors--accent-extreme);
     cursor: pointer;
+    outline: none;
 }
 
 .slider::-moz-range-thumb{

@@ -17,7 +17,8 @@ class AddRecipe extends Component {
         this.state = {
             title: '',
             url: '',
-            ingredients: ''
+            ingredients: '',
+            error: false
         }
     }
 
@@ -45,6 +46,15 @@ class AddRecipe extends Component {
         const token = TokenService.getAuthToken();
         const user_id = jwt_decode(token).user_id;
 
+        if (!this.state.title.length || !this.state.ingredients.length) {
+            this.setState({
+                error: true
+            })
+            //add class error to form 
+            //add string of text next to submit button
+            return true;
+        }
+
         UserRecipesApiService.createRecipe(recipe, user_id)
             .then(this.context.addRecipe(recipe))
             .then(this.props.history.push('/recipe'))
@@ -62,6 +72,8 @@ class AddRecipe extends Component {
             id: cuid()
         }
 
+        let error = this.state.error ? <span className='error_text'>Recipe title and ingredients are required.</span> : null;
+        let err_class = this.state.error ? 'err' : null;
         return (
             <section className='add_section' >
                 <div className='goBack_wrapper'>
@@ -75,10 +87,13 @@ class AddRecipe extends Component {
                 </div>
                 <form className='AddRecipe_form'
                     onSubmit={(e) => this.handleFormSubmit(e, recipe)}>
+
                     <label htmlFor='title'>Title</label>
                     <input
+
                         name='title'
                         type='text'
+                        className={err_class}
                         onChange={(e) => this.setState({
                             title: e.target.value
                         })} />
@@ -94,7 +109,9 @@ class AddRecipe extends Component {
                     <label htmlFor='ingredients'>Ingredients</label>
                     <textarea
                         name='ingredients'
+                        className={err_class}
                         onChange={(e) => this.parseTextAreaInput(e)} />
+                    {error}
                     <button
                         type='submit'
                         className='form_button'
