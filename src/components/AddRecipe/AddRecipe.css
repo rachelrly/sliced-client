@@ -1,0 +1,8 @@
+.add_section button{
+    outline: none;
+}
+
+.add_section button:focus{
+    border: 2px solid var(--colors--dark); 
+    background-color: var(--colors--light); 
+}

@@ -13,6 +13,10 @@ section {
 h2{
     padding-bottom: var(--spacer--sm);
     font-size: var(--fontsize--med);
+    color: var(--colors--black)
+}
+a:focus .recipe_thumb{
+    border: 2px solid var(--colors--dark);
 }
 
 section button {
@@ -25,6 +29,15 @@ section button {
     border-radius: 8px;
     cursor: pointer;
 }
+a .add_recipe{
+    padding: 0;
+    margin: 0;
+    outline: none;
+}
+
+.recipe_list a {
+    outline: none;  
+}
 
 .add_recipe{
     border-radius: 50%;
@@ -35,10 +48,17 @@ section button {
     display: flex;
     justify-content: center;
     align-items: center;
+    outline: none;
 }
-.add_recipe:hover{
-    border: 2px solid var(--colors--muted);
+
+
+
+.add_recipe:focus{
+    background-color: var(--colors--light);
+    border: 2px solid var(--colors--dark);
+
 }
+
 .plus{
     font-size: 36px;
     padding: 2px 0 0 2px;
@@ -47,10 +67,12 @@ section button {
 
 }
 .recipe_thumb {
-
+    border-radius: 8px;
     display: flex;
-    padding: var(--spacer--med);
-    color: var(--colors--black)
+    padding: var(--spacer--sm);
+    margin: var(--spacer--med);  
+    color: var(--colors--black);
+    border: 2px solid var(--colors--light);
 }
 
 .recipe_thumb h3 {

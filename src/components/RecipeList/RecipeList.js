@@ -19,7 +19,7 @@ class RecipeList extends Component {
             <section className='recipe_list'>
 
 
-                <Link to='/add-recipe'>
+                <Link to='/add-recipe' tabIndex='-1'>
                     <button className='add_recipe' aria-label="Add New Recipe">
                         <VscAdd className='plus' />
                     </button>

@@ -14,7 +14,7 @@ class Header extends Component {
         const title = <div aria-label='Sliced'><span>S</span><RiKnifeLine /><span>iced</span></div>
         const toggleButtons = TokenService.hasAuthToken()
             ? <button onClick={this.context.onLogout}>Log out</button>
-            : <Link to='/login'><button>Log in</button></Link>
+            : <Link to='/login' tabIndex='-1'><button>Log in</button></Link>
         return (
             <header>
                 <Link to='/'>

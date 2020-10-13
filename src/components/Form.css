@@ -11,12 +11,18 @@ input {
     margin: 0 0 var(--spacer--sm);
     height: 35px;
     outline: 0;
+    font-size: var(--fontsize--sm);
+    border: 1px solid var(--colors--dark);
+    background-color: var(--colors--light);
 }
 
 textarea {
     margin-bottom: var(--spacer--sm);
+    background-color: var(--colors--light); 
     height: 150px;
     outline: 0;
+    font-size: var(--fontsize--sm);
+    border: 1px solid var(--colors--dark);
 }
 
 input:focus{
@@ -30,4 +36,11 @@ textarea:focus{
 .form_button {
     width: 100px;
     height: 35px;
+    outline: 0;
+    border: 2px solid var(--colors--accent-bright);
+}
+
+.form_button:focus{
+    border: 2px solid var(--colors--dark);
+    background-color: var(--colors--light);
 }

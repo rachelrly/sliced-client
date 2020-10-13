@@ -11,7 +11,7 @@ function RecipeThumbnails(props) {
                 return (
                     <Link key={rec.id} to={`/recipe/${rec.id}`}>
                         <div className='recipe_thumb'>
-                            <h3>{formatTitle}</h3>
+                            <h3 className='recipe_title'>{formatTitle}</h3>
                         </div>
                     </Link>
                 )

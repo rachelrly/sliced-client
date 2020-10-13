@@ -13,18 +13,39 @@ header {
 }
 
 h1{
-    color: var(--colors--accent-light)
+    color: var(--colors--accent-light);
 }
 
 header button{
     padding: var(--spacer--sm) var(--spacer--med);
     background-color: var(--colors--muted);
-    border: 0;
+    border: 2px solid var(--colors--dark);
     color: var(--colors--light);
     border-radius: 8px;
     margin: var(--spacer--sm);
     cursor: pointer;
     font-size: var(--fontsize--sm);
     font-family: var(--font--open-sans);
+    outline: none;
     
 }
+header a button{
+    outline: none;
+}
+header a{
+    outline: none;
+    padding: var(--spacer--sm);
+    border-radius: 8px;
+    border: 2px solid var(--colors--dark);
+}
+
+header a:focus{
+    border: 2px solid var(--colors--light);
+}
+
+header button:focus{
+    border: 2px solid var(--colors--light);
+    background-color: var(--colors--dark);
+}
+
+

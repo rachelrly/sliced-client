@@ -2,3 +2,20 @@
 color: red;
 background-image: url('image.jpg') ;
 } */
+
+.landing_title h4{
+    margin-bottom: var(--spacer--med);
+}
+
+.instructions_wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+   
+}
+
+.instructions_wrapper p {
+    padding: var(--spacer--sm) 0;
+
+}

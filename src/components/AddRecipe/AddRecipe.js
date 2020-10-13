@@ -6,6 +6,7 @@ import cuid from 'cuid'
 import TokenService from '../../services/token-service'
 import UserContext from '../../user-context'
 import '../Form.css';
+import './AddRecipe.css';
 import { VscReply } from 'react-icons/vsc'
 
 class AddRecipe extends Component {
@@ -62,7 +63,7 @@ class AddRecipe extends Component {
         }
 
         return (
-            <section className='AddRecipe_section' >
+            <section className='add_section' >
                 <div className='goBack_wrapper'>
                     <button
                         className='goBack'

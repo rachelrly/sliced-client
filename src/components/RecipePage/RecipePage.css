@@ -6,6 +6,14 @@
     justify-content: flex-start;
     align-items: center;
 }
+.recipe_full button{
+    outline: none; 
+}
+.recipe_full button:focus{
+    background-color: var(--colors--light);
+    border: 2px solid var(--colors--dark);
+}
+
 
 .recipe_title {
     margin: var(--spacer--sm);
@@ -43,6 +51,10 @@ input[type=range]{
     opacity: 0.8;
     transition: opacity 0.2s;
     background: var(--colors--accent-bright); 
+}
+
+input[type=range]:focus{
+    background: var(--colors--dark);  
 }
 
 .slider::-webkit-slider-thumb{
@@ -115,6 +127,11 @@ input[type=range]{
     padding: 0 2px 2px 0;
     margin: 0;
     color: var(--colors--light);
+}
+
+button:focus .arrow,
+button:focus .trash{
+    color: var(--colors--dark);
 }
 
 
