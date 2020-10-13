@@ -18,7 +18,7 @@ background-image: url('image.jpg') ;
 .img_wrapper::before{
     z-index: -1;
     opacity: 50%;
-    background-image: url(bg-lg.jpg);
+    background-image: url(bg-small.jpg);
     background-position: center;
     content: "";
     width: 100%;
@@ -28,6 +28,14 @@ background-image: url('image.jpg') ;
     position: absolute;
 
 
+}
+
+.landing_page_wrapper{
+    width: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-self: flex-start;
+    align-items: center;
 }
 
 .landing_title{
