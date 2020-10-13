@@ -25,6 +25,7 @@ class Login extends Component {
         this.setState({ error: null });
         const { email, password } = e.target
 
+        this.context.loading()
         AuthApiService.postLogin({
             email: email.value.toLowerCase(),
             password: password.value
@@ -33,8 +34,10 @@ class Login extends Component {
                 email.value = ''
                 password.value = ''
                 TokenService.saveAuthToken(res.authToken)
-                this.context.onLogin(res.user_id);
+                this.context.onLogin(res.user_id)
+
             })
+
             .catch(res => {
                 this.setState({ error: res.error })
             })

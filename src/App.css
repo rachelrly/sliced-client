@@ -13,3 +13,11 @@ main p, main span{
     font-size: var(--fontsize--sm);
     color: var(--colors--dark);
   }
+
+
+
+@media all and (min-width: 400px){
+  main p, main span{
+      font-size: var(--fontsize--med);
+  }
+}

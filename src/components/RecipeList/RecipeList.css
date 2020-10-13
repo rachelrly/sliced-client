@@ -3,11 +3,12 @@
 section {
     padding: var(--spacer--med);
     height: 100%;
-    width: inherit;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+
 }
 
 h2{
@@ -53,10 +54,15 @@ a .add_recipe{
 
 
 
-.add_recipe:focus{
+.add_recipe:focus, 
+.add_recipe:active{
     background-color: var(--colors--light);
     border: 2px solid var(--colors--dark);
 
+}
+
+label{
+    padding-bottom: var(--spacer--sm);
 }
 
 .plus{
@@ -84,4 +90,54 @@ a .add_recipe{
     display: flex;
     flex-direction: column;
 
+}
+
+ul{
+    padding-top: var(--spacer--med);
+}
+
+
+
+@media all and (min-width: 400px){
+    section{
+        padding: var(--spacer--med) var(--spacer--lg);
+    }
+
+    .recipe_thumb h3 {
+        font-size: var(--fontsize--lg);
+    }
+
+    .add_recipe{
+        width: 50px;
+        height: 50px;
+        margin-top: var(--spacer--med);
+    }
+
+    .plus{
+        font-size: 44px;
+        padding: 3px 0 0 3px;
+    }
+    
+    
+}
+
+@media all and (min-width: 600px){
+
+    section{
+        max-width: 550px;
+        margin-top: var(--spacer--lg);
+    }
+    .recipe_thumb h3{
+        font-size: var(--fontsize--tablet--lg);
+    }
+
+    .add_recipe{
+        padding-top: var(--spacer--lg)
+    }
+}
+
+@media all and (min-width: 800px){
+    section{
+        max-width: 800px;
+    }
 }

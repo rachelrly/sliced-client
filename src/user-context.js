@@ -9,7 +9,8 @@ let UserContext = React.createContext({
     addRecipe: () => { },
     deleteRecipe: () => { },
     getRecipes: () => { },
-    getRecipesAfterDelete: () => { }
+    getRecipesAfterDelete: () => { },
+    loading: () => { }
 })
 
 

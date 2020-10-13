@@ -14,9 +14,11 @@ input {
     font-size: var(--fontsize--sm);
     border: 1px solid var(--colors--dark);
     background-color: var(--colors--light);
+    padding-left: var(--spacer--sm);
 }
 
 textarea {
+    padding-left: var(--spacer--sm);
     margin-bottom: var(--spacer--sm);
     background-color: var(--colors--light); 
     height: 150px;
@@ -25,11 +27,13 @@ textarea {
     border: 1px solid var(--colors--dark);
 }
 
-input:focus{
+input:focus,
+input:active{
     outline: 2px solid var(--colors--accent-bright);
 }
 
-textarea:focus{
+textarea:focus,
+textarea:active{
     outline: 2px solid var(--colors--accent-bright);
 }
 
@@ -40,7 +44,15 @@ textarea:focus{
     border: 2px solid var(--colors--accent-bright);
 }
 
-.form_button:focus{
+.form_button:focus,
+.form_button:active{
     border: 2px solid var(--colors--dark);
     background-color: var(--colors--light);
+}
+
+
+@media all and (min-width: 600px){
+    form{
+        width: inherit;
+    }
 }

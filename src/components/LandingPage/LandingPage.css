@@ -3,9 +3,7 @@ color: red;
 background-image: url('image.jpg') ;
 } */
 
-.landing_title h4{
-    margin-bottom: var(--spacer--med);
-}
+
 article{
     text-align: left;
     width: 100%;
@@ -20,7 +18,8 @@ article{
 
 
 .p_wrapper p{
-    padding-top: var(--spacer--sm);
+    padding: var(--spacer--sm) 0;
+    
 } 
 
 .button_wrapper{
@@ -44,4 +43,11 @@ article{
     border: 2px solid var(--colors--dark);
     background-color: var(--colors--light);
 
+}
+
+
+@media all and (min-width: 600px){
+ h3, .landing_title{
+        font-size: var(--fontsize--tablet--lg);
+    }
 }

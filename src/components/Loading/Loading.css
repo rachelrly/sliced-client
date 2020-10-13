@@ -1,0 +1,27 @@
+.knife_wrapper{
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%;
+}
+
+.knife{
+    font-size: 200px;
+    transform: rotate(15deg);
+    color: var(--colors--accent-bright);
+    animation: spin 1s ease infinite;
+}
+
+.loading_wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@keyframes spin{
+    0% {transform: rotate(-47deg);}
+    50% {transform: rotate(30deg);}
+    100%{transform: rotate(-47deg);}
+}

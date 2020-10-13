@@ -4,6 +4,7 @@ import UserRecipesApiService from './services/user-recipes-api-service'
 import jwt_decode from "jwt-decode";
 import UserContext from './user-context'
 import TokenService from './services/token-service'
+import Loading from './components/Loading/Loading'
 import Router from './Router'
 import './App.css'
 
@@ -13,7 +14,8 @@ class App extends Component {
   state = {
     currentAuthToken: null,
     user_id: null,
-    recipes: []
+    recipes: [],
+    loading: false
   }
 
   componentDidMount = () => {
@@ -40,7 +42,8 @@ class App extends Component {
       .then(rec => this.setState({
         currentAuthToken: currentAuthToken,
         user_id: user_id,
-        recipes: rec
+        recipes: rec,
+        loading: false
       }))
 
   }
@@ -87,7 +90,7 @@ class App extends Component {
     })
 
   }
-
+  //check to see if this function does anythign
   deleteRecipe(recipes, recipe_id) {
     const filtered = recipes.filter(rec => rec.id !== recipe_id)
 
@@ -95,6 +98,14 @@ class App extends Component {
       recipes: filtered
     })
 
+  }
+
+  toggleLoading = () => {
+    let toggle = this.state.loading;
+    toggle = !toggle;
+    this.setState({
+      loading: toggle
+    })
   }
 
 
@@ -109,13 +120,17 @@ class App extends Component {
       addRecipe: this.addRecipe,
       deleteRecipe: this.deleteRecipe,
       getRecipes: this.getRecipes,
-      getRecipesAfterDelete: this.getRecipesAfterDelete
+      getRecipesAfterDelete: this.getRecipesAfterDelete,
+      loading: this.toggleLoading,
     }
 
     return (
       <UserContext.Provider value={value}>
         <Header />
-        <main><Router /></main>
+        <main>
+          {this.state.loading ? <Loading /> : <Router />}
+
+        </main>
       </UserContext.Provider>
     )
   }

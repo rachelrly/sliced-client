@@ -2,8 +2,8 @@
 
 header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     width: 100vw;
     height: 100%;
     text-align: center;
@@ -29,9 +29,7 @@ header button{
     outline: none;
     
 }
-header a button{
-    outline: none;
-}
+
 header a{
     outline: none;
     padding: var(--spacer--sm);
@@ -48,4 +46,14 @@ header button:focus{
     background-color: var(--colors--dark);
 }
 
+
+@media all and (min-width: 600px){
+    header{
+        padding: var(--spacer--med) var(--spacer--lg)
+    }
+
+    header button{
+        font-size: var(--fontsize--med);
+    }
+}
 

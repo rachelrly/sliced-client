@@ -7,6 +7,7 @@ import jwt_decode from 'jwt-decode';
 import TokenService from '../../services/token-service';
 import formatRecipeTitle from '../../services/capitalize-recipe-title-service'
 import { VscTrash, VscReply } from 'react-icons/vsc'
+import Loading from '../Loading/Loading'
 
 
 class RecipePage extends Component {
@@ -15,6 +16,7 @@ class RecipePage extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            loading: true,
             recipe_id: null,
             title: '',
             date_created: null,
@@ -24,6 +26,8 @@ class RecipePage extends Component {
         }
     }
 
+
+
     componentDidMount() {
 
         const id = this.props.match.params.id
@@ -32,7 +36,6 @@ class RecipePage extends Component {
             this.context.getRecipes(this.context.user_id)
 
         }
-
         UserRecipesApiService.getFullRecipeById(id, this.context.user_id)
             .then(rec => {
                 if (!rec.id) {
@@ -43,7 +46,8 @@ class RecipePage extends Component {
                     title: rec.title,
                     date_created: rec.created.toString().slice(0, 10),
                     url: rec.original_url,
-                    ingredients: rec.ingredients
+                    ingredients: rec.ingredients,
+                    loading: false
                 })
             })
             .catch(err => console.log(err))
@@ -69,11 +73,14 @@ class RecipePage extends Component {
 
     }
 
+
+
     render() {
         const capitalizedTitle = this.state.title ? formatRecipeTitle(this.state.title) : this.state.title
         const originalLink = this.state.url ? <a className='link-to-original' target='_blank' href={this.state.url} rel="noopener noreferrer"><p className='url'>Original recipe</p></a> : null;
-        return (
-            <section className='recipe_full'>
+        const renderPage = this.state.loading
+            ? <Loading />
+            : <section className='recipe_full'>
                 <div className='goBack_wrapper'>
                     <button
                         className='goBack'
@@ -113,7 +120,7 @@ class RecipePage extends Component {
 
                 </div>
             </section>
-        )
+        return (<>{renderPage}</>)
     }
 }
 

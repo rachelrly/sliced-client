@@ -8,7 +8,8 @@
 
   --fontsize--sm: 16px;
   --fontsize--med: 20px;
-  --fontsize--lg: 24px;
+  --fontsize--lg: 26px;
+  --fontsize--tablet--lg: 36px;
   --font--open-sans: 'Open Sans', sans-serif;
 
   --colors--light: #F5F5F5;
@@ -38,6 +39,7 @@ body {
   align-items: center;
   background-color: var(--colors--light);
 }
+
 
 
 

@@ -16,6 +16,7 @@
 
 
 .recipe_title {
+    font-size: var(--fontsize--med);
     margin: var(--spacer--sm);
 }
 
@@ -91,9 +92,7 @@ input[type=range]:focus{
     justify-content: center;
     align-items: center;
 }
-.delete_button:hover{
-    border: 2px solid var(--colors--accent-bright);
-}
+
 .trash{
     font-size: 34px;
     padding: 2px 0 0 2px;
@@ -135,6 +134,41 @@ button:focus .trash{
 }
 
 
-.goBack:hover{
-    border: 2px solid var(--colors--muted);
+
+@media all and (min-width: 400px){
+    .recipe_title{
+        font-size: var(--fontsize--lg);
+    }
+
+    .goBack, .delete_button{
+        width: 50px;
+        height: 50px;
+    }
+
+    .arrow{
+        font-size: 44px;
+        padding: 0 3px 3px 0;
+    }
+
+    .trash{
+        font-size: 44px;
+        padding: 3px 0 0 3px;
+    }
+
+}
+
+
+@media all and (min-width: 600px){
+    .recipe_title{
+        font-size: var(--fontsize--tablet--lg);
+    }
+
+    li{
+        font-size: var(--fontsize--lg);
+    }
+
+    input[type=range]{
+        max-width: 550px;
+    }
+
 }
