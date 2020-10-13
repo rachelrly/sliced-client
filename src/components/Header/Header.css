@@ -27,15 +27,16 @@ header button{
     cursor: pointer;
     font-size: var(--fontsize--sm);
     font-family: var(--font--open-sans);
-    outline: none;
+    outline: 0;
     
 }
 
 header a{
-    outline: none;
+    outline: 0;
     padding: var(--spacer--sm);
     border-radius: 8px;
     border: 2px solid var(--colors--dark);
+
 }
 
 header a:focus{
