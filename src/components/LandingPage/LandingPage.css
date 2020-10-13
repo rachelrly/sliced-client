@@ -47,7 +47,7 @@ article{
 
 
 @media all and (min-width: 600px){
- h3, .landing_title{
+  .landing_title{
         font-size: var(--fontsize--tablet--lg);
     }
 }
