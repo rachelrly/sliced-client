@@ -39,7 +39,7 @@ header a{
 
 }
 
-header a:focus{
+header .title_link:focus{
     border: 2px solid var(--colors--light);
 }
 

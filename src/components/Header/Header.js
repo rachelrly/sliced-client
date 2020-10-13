@@ -17,7 +17,7 @@ class Header extends Component {
             : <Link to='/login' tabIndex='-1'><button>Log in</button></Link>
         return (
             <header>
-                <Link to='/'>
+                <Link to='/' className='title_link'>
                     <h1>{title}</h1>
                 </Link>
                 <div className='header-link-wrapper'>
