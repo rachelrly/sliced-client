@@ -6,16 +6,42 @@ background-image: url('image.jpg') ;
 .landing_title h4{
     margin-bottom: var(--spacer--med);
 }
-
-.instructions_wrapper{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-   
+article{
+    text-align: left;
+    width: 100%;
+    padding: var(--spacer--sm);
+    margin: var(--spacer--sm) 0;
 }
 
-.instructions_wrapper p {
-    padding: var(--spacer--sm) 0;
+.p_wrapper{
+    padding-top: var(--spacer--sm);
+}
+
+
+
+.p_wrapper p{
+    padding-top: var(--spacer--sm);
+} 
+
+.button_wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.button_wrapper button{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    
+    border: 2px solid var(--colors--light);
+    outline: none;
+}
+
+.button_wrapper button:focus{
+    border: 2px solid var(--colors--dark);
+    background-color: var(--colors--light);
 
 }
