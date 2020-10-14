@@ -8,7 +8,7 @@
 
 .knife{
     font-size: 200px;
-
+    transform: rotate(45deg);
     color: var(--colors--accent-bright);
     animation: spin 1s ease infinite;
 }
