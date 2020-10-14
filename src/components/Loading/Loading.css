@@ -21,7 +21,7 @@
 
 
 @keyframes spin{
-    0% {transform: rotate(-40deg);}
-    50% {transform: rotate(38deg);}
-    100%{transform: rotate(-40deg);}
+    0% {transform: rotate(35deg);}
+    50% {transform: rotate(-45deg);}
+    100%{transform: rotate(40deg);}
 }
