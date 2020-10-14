@@ -17,7 +17,7 @@ background-image: url('image.jpg') ;
 
 .img_wrapper::before{
     z-index: -1;
-    opacity: 2;
+    opacity: 0.2;
     background-image: url(bg-lg.jpg);
     background-position: center;
     content: "";
