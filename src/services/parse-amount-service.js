@@ -1,4 +1,7 @@
 export function parseAmount(str) {
+    if (!str) {
+        str = 'this string'
+    }
     const arr = str.split(' ');
 
     const getDecimal = (a, b) => a / b;

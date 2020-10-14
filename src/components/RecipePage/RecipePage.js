@@ -30,7 +30,8 @@ class RecipePage extends Component {
 
     componentDidMount() {
 
-        const id = this.props.match.params.id
+        const id = this.props.match.params.id;
+        //this is why the test is failing. How do I represent that?
 
         if (this.context.user_id) {
             this.context.getRecipes(this.context.user_id)

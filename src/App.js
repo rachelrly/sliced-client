@@ -126,11 +126,8 @@ class App extends Component {
 
     return (
       <UserContext.Provider value={value}>
-        <Header />
-        <main>
-          {this.state.loading ? <Loading /> : <Router />}
 
-        </main>
+        <Router />
       </UserContext.Provider>
     )
   }

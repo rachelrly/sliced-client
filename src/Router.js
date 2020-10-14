@@ -8,40 +8,45 @@ import PrivateRoute from './components/Routes/PrivateRoute'
 import PageNotFound from './components/PageNotFound/PageNotFound'
 import RecipeList from './components/RecipeList/RecipeList'
 import RecipePage from './components/RecipePage/RecipePage'
+import Header from './components/Header/Header'
 
 
 
 const Router = () => (
+    <>
+        <Header />
 
-    <Switch>
-        <Route
-            exact
-            path="/"
-            component={LandingPage}
-        />
-        <PublicRoute
-            path='/login'
-            component={Login}
-        />
-        <PrivateRoute
-            exact
-            path='/recipe'
-            component={RecipeList}
-        />
-        <PrivateRoute
-            path='/add-recipe'
-            component={AddRecipe}
-        />
-        <PrivateRoute
-            path='/recipe/:id'
-            component={RecipePage}
-        />
+        <main>
+            <Switch>
+                <Route
+                    exact
+                    path="/"
+                    component={LandingPage}
+                />
+                <PublicRoute
+                    path='/login'
+                    component={Login}
+                />
+                <PrivateRoute
+                    exact
+                    path='/recipe'
+                    component={RecipeList}
+                />
+                <PrivateRoute
+                    path='/add-recipe'
+                    component={AddRecipe}
+                />
+                <PrivateRoute
+                    path='/recipe/:id'
+                    component={RecipePage}
+                />
 
-        <Route
-            path='/404'
-            component={PageNotFound}
-        />
-    </Switch>
+                <Route
+                    path='/404'
+                    component={PageNotFound}
+                />
+            </Switch>
+        </main></>
 )
 
 
