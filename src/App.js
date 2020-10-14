@@ -126,7 +126,6 @@ class App extends Component {
 
     return (
       <UserContext.Provider value={value}>
-
         <Router />
       </UserContext.Provider>
     )
