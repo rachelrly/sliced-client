@@ -13,40 +13,37 @@ import Header from './components/Header/Header'
 
 
 const Router = () => (
-    <>
-        <Header />
 
-        <main>
-            <Switch>
-                <Route
-                    exact
-                    path="/"
-                    component={LandingPage}
-                />
-                <PublicRoute
-                    path='/login'
-                    component={Login}
-                />
-                <PrivateRoute
-                    exact
-                    path='/recipe'
-                    component={RecipeList}
-                />
-                <PrivateRoute
-                    path='/add-recipe'
-                    component={AddRecipe}
-                />
-                <PrivateRoute
-                    path='/recipe/:id'
-                    component={RecipePage}
-                />
+    <Switch>
+        <Route
+            exact
+            path="/"
+            component={LandingPage}
+        />
+        <PublicRoute
+            path='/login'
+            component={Login}
+        />
+        <PrivateRoute
+            exact
+            path='/recipe'
+            component={RecipeList}
+        />
+        <PrivateRoute
+            path='/add-recipe'
+            component={AddRecipe}
+        />
+        <PrivateRoute
+            path='/recipe/:id'
+            component={RecipePage}
+        />
 
-                <Route
-                    path='/404'
-                    component={PageNotFound}
-                />
-            </Switch>
-        </main></>
+        <Route
+            path='/404'
+            component={PageNotFound}
+        />
+    </Switch>
+
 )
 
 

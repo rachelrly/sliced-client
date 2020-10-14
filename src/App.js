@@ -4,7 +4,6 @@ import UserRecipesApiService from './services/user-recipes-api-service'
 import jwt_decode from "jwt-decode";
 import UserContext from './user-context'
 import TokenService from './services/token-service'
-import Loading from './components/Loading/Loading'
 import Router from './Router'
 import './App.css'
 
@@ -126,7 +125,11 @@ class App extends Component {
 
     return (
       <UserContext.Provider value={value}>
-        <Router />
+        <Header />
+
+        <main>
+          <Router /> </main>
+
       </UserContext.Provider>
     )
   }
