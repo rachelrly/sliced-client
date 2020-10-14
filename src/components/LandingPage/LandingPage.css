@@ -51,6 +51,17 @@ article{
     margin: var(--spacer--sm) 0;
 }
 
+article button {
+    padding: var(--spacer--sm) var(--spacer--med);
+    margin: var(--spacer--med);
+    font-size: var(--fontsize--med);
+    background-color: var(--colors--accent-bright);
+    border: 2px solid var(--colors--dark);
+    color: var(--colors--dark);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
 .p_wrapper{
     padding-top: var(--spacer--sm);
 }
@@ -75,7 +86,7 @@ article{
     justify-content: center;
     align-items: flex-end;
     
-    border: 2px solid var(--colors--light);
+    border: 2px solid var(--colors--accent-light);
     outline: none;
 }
 

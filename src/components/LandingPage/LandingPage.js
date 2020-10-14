@@ -10,23 +10,19 @@ function LandingPage() {
             <article className='img_wrapper'>
                 <h2 className='landing_title'>Welcome to Sliced!</h2>
                 <h4>Scale down your recipes</h4>
+                <>
+                    {TokenService.hasAuthToken()
+                        ? <div className='button_wrapper'><Link to='/recipe' tabIndex='-1'><button>View Recipes</button></Link></div>
+                        : <div className='button_wrapper'><a href='#login' tabIndex='-1'><button>Get Started</button></a></div>
+
+                    }
+                </>
             </article>
 
             <section className='landing_page_wrapper'>
 
 
-                <article>
-                    {!TokenService.hasAuthToken()
 
-                        ? <>
-                            <h3>Log in to Sliced</h3>
-                            <div className='p_wrapper'>
-                                <p>Please log in with these credentials:</p>
-                                <p>Email: ' test@gmail.com '</p>
-                                <p>Password: ' test-password '</p></div></>
-
-                        : <div className='button_wrapper'><Link to='/recipe' tabIndex='-1'><button>View Recipes</button></Link></div>}
-                </article>
 
                 <article>
                     <h3>What is Sliced?</h3>
@@ -56,6 +52,19 @@ function LandingPage() {
 
                     </div>
                 </article>
+
+                <article id='login'>
+                    {!TokenService.hasAuthToken()
+
+                        ? <>
+                            <h3>Log in to Sliced</h3>
+                            <div className='p_wrapper'>
+                                <p>Please log in with these credentials:</p>
+                                <p>Email: ' test@gmail.com '</p>
+                                <p>Password: ' test-password '</p></div></>
+
+                        : null}
+                </article>
                 <article>
 
                     <h3>About the Creator</h3>
@@ -65,14 +74,7 @@ function LandingPage() {
 
                 </article>
 
-                <article>
 
-                    <h3>About the Creator</h3>
-                    <div className='p_wrapper'>
-                        <p></p>
-                    </div>
-
-                </article>
             </section ></>
     )
 }
