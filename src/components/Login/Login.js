@@ -16,13 +16,6 @@ class Login extends Component {
         }
     }
 
-    //const { onLogin } = useUserDataContext()
-    //const[error, setError] = useState(null)
-    //const emailInput = useRef()
-    //const passwordInput = useRef()
-    //handlesubmit
-    //email: emailInput.current.value
-    //password: pswInput.current.value
 
     handleSubmitAuth = e => {
         e.preventDefault();

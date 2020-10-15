@@ -2,7 +2,7 @@ footer{
     display: flex;
     width: 100vw;
     background-color: var(--colors--dark);
-    height: 50px;
+    height: 40px;
     color: var(--colors--light);
     justify-content: flex-end;
     align-items: center;
@@ -25,5 +25,5 @@ a{
 
 .footer_icon:focus,
 .footer_icon:hover{
-    color: var(--colors--accent-bright);
+    color: var(--colors--accent-extreme);
 }
