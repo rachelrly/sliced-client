@@ -67,7 +67,7 @@ input[type=range]{
 }
 
 input[type=range]:focus{
-    background: var(--colors--dark);  
+    background: var(--colors--accent-extreme);  
 }
 
 .slider::-webkit-slider-thumb{
@@ -79,6 +79,7 @@ input[type=range]:focus{
     cursor: pointer;
     outline: none;
 }
+
 
 .slider::-moz-range-thumb{
     width: 20px;

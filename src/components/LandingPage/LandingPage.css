@@ -113,10 +113,10 @@ a{
 }
 
 .landing_main{
-   
-    background-color: var(--colors--light);
+    background-color: var(--colors--accent-bright);
+    border: 2px solid var(--colors--accent-bright);
     color: var(--colors--black);
-    border: 2px solid var(--colors--black);
+    
     outline: 0;
     
 }
@@ -126,9 +126,9 @@ a{
 .landing_main:focus,
 .landing_main:active,
 .landing_main:hover{
-    background-color: var(--colors--accent-extreme);
-    border: 2px solid var(--colors--accent-extreme);
-    color: var(--colors--light);
+    background-color: var(--colors--light);
+    border: 2px solid var(--colors--black);
+    color: var(--colors--black);
     
 }
 

@@ -1,8 +1,8 @@
 footer{
     display: flex;
     width: 100vw;
-    background-color: var(--colors--dark);
-    height: 40px;
+    background-color: var(--colors--black);
+    height: 38px;
     color: var(--colors--light);
     justify-content: flex-end;
     align-items: center;
