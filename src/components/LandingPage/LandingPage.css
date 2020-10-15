@@ -70,6 +70,7 @@ article button {
     height: 100%;
     border: 1px solid var(--colors--black);
     padding: var(--spacer--sm);
+    margin-top: var(--spacer--sm);
     border-radius: 4px;
     overflow-wrap: break-word;
     width: 100%;
