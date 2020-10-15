@@ -28,10 +28,12 @@ class AddRecipe extends Component {
         const splitLine = String.fromCharCode(13, 10);
         const formattedInput = textAreaInput
             .replaceAll('\\n', splitLine)
+            .replaceAll('-', ' ')
             .split('\n')
             .map(ing => {
                 return parseInput(ing)
             })
+
 
 
         this.setState({
@@ -50,8 +52,6 @@ class AddRecipe extends Component {
             this.setState({
                 error: true
             })
-            //add class error to form 
-            //add string of text next to submit button
             return true;
         }
 
