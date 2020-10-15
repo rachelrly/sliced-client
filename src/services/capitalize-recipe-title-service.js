@@ -1,5 +1,5 @@
 export default function formatRecipeTitle(title) {
-    const arr = title
+    const arr = title.toLowerCase()
         .split(' ')
         .map(word => {
             let letters = word.split('')

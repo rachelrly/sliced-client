@@ -108,6 +108,17 @@ class RecipePage extends Component {
                         className='slider'
                         onChange={(e) => this.getMultiplyBy(e)}
                         aria-label='A range slider that scales down the recipe' />
+                    <datalist id='ticks'>
+                        <option>  </option>
+                        <option>¼</option>
+                        <option>½</option>
+                        <option>¾</option>
+                        <option>1</option>
+                        <option>1¼</option>
+                        <option>1½</option>
+                        <option>1¾</option>
+                        <option>2</option>
+                    </datalist>
                 </div>
 
                 <RecipePageIngredients multiplyBy={this.state.multiplyBy} ingredients={this.state.ingredients} />

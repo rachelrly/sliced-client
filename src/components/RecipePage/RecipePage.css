@@ -38,6 +38,17 @@ ul {
     list-style: none;
 }
 
+datalist{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+option{
+    font-family: 'Open Sans';
+    width: 20px;
+}
+
 .slider_container{
     width: inherit;
 }
