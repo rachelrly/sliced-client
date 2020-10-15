@@ -39,6 +39,7 @@
 article{
     text-align: left;
     width: 100%;
+    padding: var(--spacer--sm) 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -78,14 +79,13 @@ article button {
 
 article h3{
     width: 100%;
+    padding-bottom: var(--spacer--sm);
 }
 .bad{
     margin: var(--spacer--sm) 0 var(--spacer--lg);
 }
 
-.bad:last-of-type{
-    margin: var(--spacer--sm) 0 0;
-}
+
 
 
 
