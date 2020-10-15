@@ -19,6 +19,7 @@
 .recipe_title {
     font-size: var(--fontsize--med);
     margin: var(--spacer--sm);
+    width: 90%;
 }
 
 .recipe_info {
