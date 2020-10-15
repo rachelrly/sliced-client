@@ -100,9 +100,7 @@ ul{
 
 
 @media all and (min-width: 400px){
-    section{
-        padding: var(--spacer--med) var(--spacer--lg);
-    }
+    
 
     .recipe_thumb h3 {
         font-size: var(--fontsize--lg);
@@ -139,6 +137,8 @@ ul{
 
 @media all and (min-width: 800px){
     section{
+        padding: var(--spacer--med) var(--spacer--lg);
+    
         max-width: 800px;
     }
 }

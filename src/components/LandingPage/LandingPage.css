@@ -4,7 +4,7 @@ background-image: url('image.jpg') ;
 } */
 
 .img_wrapper{
-    width: 100%;
+    width: inherit;
     height: calc(100vh - 106px);
     padding: 0;
     margin: 0;
