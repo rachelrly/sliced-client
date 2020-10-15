@@ -4,7 +4,7 @@ background-image: url('image.jpg') ;
 } */
 
 .img_wrapper{
-    width: inherit;
+    width: 100%;
     height: calc(100vh - 106px);
     padding: 0;
     margin: 0;
@@ -63,12 +63,9 @@ article button {
 
 .p_wrapper{
     padding-top: var(--spacer--sm);
-    display: flex;
     width: inherit;
     overflow-x: hidden;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+
 }
 
 
