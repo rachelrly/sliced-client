@@ -78,7 +78,11 @@ article button {
     justify-content: center;
     align-items: center;
 }
-
+.example{
+    height: 65px;
+    border: 2px solid var(--colors--black);
+    margin: var(--spacer--sm) 0;
+}
 
 
 .button_wrapper button{
@@ -86,7 +90,7 @@ article button {
     justify-content: center;
     align-items: flex-end;
     
-    border: 2px solid var(--colors--accent-light);
+    border: 2px solid var(--colors--accent-bright);
     outline: none;
 }
 

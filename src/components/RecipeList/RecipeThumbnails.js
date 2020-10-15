@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import formatRecipeTitle from '../../services/capitalize-recipe-title-service'
-function RecipeThumbnails(props) {
 
+
+
+function RecipeThumbnails(props) {
 
     return (
         <div className='recipe_thumb_wrapper'>

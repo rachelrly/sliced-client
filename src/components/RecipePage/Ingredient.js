@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 import { parseAmount } from '../../services/parse-amount-service'
 import { scale } from '../../services/scale-service'
 
+/*This component renders each ingredient in a recipe and controls the 
+state that stores the current measurement amount and units, communicating with 
+parseAmount*/
+
 class Ingredient extends Component {
 
     constructor(props) {

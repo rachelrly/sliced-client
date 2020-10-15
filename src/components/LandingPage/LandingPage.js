@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './LandingPage.css';
 import TokenService from '../../services/token-service';
+
+
+
 function LandingPage() {
 
     return (
@@ -20,39 +23,6 @@ function LandingPage() {
             </article>
 
             <section className='landing_page_wrapper'>
-
-
-
-
-                <article>
-                    <h3>What is Sliced?</h3>
-                    <div className='p_wrapper'>
-                        <p>Sliced is an app that allows you to copy and paste your recipe ingredients and scale them down by 3/4, 1/2 or 1/4.</p>
-                    </div>
-                </article>
-                <article>
-
-                    <h3>How to use Sliced</h3>
-                    <div className='p_wrapper'>
-                        <p>To make a new recipe, click the '+' icon at the top of the list of recipes.
-                        This will take you to a form where you can add the title and the url where you got the recipe. You can copy and paste the list of ingredients in the third box.
-                </p>
-
-                        <p>
-                            For the best results, please make sure each ingredient is on its own line. Please keep a space between a the amount and unit.
-                </p>
-                        <p>For example, ' 1/2 cup ' would work with slice, but ' 1/2cup ' would not.</p>
-
-
-
-                        <p>Sliced does not pick up measurements inside an ingredients title :</p>
-                        <p>Please use unformatted fractions.
-                </p>
-                        <p>For example, input ' 1/4 ', not ' ¼ '</p>
-
-                    </div>
-                </article>
-
                 <article id='login'>
                     {!TokenService.hasAuthToken()
 
@@ -60,12 +30,86 @@ function LandingPage() {
                             <h3>Log in to Sliced</h3>
                             <div className='p_wrapper'>
                                 <p>Please log in with these credentials:</p>
-                                <p>Email: ' test@gmail.com '</p>
-                                <p>Password: ' test-password '</p></div></>
+                                <p>Email: <code>test@gmail.com</code></p>
+                                <p>Password: <code>test-password</code></p></div></>
 
                         : null}
                 </article>
+
+
+
                 <article>
+                    <h3>What is Sliced?</h3>
+                    <div className='p_wrapper'>
+                        <p>Sliced is an app that allows you to input your recipes and scale the ingredients down by x3/4, x1/2 or x1/4, or up by x1 1/4, x1 1/2, x1 3/4, and x2 </p>
+                    </div>
+                </article>
+                <article>
+
+                    <h3>How to Slice your recipes</h3>
+                    <div className='p_wrapper'>
+                        <p>Sliced works by parsing each line of a recipe's ingredient list to find the unit and amount and title.
+                </p>
+
+                        <p>For best results, please follow these guidelines when adding a new recipe.</p>
+
+                        <p>
+                            List each ingredient is on its own line
+                </p>
+                        <div className='example good'>
+                            <code>
+                                1 cup
+                        <br />2 tsp salt
+                        <br />1 tsp dried ginger
+</code></div>
+                        <p>Not many ingredients on one line</p>
+                        <div className='example bad'>
+
+                            <code><br />1 cup 2 tsp salt 1 tsp dried ginger</code>
+                        </div>
+
+
+                        <p>Enter ingredient fraction with numbers and slashes
+                </p>
+                        <div className='example good'>
+                            <code>
+                                1/2 cup chicken broth
+                        <br />1/4 tsp salt
+                        <br />1/2 tsp dried ginger
+</code></div>
+                        <p>Not formatted fractions</p>
+                        <div className='example bad'>
+                            <code>
+                                ½ cup chicken broth
+                        <br />¼ tsp salt
+                        <br /> ½, tsp dried ginger
+                        </code>
+                        </div>
+
+
+                        <p>Keep a space between the ingredient amount and the measurement unit
+                </p>
+                        <div className='example good'>
+                            <code>
+                                16 oz. chicken broth
+                        <br />1/4 tsp salt
+                        <br />1/2 tsp dried ginger
+</code></div>
+                        <p>Don't keep them as one word</p>
+                        <div className='example bad'>
+                            <code>
+                                1/2cup chicken broth
+                        <br />1tsp salt
+                        <br /> 1/4tsp dried ginger
+                        </code>
+                        </div>
+
+
+                    </div>
+                </article>
+
+
+                {/* <article>
 
                     <h3>About the Creator</h3>
                     <div className='p_wrapper'>
@@ -73,7 +117,7 @@ function LandingPage() {
                     </div>
 
                 </article>
-
+ */}
 
             </section ></>
     )

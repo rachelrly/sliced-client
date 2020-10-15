@@ -9,6 +9,10 @@ import formatRecipeTitle from '../../services/capitalize-recipe-title-service'
 import { VscTrash, VscReply } from 'react-icons/vsc'
 import Loading from '../Loading/Loading'
 
+/*This component renders the 'section' data for each individual 
+recipe. It holds the slider for the recipe amount. It has the button
+that triggers the event to delete recipes. It toggles the loading state 
+with state update in componentDidMount.*/
 
 class RecipePage extends Component {
     static contextType = UserContext;
@@ -31,7 +35,6 @@ class RecipePage extends Component {
     componentDidMount() {
 
         const id = this.props.match.params.id;
-        //this is why the test is failing. How do I represent that?
 
         if (this.context.user_id) {
             this.context.getRecipes(this.context.user_id)
@@ -56,7 +59,7 @@ class RecipePage extends Component {
     }
 
     getMultiplyBy = (e) => {
-        const multiply = e.target.value
+        let multiply = e.target.value >= 0.25 ? e.target.value : 0.25;
         this.setState({
             multiplyBy: multiply
         })
@@ -96,11 +99,11 @@ class RecipePage extends Component {
                 <div className='slider_container'>
                     <label htmlFor='slider'></label>
                     <input
+                        value={this.state.multiplyBy}
                         type="range"
                         step='0.25'
-                        min='0.25'
-                        max='1'
-                        defaultValue='1'
+                        min='0'
+                        max='2'
                         name='slider'
                         className='slider'
                         onChange={(e) => this.getMultiplyBy(e)}
