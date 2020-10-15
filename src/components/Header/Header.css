@@ -4,7 +4,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    width: 100vw;
+    width: inherit;
     height: 100%;
     text-align: center;
     padding: var(--spacer--med) var(--spacer--sm);
