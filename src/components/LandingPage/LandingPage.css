@@ -30,13 +30,7 @@ background-image: url('image.jpg') ;
 
 }
 
-.landing_page_wrapper{
-    width: inherit;
-    display: flex;
-    flex-direction: column;
-    justify-self: flex-start;
-    align-items: center;
-}
+
 
 .landing_title{
     font-size: var(--fontsize--tablet--lg);
