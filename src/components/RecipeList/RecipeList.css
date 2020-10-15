@@ -100,8 +100,6 @@ ul{
 
 
 @media all and (min-width: 400px){
-    
-
     .recipe_thumb h3 {
         font-size: var(--fontsize--lg);
     }

@@ -4,10 +4,10 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    width: inherit;
-    height: 100vw;
+    width: 100vw;
+    height: 100%;
     text-align: center;
-    padding: var(--spacer--sm) var(--spacer--sm);
+    padding: var(--spacer--med) var(--spacer--sm);
     font-size: var(--fontsize--lg);
     background-color: var(--colors--dark);
 }
