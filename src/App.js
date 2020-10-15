@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from './components/Header/Header'
+import Footer from './components/Footer/Footer'
 import UserRecipesApiService from './services/user-recipes-api-service'
 import jwt_decode from "jwt-decode";
 import UserContext from './user-context'
@@ -129,7 +130,7 @@ class App extends Component {
 
         <main>
           <Router /> </main>
-
+        <Footer />
       </UserContext.Provider>
     )
   }

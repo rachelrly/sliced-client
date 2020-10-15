@@ -1,0 +1,29 @@
+footer{
+    display: flex;
+    width: 100vw;
+    background-color: var(--colors--dark);
+    height: 50px;
+    color: var(--colors--light);
+    justify-content: flex-end;
+    align-items: center;
+    font-size: var(--fontsize--med);
+    padding-right: var(--spacer--lg);
+}
+
+footer > * {
+    padding: 0 var(--spacer--sm);
+}
+
+a{
+    text-decoration: none;
+}
+
+.footer_icon{
+    color: var(--colors--light);
+    outline: 0;
+}
+
+.footer_icon:focus,
+.footer_icon:hover{
+    color: var(--colors--accent-bright);
+}
