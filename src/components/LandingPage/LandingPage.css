@@ -1,10 +1,6 @@
-/* .landing_page_wrapper{
-color: red;
-background-image: url('image.jpg') ;
-} */
 
 .img_wrapper{
-    width: 100%;
+    width: 100vw;
     height: calc(100vh - 106px);
     padding: 0;
     margin: 0;
@@ -13,6 +9,7 @@ background-image: url('image.jpg') ;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .img_wrapper::before{
@@ -21,11 +18,12 @@ background-image: url('image.jpg') ;
     background-image: url(bg-lg.jpg);
     background-position: center;
     content: "";
-    width: 100%;
+    width: 100vw;
     height: calc(100vh - 106px);
     padding: 0;
     margin: 0;
     position: absolute;
+    overflow: hidden;
 
 
 }
