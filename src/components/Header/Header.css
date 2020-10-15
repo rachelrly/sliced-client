@@ -5,9 +5,9 @@ header {
     align-items: center;
     justify-content: space-evenly;
     width: inherit;
-    height: 100%;
+    height: 100vw;
     text-align: center;
-    padding: var(--spacer--med) var(--spacer--sm);
+    padding: var(--spacer--sm) var(--spacer--sm);
     font-size: var(--fontsize--lg);
     background-color: var(--colors--dark);
 }

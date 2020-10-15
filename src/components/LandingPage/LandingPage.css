@@ -1,6 +1,6 @@
 
 .img_wrapper{
-    width: 100%;
+    width: 100vw;
     height: calc(100vh - 106px);
     padding: 0;
     margin: 0;
@@ -18,7 +18,7 @@
     background-image: url(bg-lg.jpg);
     background-position: center;
     content: "";
-    width: 100%;
+    width: 100vw;
     height: calc(100vh - 106px);
     padding: 0;
     margin: 0;
@@ -44,7 +44,7 @@ article{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
    
 }
 
