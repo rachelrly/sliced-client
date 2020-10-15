@@ -12,7 +12,7 @@ class Login extends Component {
         super(props);
         this.state = {
             error: false,
-            loading: true
+            loading: false
         }
     }
 
