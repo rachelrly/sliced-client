@@ -64,7 +64,7 @@ article button {
     overflow-x: hidden;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
 }
 
 
@@ -87,6 +87,7 @@ article button {
     padding: var(--spacer--sm);
     border-radius: 4px;
     overflow-wrap: break-word;
+    width: inherit;
     
 }
 
