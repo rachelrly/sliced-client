@@ -57,19 +57,6 @@ article button {
     cursor: pointer;
 }
 
-.p_wrapper{
-    padding-top: var(--spacer--sm);
-    width: inherit;
-    overflow-x: hidden;
-
-}
-
-
-
-.p_wrapper p{
-    padding: var(--spacer--sm) 0;
-    
-} 
 
 
 
@@ -84,12 +71,14 @@ article button {
     padding: var(--spacer--sm);
     border-radius: 4px;
     overflow-wrap: break-word;
-    width: inherit;
+    width: 100%;
     
 }
 
 
-
+article h3{
+    width: 100%;
+}
 .bad{
     margin: var(--spacer--sm) 0 var(--spacer--lg);
 }
