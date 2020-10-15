@@ -90,7 +90,6 @@ article button {
 .example{
     height: 100%;
     border: 1px solid var(--colors--black);
-    margin: var(--spacer--sm) 0;
     padding: var(--spacer--sm);
     border-radius: 4px;
     width: 90%;
@@ -113,8 +112,6 @@ article button {
 .button_wrapper button{
     display: flex;
     justify-content: center;
-   
-    
     border: 2px solid var(--colors--accent-bright);
     outline: none;
 }
@@ -140,7 +137,7 @@ a{
     color: var(--colors--black);
     border: 2px solid var(--colors--black);
     outline: 0;
-    align-self: center;
+    
 }
 
 
