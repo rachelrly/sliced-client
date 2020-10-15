@@ -49,7 +49,10 @@ article{
     width: 100%;
     padding: var(--spacer--sm);
     margin: var(--spacer--sm) 0;
-   
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 article button {
@@ -66,7 +69,11 @@ article button {
 .p_wrapper{
     padding-top: var(--spacer--sm);
     display: flex;
-    width: inherit;
+    width: 100%;
+    overflow-x: hidden;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 

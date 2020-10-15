@@ -28,10 +28,12 @@
   text-decoration: none;
 
 }
-
+html{
+  width: 100%;
+}
 body {
   height: 100%;
-  width: 100%;
+  width: inherit;
   font-family: 'Raleway', sans-serif;
   display: flex;
   flex-direction: column;
