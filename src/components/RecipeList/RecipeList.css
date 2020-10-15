@@ -1,13 +1,14 @@
 
 
 section {
-    padding: var(--spacer--med);
+    margin: var(--spacer--med);
     height: 100%;
     width: calc(100vw - 1.9rem);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    overflow-x: hidden;
 
 }
 
