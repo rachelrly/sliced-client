@@ -1,7 +1,7 @@
 
 
 form {
-    width: 90vw;
+    width: inherit;
     margin-top: var(--spacer--lg);
     display: flex;
     flex-direction: column;
