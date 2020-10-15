@@ -38,9 +38,7 @@
 
 article{
     text-align: left;
-    width: inherit;
-    padding: var(--spacer--sm);
-    
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
