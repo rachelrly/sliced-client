@@ -138,7 +138,6 @@ ul{
 @media all and (min-width: 800px){
     section{
         padding: var(--spacer--med) var(--spacer--lg);
-    
         max-width: 800px;
     }
 }
