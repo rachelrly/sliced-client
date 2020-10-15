@@ -96,7 +96,9 @@ class AddRecipe extends Component {
                         className={err_class}
                         onChange={(e) => this.setState({
                             title: e.target.value
-                        })} />
+                        })}
+                        placeholder='Crispy chocolate chip cookies' />
+
 
                     <label htmlFor='url'>Url (optional)</label>
                     <input
@@ -104,13 +106,21 @@ class AddRecipe extends Component {
                         type='text'
                         onChange={(e) => this.setState({
                             url: e.target.value
-                        })} />
+                        })}
+                        placeholder='https://sallysbakingaddiction.com/crispy-chocolate-chip-cookies/' />
 
                     <label htmlFor='ingredients'>Ingredients</label>
                     <textarea
                         name='ingredients'
                         className={err_class}
-                        onChange={(e) => this.parseTextAreaInput(e)} />
+                        onChange={(e) => this.parseTextAreaInput(e)}
+                        placeholder={`1 1/2 cups all-purpose flour
+1/2 teaspoon baking soda
+1/2 teaspoon salt
+10 Tablespoons unsalted butter
+1/2 cup granulated sugar
+1/4 cup packed light or dark brown sugar
+2 Tablespoons honey or light corn syrup` } />
                     {error}
                     <button
                         type='submit'

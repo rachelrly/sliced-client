@@ -30,7 +30,7 @@ function LandingPage() {
                 <article>
                     <h3>What is Sliced?</h3>
                     <div className='p_wrapper'>
-                        <p>Sliced is an app that allows you to input your recipes and scale the ingredients down by 3/4, 1/2 or 1/4, or up by 1-1/4, 1-1/2, 1-3/4 and 2</p>
+                        <p>Sliced is an app that allows you to input your recipes and scale the ingredients down by 3/4, 1/2 or 1/4, or up by 1-1/4, 1-1/2, 1-3/4 or 2.</p>
                     </div>
                 </article>
                 <article>

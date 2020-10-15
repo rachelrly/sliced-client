@@ -43,7 +43,8 @@ header .title_link:focus{
     border: 2px solid var(--colors--light);
 }
 
-header button:focus{
+header button:focus,
+header button:hover{
     border: 2px solid var(--colors--light);
     background-color: var(--colors--dark);
 }

@@ -2,7 +2,8 @@
     outline: none;
 }
 
-.add_section button:focus{
+.add_section button:focus,
+.add_section button:hover{
     border: 2px solid var(--colors--dark); 
     background-color: var(--colors--light); 
 }
