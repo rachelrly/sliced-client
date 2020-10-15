@@ -1,7 +1,7 @@
 
 
 form {
-    width: inherit;
+    width: 100%;
     margin-top: var(--spacer--lg);
     display: flex;
     flex-direction: column;
@@ -61,8 +61,3 @@ textarea:active{
 }
 
 
-@media all and (min-width: 600px){
-    form{
-        width: inherit;
-    }
-}
