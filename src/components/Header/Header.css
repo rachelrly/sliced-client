@@ -48,15 +48,11 @@ header button:hover{
     border: 2px solid var(--colors--light);
     background-color: var(--colors--dark);
 }
-@media all and (min-width: 400px){
-    header{
-        
-        padding: var(--spacer--med);
-    }
-}
+
 
 @media all and (min-width: 600px){
     header{
+        width: 100vw;
         justify-content: space-between;
         padding: var(--spacer--med) var(--spacer--lg);
         

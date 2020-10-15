@@ -46,7 +46,7 @@ background-image: url('image.jpg') ;
 
 article{
     text-align: left;
-    width: 100%;
+    width: inherit;
     padding: var(--spacer--sm);
     margin: var(--spacer--sm) 0;
     display: flex;
