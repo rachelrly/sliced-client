@@ -10,7 +10,6 @@ header {
     padding: var(--spacer--med) var(--spacer--sm);
     font-size: var(--fontsize--lg);
     background-color: var(--colors--dark);
-    overflow-x: hidden;
 }
 
 h1{
