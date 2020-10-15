@@ -2,7 +2,7 @@
 
 section {
     margin: var(--spacer--med);
-    height: 100%;
+    height: inherit;
     width: calc(100vw - 1.9rem);
     display: flex;
     flex-direction: column;
