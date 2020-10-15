@@ -49,6 +49,10 @@ article{
     width: 100%;
     padding: var(--spacer--sm);
     margin: var(--spacer--sm) 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 article button {
@@ -64,6 +68,11 @@ article button {
 
 .p_wrapper{
     padding-top: var(--spacer--sm);
+    display: flex;
+    width: inherit;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 
@@ -73,6 +82,8 @@ article button {
     
 } 
 
+
+
 .button_wrapper{
     display: flex;
     justify-content: center;
@@ -80,10 +91,15 @@ article button {
 }
 .example{
     height: 100%;
-    border: 2px solid var(--colors--black);
+    border: 1px solid var(--colors--black);
     margin: var(--spacer--sm) 0;
-    padding: var(--spacer--sm)
+    padding: var(--spacer--sm);
+    border-radius: 4px;
+    width: 100%;
+    
 }
+
+
 
 .bad{
     margin: var(--spacer--sm) 0 var(--spacer--lg);
@@ -93,9 +109,7 @@ article button {
     margin: var(--spacer--sm) 0 0;
 }
 
-.sample_rec{
-    height: 100%;
-}
+
 
 
 .button_wrapper button{
@@ -118,17 +132,33 @@ img{
     height: 100%;
 }
 
-
-.landing_main{
-    background-color: var(--colors--light);
-    border: 2px solid var(--colors--dark);
-    color: var(--colors--dark);
+a{
     outline: 0;
 }
+.landing_main{
+   
+    background-color: var(--colors--light);
+    color: var(--colors--black);
+    border: 2px solid var(--colors--black);
+    outline: 0;
+    align-self: center;
+}
+
+
 
 .landing_main:focus,
 .landing_main:active,
 .landing_main:hover{
-    background-color: var(--colors--accent-bright);
+    background-color: var(--colors--muted);
+    border: 2px solid var(--colors--muted);
+    color: var(--colors--light);
+    
 }
 
+@media all and (min-width: 600px) {
+    .example{
+        padding: var(--spacer--med);
+        
+        
+    }
+}

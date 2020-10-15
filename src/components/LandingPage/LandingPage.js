@@ -54,7 +54,7 @@ function LandingPage() {
                         <p>Not many ingredients on one line</p>
                         <div className='example bad'>
 
-                            <code><br />1 cup 2 tsp salt 1 tsp dried ginger</code>
+                            <code>1 cup 2 tsp salt 1 tsp dried ginger</code>
                         </div>
 
 
@@ -71,7 +71,7 @@ function LandingPage() {
                             <code>
                                 ½ cup chicken broth
                         <br />¼ tsp salt
-                        <br /> ½, tsp dried ginger
+                        <br />½ tsp dried ginger
                         </code>
                         </div>
 
@@ -134,13 +134,14 @@ function LandingPage() {
 <br />1 1/4 cups semi-sweet chocolate chips
                             </code>
                         </div>
+                        {!TokenService.hasAuthToken()
+
+                            ? null
+
+                            : <Link to={'/add-recipe'}><button className='landing_main add_rec'>Add recipe</button></Link>
+                        }
                     </div>
-                    {!TokenService.hasAuthToken()
 
-                        ? null
-
-                        : <Link to={'/add-recipe'}><button className='landing_main'>Add recipe</button></Link>
-                    }
                 </article>
 
 
