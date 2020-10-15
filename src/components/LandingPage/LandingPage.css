@@ -82,8 +82,9 @@ article h3{
     width: 100%;
     padding-bottom: var(--spacer--sm);
 }
-.bad{
-    margin: var(--spacer--sm) 0 var(--spacer--lg);
+
+article >*{
+    margin: var(--spacer--sm) 0;
 }
 
 
