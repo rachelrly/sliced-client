@@ -50,12 +50,6 @@ export function scale(num, unit, multiply) {
 
 
     }
-    const getRoundedNumber = (num) => {
-        const arr = num.toString().split('.')
-
-        return Number(`${arr[0]}${arr[2].splice(0, 3)}`)
-
-    }
 
     newAmount === 0.5
         ? formatNum = '1/2'
