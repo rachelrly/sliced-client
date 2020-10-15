@@ -2,7 +2,7 @@ footer{
     display: flex;
     width: 100vw;
     background-color: var(--colors--dark);
-    height: 38px;
+    height: 40px;
     color: var(--colors--light);
     justify-content: flex-end;
     align-items: center;
