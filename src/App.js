@@ -7,6 +7,8 @@ import UserContext from './user-context'
 import TokenService from './services/token-service'
 import Router from './Router'
 import './App.css'
+require('dotenv').config();
+
 
 
 class App extends Component {

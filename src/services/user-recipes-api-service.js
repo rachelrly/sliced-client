@@ -1,11 +1,12 @@
-import config from '../config';
 import TokenService from '../services/token-service'
 
 const UserRecipesApiService = {
 
     //adjust to take in user_id
     getRecipes(user_id) {
-        return fetch(`${config.API_ENDPOINT}/recipes/${user_id}`, {
+
+        console.log(process.env.REACT_APP_API_ENDPOINT)
+        return fetch(`${process.env.REACT_APP_API_ENDPOINT}/recipes/${user_id}`, {
             headers: {
                 'Authorization': `bearer ${TokenService.getAuthToken()}`
             }
@@ -16,13 +17,13 @@ const UserRecipesApiService = {
 
     //adjust to take in user_id
     getFullRecipeById(id, user_id) {
-        const getRecipe = fetch(`${config.API_ENDPOINT}/recipes/${user_id}/${id}`, {
+        const getRecipe = fetch(`${process.env.REACT_APP_API_ENDPOINT}/recipes/${user_id}/${id}`, {
             headers: {
                 'Authorization': `bearer ${TokenService.getAuthToken()}`
             }
         })
             .then(res => res.json())
-        const getIngredients = fetch(`${config.API_ENDPOINT}/recipes/${user_id}/${id}/ingredients`, {
+        const getIngredients = fetch(`${process.env.REACT_APP_API_ENDPOINT}/recipes/${user_id}/${id}/ingredients`, {
             headers: {
                 'Authorization': `bearer ${TokenService.getAuthToken()}`
             }
@@ -39,7 +40,7 @@ const UserRecipesApiService = {
     },
     createRecipe(recipe, user_id) {
 
-        return fetch(`${config.API_ENDPOINT}/recipes/${user_id}`, {
+        return fetch(`${process.env.REACT_APP_API_ENDPOINT}/recipes/${user_id}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -49,7 +50,7 @@ const UserRecipesApiService = {
         })
     },
     deleteRecipe(id, user_id) {
-        return fetch(`${config.API_ENDPOINT}/recipes/${user_id}/${id}`, {
+        return fetch(`${process.env.REACT_APP_API_ENDPOINT}/recipes/${user_id}/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',

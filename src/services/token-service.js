@@ -1,17 +1,17 @@
-import config from '../config'
+
 
 const TokenService = {
 
     saveAuthToken(token) {
-        window.localStorage.setItem(config.TOKEN_KEY, token)
+        window.localStorage.setItem(process.env.REACT_APP_TOKEN_KEY, token)
     },
 
     getAuthToken() {
-        return window.localStorage.getItem(config.TOKEN_KEY)
+        return window.localStorage.getItem(process.env.REACT_APP_TOKEN_KEY)
     },
 
     clearAuthToken() {
-        return window.localStorage.removeItem(config.TOKEN_KEY)
+        return window.localStorage.removeItem(process.env.REACT_APP_TOKEN_KEY)
     },
 
     hasAuthToken() {
