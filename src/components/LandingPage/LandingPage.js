@@ -37,7 +37,7 @@ function LandingPage() {
 
                     <h3>How to Slice your recipes</h3>
 
-                    <p>Sliced works by parsing each line of a recipe's ingredient list to find the unit and amount and title.
+                    <p>Sliced works by parsing each line of a recipe's ingredient list to find the unit, amount and title.
                 </p>
 
                     <p>For best results, please follow these guidelines when adding a new recipe:</p>
