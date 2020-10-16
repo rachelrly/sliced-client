@@ -28,6 +28,10 @@ https://sliced.rachanastasia.vercel.app/
 
 - Deployed with Vercel
 
+## Images
+
+![](recipe-scale-up.png)
+
 ## Codebase Structure
 
 ### /src/App.js
@@ -42,7 +46,7 @@ The folders for RecipeList and RecipePage also contains relavent child component
 
 #### /Routes
 
-This folder contains the public and private routes used in src/Router.js
+This folder contains the public and private routes used in src/Router.js, and a componenet that controls scrolling to top between routes.
 
 ### /src/services
 
