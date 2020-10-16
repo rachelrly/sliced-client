@@ -30,9 +30,17 @@ https://sliced.rachanastasia.vercel.app/
 
 ## Images
 
+![](sliced-main.png)
+
+![](sliced-login.png)
+
 ![](recipe-scale-up.png)
+
 ![](recipe-scale-down.png)
+
 ![](recipe-list.png)
+
+![](add-recipe.png)
 
 ## Codebase Structure
 
