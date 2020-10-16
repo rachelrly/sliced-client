@@ -10,7 +10,19 @@ https://sliced.rachanastasia.vercel.app/
 - **email** test@gmail.com
 - **password** test-password
 
-## Sliced Demo
+## Images
+
+![](sliced-home.png)
+
+![](sliced-login.png)
+
+![](recipe-scale-up.png)
+
+![](recipe-scale-down.png)
+
+![](recipe-list.png)
+
+![](add-recipe.png)
 
 ## Tech Stack
 
@@ -27,20 +39,6 @@ https://sliced.rachanastasia.vercel.app/
 ### Production
 
 - Deployed with Vercel
-
-## Images
-
-![](sliced-home.png)
-
-![](sliced-login.png)
-
-![](recipe-scale-up.png)
-
-![](recipe-scale-down.png)
-
-![](recipe-list.png)
-
-![](add-recipe.png)
 
 ## Codebase Structure
 
