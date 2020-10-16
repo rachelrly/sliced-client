@@ -127,9 +127,9 @@ class App extends Component {
     return (
       <UserContext.Provider value={value}>
         <Header />
-
         <main>
-          <Router /> </main>
+          <Router />
+        </main>
         <Footer />
       </UserContext.Provider>
     )
