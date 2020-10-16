@@ -30,7 +30,7 @@ https://sliced.rachanastasia.vercel.app/
 
 ## Images
 
-![](sliced-main.png)
+![](sliced-home.png)
 
 ![](sliced-login.png)
 
