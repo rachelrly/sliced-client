@@ -1,4 +1,4 @@
-#Sliced Client
+# Sliced Client
 
 Sliced allows you to save your recipes and scale the ingredients up or down by 1/4 increments.
 
@@ -9,9 +9,9 @@ This repository is for the front-end client. You can see the live version here: 
 - **email** test@gmail.com
 - **password** test-password
 
-##Tech Stack
+### Tech Stack
 
-###Front End
+### Front End
 
 - React
 - CSS3
