@@ -1,6 +1,7 @@
+/*This function parses the amount_str returned by ./parse-input-services*/
+
 export function parseAmount(str) {
-    //inserted because of smoke test
-    //posibly refactor
+
     if (!str) {
         str = 'this string'
     }

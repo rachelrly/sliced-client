@@ -1,5 +1,6 @@
-//THIS FILE MUST DEAL WITH THE EDGE CASE OF THE 
-//AUTO-SHRINK FRACTIONS NOT WORKING WITH REGEX
+/* This function takes in each string of user input and splits 
+it into the propor data format, separating numbers from words and splitting off
+words that are validTypes as amount_str and splitting off the rest as title*/
 
 export function parseInput(str) {
     let splitStr = str.split(' ')

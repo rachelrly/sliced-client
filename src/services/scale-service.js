@@ -1,3 +1,6 @@
+/*Scales and formats numbers from amount_str that are stored in the state of /components/RecipePage/Ingredients.js   */
+
+
 export function scale(num, unit, multiply) {
     let newAmount = num * multiply
     let newUnit = unit
