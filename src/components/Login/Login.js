@@ -47,6 +47,7 @@ class Login extends Component {
         let errClass = this.state.error ? 'err' : null
         const renderPage = this.state.loading ? <Loading /> : <section className='Login_section'>
             <form
+                autoComplete='off'
                 className='Login_form'
                 onSubmit={this.handleSubmitAuth}>
 

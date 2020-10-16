@@ -86,6 +86,7 @@ class AddRecipe extends Component {
                     </button>
                 </div>
                 <form className='AddRecipe_form'
+                    autoComplete='off'
                     onSubmit={(e) => this.handleFormSubmit(e, recipe)}>
 
                     <label htmlFor='title'>Title</label>
