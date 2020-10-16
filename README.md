@@ -36,11 +36,11 @@ This is where the user context lives. This component renders the header, footer,
 
 ### /src/components
 
-All react components are stored in this folder. Every parent component has its own folder, containing the component file, the test file, and--in most cases--a CSS file.
+All other react components are stored in this folder. Every parent component has its own folder, containing the component file, the test file, and--in most cases--a CSS file.
 
 The folders for RecipeList and RecipePage also contains relavent child components.
 
-#### /src/components/Routes
+#### /Routes
 
 This folder contains the public and private routes used in src/Router.js
 
@@ -48,30 +48,30 @@ This folder contains the public and private routes used in src/Router.js
 
 This folder contains Javascript helper files that function in different ways.
 
-#### /src/services/capitalize-recipe-title-service
-
-Turns recipe title to lower case and capitalizes the first letter of every word.
-
-#### src/services/user-recipe-api-services
-
-Makes GET, POST, and DELETE requests to server.
-
-#### src/services/token-service
-
-Gets, clears, and verifies auth token.
-
-#### src/services/auth-api-service
-
-Makes POST request to server.
-
-#### src/services/parse-input-service
+#### /parse-input-service
 
 Takes in a string from the user input and splits it into the propor data format based on regex and valid types.
 
-#### src/services/parse-amount-service
+#### /parse-amount-service
 
 Parses the amount_str returned from parse-input-service, seperating the number from the unit.
 
-#### src/services/scale-service
+#### /scale-service
 
 Provides the scaling functionality in the component RecipePage.js
+
+#### /capitalize-recipe-title-service
+
+Turns recipe title to lower case and capitalizes the first letter of every word.
+
+#### /user-recipe-api-services
+
+Makes GET, POST, and DELETE requests to server.
+
+#### /token-service
+
+Gets, clears, and verifies auth token.
+
+#### /auth-api-service
+
+Makes POST request to server.
