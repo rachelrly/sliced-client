@@ -2,8 +2,9 @@
 
 Sliced allows you to save your recipes and scale the ingredients up or down by 1/4 increments.
 
-This repository is for the front-end client. You can see the live version here:
-https://sliced.rachanastasia.vercel.app/
+This repository is for the front-end client.
+Live version: https://sliced.rachanastasia.vercel.app/
+back-end repo: https://github.com/Rachanastasia/sliced-API
 
 ### Demo Account
 
