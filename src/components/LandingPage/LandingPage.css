@@ -1,4 +1,16 @@
 
+article{
+    text-align: left;
+    width: 90%;
+    padding: var(--spacer--sm) 0;
+    margin-bottom: var(--spacer--med);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+   
+}
+
 .img_wrapper{
     width: 100vw;
     height: calc(100vh - 106px);
@@ -36,16 +48,7 @@
     z-index: 3;
 }
 
-article{
-    text-align: left;
-    width: 100%;
-    padding: var(--spacer--sm) 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-   
-}
+
 
 article button {
     padding: var(--spacer--sm) var(--spacer--med);
@@ -71,9 +74,41 @@ article button {
     padding: var(--spacer--sm);
     border-radius: 4px;
     width: 100%;
+    overflow-wrap: break-word;
+    margin-bottom: var(--spacer--sm);
     
 }
+.dodont_wrapper{
+    margin-top: var(--spacer--med);
+}
+.screenshot{
+    width: calc(375px * 0.7);
+    height: calc(667px * 0.7);
+    padding: var(--spacer--med);
+}
 
+.screenshot_wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    width: 100%;
+
+}
+
+
+.good{
+    border: 2px solid var(--colors--accent-bright);
+}
+
+.do{
+    color: var(--colors--accent-bright);
+    font-weight: bold;
+}
+
+.dont{
+    font-weight: bold;
+}
 
 article h3{
     width: 100%;
@@ -135,7 +170,9 @@ a{
 @media all and (min-width: 600px) {
     .example{
         padding: var(--spacer--med);
-        
-        
+    }
+    .screenshot_wrapper{
+        flex-direction: row;
+        justify-content: space-evenly;
     }
 }

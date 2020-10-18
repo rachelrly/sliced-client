@@ -15,17 +15,17 @@ back-end repo: https://github.com/Rachanastasia/sliced-API
 
 ## Images
 
-![](sliced-home.png)
+![](src/screenshots/sliced-home.png)
 
-![](sliced-login.png)
+![](src/screenshots/sliced-login.png)
 
-![](recipe-scale-up.png)
+![](src/screenshots/recipe-scale-up.png)
 
-![](recipe-scale-down.png)
+![](src/screenshots/recipe-scale-down.png)
 
-![](recipe-list.png)
+![](src/screenshots/recipe-list.png)
 
-![](add-recipe.png)
+![](src/screenshots/add-recipe.png)
 
 ## Tech Stack
 

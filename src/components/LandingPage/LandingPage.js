@@ -2,6 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './LandingPage.css';
 import TokenService from '../../services/token-service';
+import recipeList from '../../screenshots/recipe-list.png';
+import newRecipe from '../../screenshots/new-recipe.png';
+import scaleDown from '../../screenshots/recipe-scale-down.png';
+import scaleUp from '../../screenshots/recipe-scale-up.png';
 
 
 
@@ -31,7 +35,10 @@ function LandingPage() {
                     <h3>What is Sliced?</h3>
 
                     <p>Sliced is an app that allows you to input your recipes and scale the ingredients down by 3/4, 1/2 or 1/4, or up by 1-1/4, 1-1/2, 1-3/4 or 2.</p>
-
+                    <div className='screenshot_wrapper'>
+                        <img className='screenshot' src={scaleDown} alt="screenshot of the Sliced scaling down feature " />
+                        <img className='screenshot' src={scaleUp} alt="screenshot of the Sliced scaling up feature " />
+                    </div>
                 </article>
                 <article>
 
@@ -42,8 +49,8 @@ function LandingPage() {
 
                     <p>For best results, please follow these guidelines when adding a new recipe:</p>
 
-                    <p>
-                        List each ingredient is on its own line
+                    <p className='dodont_wrapper'>
+                        <span className='do'>Do</span> list each ingredient is on its own line
                 </p>
                     <div className='example good'>
                         <code>
@@ -51,14 +58,15 @@ function LandingPage() {
                         <br />2 tsp salt
                         <br />1 tsp dried ginger
 </code></div>
-                    <p>Not many ingredients on one line</p>
+                    <p><span className='dont'>Don't</span> put many ingredients on one line</p>
                     <div className='example bad'>
 
                         <code>1 cup 2 tsp salt 1 tsp dried ginger</code>
                     </div>
 
 
-                    <p>Enter ingredient fraction with numbers and slashes
+                    <p className='dodont_wrapper'>
+                        <span className='do'>Do</span> enter ingredient fraction with numbers and slashes
                 </p>
                     <div className='example good'>
                         <code>
@@ -66,7 +74,7 @@ function LandingPage() {
                         <br />1/4 tsp salt
                         <br />1/2 tsp dried ginger
 </code></div>
-                    <p>Not formatted fractions</p>
+                    <p><span className='dont'>Don't</span> use formatted fractions</p>
                     <div className='example bad'>
                         <code>
                             ½ cup chicken broth
@@ -76,7 +84,8 @@ function LandingPage() {
                     </div>
 
 
-                    <p>Keep a space or hyphen between the ingredient amount and the measurement unit
+                    <p className='dodont_wrapper'>
+                        <span className='do'>Do</span> keep a space or hyphen between the ingredient amount and the measurement unit
                 </p>
                     <div className='example good'>
                         <code>
@@ -84,7 +93,7 @@ function LandingPage() {
                         <br />1/4 tsp salt
                         <br />1-1/2 tsp dried ginger
 </code></div>
-                    <p>Don't keep them as one word</p>
+                    <p><span className='dont'>Don't</span> keep them as one word</p>
                     <div className='example bad'>
                         <code>
                             1/2cup chicken broth
@@ -113,10 +122,14 @@ function LandingPage() {
 
                 <article>
 
-                    <h3>Sample Recipe</h3>
+                    <h3>Add a Recipe</h3>
 
 
-                    <p>Add your own recipes or copy and paste the title, url, and ingredients below: </p>
+                    <p>Click on the '+' at the top of your recipe list to add your own recipe or copy and paste the one below: </p>
+                    <div className='screenshot_wrapper'>
+                        <img className='screenshot' src={recipeList} alt="screenshot of the Sliced scaling down feature " />
+                        <img className='screenshot' src={newRecipe} alt="screenshot of the Sliced scaling up feature " />
+                    </div>
                     <div className='example sample_rec'>
                         <code>Crispy chocolate chip cookies</code> <br /><br />
                         <code>sallysbakingaddiction.com/crispy-chocolate-chip-cookies/</code><br /><br />
