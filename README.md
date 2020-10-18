@@ -23,8 +23,6 @@ back-end repo: https://github.com/Rachanastasia/sliced-API
 
 ![](src/screenshots/recipe-scale-down.png)
 
-![](src/screenshots/recipe-list.png)
-
 ![](src/screenshots/add-recipe.png)
 
 ## Tech Stack
