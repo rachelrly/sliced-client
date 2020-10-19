@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { parseInput } from '../../services/parse-input-service'
 import UserRecipesApiService from '../../services/user-recipes-api-service'
+import formatRecipeTitle from '../../services/capitalize-recipe-title-service'
 import jwt_decode from 'jwt-decode'
 import cuid from 'cuid'
 import TokenService from '../../services/token-service'
@@ -71,6 +72,15 @@ class AddRecipe extends Component {
             ingredients: this.state.ingredients,
             id: cuid()
         }
+        const previewIng = !this.state.ingredients ? null : this.state.ingredients.map(ing => {
+            if (!ing.title) {
+                return true;
+            }
+            return (
+                <tr key={ing.title}><td>{ing.amount_str ? ing.amount_str : ' '}</td><td>{ing.title}</td></tr>
+            )
+        })
+        const cappedTitle = this.state.title ? formatRecipeTitle(this.state.title) : null;
 
         let error = this.state.error ? <span className='error_text'>Recipe title and ingredients are required.</span> : null;
         let err_class = this.state.error ? 'err' : null;
@@ -78,11 +88,11 @@ class AddRecipe extends Component {
             <section className='add_section' >
                 <div className='goBack_wrapper'>
                     <button
-                        className='goBack'
+                        className='goBack round'
                         onClick={() => this.props.history.push('/recipe')}
                         aria-label="Go back to the previous page"
                     >
-                        <VscReply className='arrow' />
+                        <VscReply className='arrow round-child' />
                     </button>
                 </div>
                 <form className='AddRecipe_form'
@@ -122,6 +132,17 @@ class AddRecipe extends Component {
 1/2 cup granulated sugar
 1/4 cup packed light or dark brown sugar
 2 Tablespoons honey or light corn syrup` } />
+                    <div className='prev_wrapper'>
+                        {!this.state.ingredients
+                            ? null
+                            : <><h3>Preview</h3><h4>{cappedTitle}</h4>
+                                <table>
+                                    <thead><tr><th>Amount</th><th>Ingredient</th></tr></thead>
+                                    <tbody>{previewIng}</tbody>
+                                </table></>
+
+                        }
+                    </div>
                     {error}
                     <button
                         type='submit'

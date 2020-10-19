@@ -8,3 +8,28 @@
     background-color: var(--colors--light); 
 }
 
+form div{
+    padding-top: var(--spacer--sm);
+    width: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form div h3{
+    padding: var(--spacer--sm) 0;
+}
+
+table{
+    width: 100%;
+    font-size: var(--fontsize--sm);
+}
+
+tr{
+    height: 40px;
+    width: inherit;
+    
+}
+
+
