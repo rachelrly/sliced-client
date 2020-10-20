@@ -139,6 +139,24 @@ function LandingPage() {
                         </code>
                     </div>
 
+                    <p className='dodont_wrapper'>
+                        <span className='do'>Do</span> use alphanumeric characters, hyphens, and periods in ingredient name.
+                </p>
+                    <div className='example good'>
+                        <code>
+                            2 c. chicken-broth
+                        <br />1 tsp salt
+                        <br />1-1/2 tsp d. ginger
+</code></div>
+                    <p><span className='dont'>Don't</span> use special characters in ingredient name. Sliced does not parse ingredients that use special characters.</p>
+                    <div className='example bad'>
+                        <code>
+                            2 c. chicken broth (unsalted)
+                        <br />1 tsp salt + pepper
+                        <br />1-1/2 tsp dried ginger & tumeric
+                        </code>
+                    </div>
+
 
 
 
@@ -173,10 +191,10 @@ function LandingPage() {
                         <code>Crispy chocolate chip cookies</code> <br /><br />
                         <code>sallysbakingaddiction.com/crispy-chocolate-chip-cookies/</code><br /><br />
                         <code>
-                            1 1/2 cups all-purpose flour (spoon and leveled)
+                            1 1/2 cups all-purpose flour
 <br />1/2 teaspoon baking soda
 <br />1/2 teaspoon salt
-<br />10 Tablespoons unsalted butter, melted + slightly cooled
+<br />10 Tablespoons unsalted butter melted and slightly cooled
 <br />1/2 cup granulated sugar
 <br />1/4 cup packed light or dark brown sugar
 <br />2 Tablespoons honey or light corn syrup

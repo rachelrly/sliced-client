@@ -26,7 +26,11 @@ class AddRecipe extends Component {
 
 
     parseTextAreaInput = (e) => {
-
+        if (!this.state.preview) {
+            this.setState({
+                preview: true
+            })
+        }
         if (this.state.error) {
             this.setState({ error: null })
         }
@@ -46,11 +50,8 @@ class AddRecipe extends Component {
             ingredients: formattedInput
         })
 
-        if (this.state.ingredients && this.state.ingredients.find(ing => ing.amount_str || ing.title)) {
-            this.setState({
-                preview: true
-            })
-        }
+
+
 
         if (textAreaInput === '') {
             this.setState({
@@ -120,7 +121,7 @@ class AddRecipe extends Component {
                 <div className='goBack_wrapper'>
                     <button
                         className='goBack round'
-                        onClick={() => this.props.history.push('/recipe')}
+                        onClick={() => this.props.history.goBack()}
                         aria-label="Go back to the previous page"
                     >
                         <VscReply className='arrow round-child' />

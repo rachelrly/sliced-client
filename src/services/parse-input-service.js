@@ -44,10 +44,10 @@ export function parseInput(str) {
         amount_str = str;
         title = '';
         return { amount_str, title }
-    } else if (str.match(/^\d+\s[a-z\s\d]+$|^\d.\d+\s[a-z\s\d]+$/i)) {
+    } else if (str.match(/^\d+\s[a-z_.\s\d]+$|^\d.\d+\s[a-z_.\s\d]+$/i)) {
         const checkType = str.split(' ')[1];
         return isValidType(checkType) ? splitToType(str, 2) : splitToType(str, 1);
-    } else if (str.match(/^\d\s\d.\d+\s[a-z\s\d]+$/i)) {
+    } else if (str.match(/^\d\s\d.\d+\s[a-z_.\s\d]+$/i)) {
         const checkType = str.split(' ')[2];
         return isValidType(checkType) ? splitToType(str, 3) : splitToType(str, 2);
     } else {
