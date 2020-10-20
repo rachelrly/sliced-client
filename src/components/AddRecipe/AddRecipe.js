@@ -168,7 +168,7 @@ class AddRecipe extends Component {
                     <div className='prev_wrapper'>
                         {!this.state.preview
                             ? null
-                            : <><h4>Preview</h4><h3>{cappedTitle}</h3>
+                            : <><h3>{cappedTitle}</h3>
                                 <table>
                                     <thead><tr><th>Amount</th><th>Ingredient</th></tr></thead>
                                     <tbody>{previewIng}</tbody>

@@ -36,6 +36,13 @@ tr{
 
 td{
     width: 50%;
+
 }
 
+
+@media all and (min-width: 600px){
+    td{
+        padding-left: var(--spacer--med);
+    }
+}
 

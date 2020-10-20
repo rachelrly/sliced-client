@@ -40,6 +40,21 @@ function LandingPage() {
                         <img className='screenshot' src={scaleUp} alt="screenshot of the Sliced scaling up feature " />
                     </div>
                 </article>
+
+                <article id='login'>
+                    {!TokenService.hasAuthToken()
+
+                        ? <>
+                            <h3>Log in to Sliced</h3>
+
+                            <p>Log in with these credentials:</p>
+                            <p>Email: <code>test@gmail.com</code></p>
+                            <p>Password: <code>test-password</code></p>
+                            <Link to='/login' tabIndex='-1'><button className='landing_main'>Log in</button></Link>
+                        </>
+
+                        : null}
+                </article>
                 <article>
 
                     <h3>How to Slice your recipes</h3>
@@ -158,24 +173,10 @@ function LandingPage() {
                     </div>
 
 
-
-
-
                 </article>
-                <article id='login'>
-                    {!TokenService.hasAuthToken()
 
-                        ? <>
-                            <h3>Log in to Sliced</h3>
 
-                            <p>Log in with these credentials:</p>
-                            <p>Email: <code>test@gmail.com</code></p>
-                            <p>Password: <code>test-password</code></p>
-                            <Link to='/login' tabIndex='-1'><button className='landing_main'>Log in</button></Link>
-                        </>
 
-                        : null}
-                </article>
 
                 <article>
 
