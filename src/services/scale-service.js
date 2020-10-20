@@ -66,15 +66,19 @@ export function scale(num, unit, multiply) {
                         ? formatNum = getMixedNumber(newAmount, '1/4')
                         : newAmount % 0.25 === 0 && Number(`${newAmount.toString()[2]}${newAmount.toString()[3]}`) === 75
                             ? formatNum = getMixedNumber(newAmount, '3/4')
-                            : Number(`${newAmount.toString()[2]}${newAmount.toString()[3]}${newAmount.toString()[4]}`) === 375
+                            : Number(`${newAmount.toString()[2]}${newAmount.toString()[3]}`) === 37
                                 ? formatNum = getMixedNumber(newAmount, '3/8')
-                                : Number(`${newAmount.toString()[2]}${newAmount.toString()[3]}${newAmount.toString()[4]}`) === 625
+                                : Number(`${newAmount.toString()[2]}${newAmount.toString()[3]}`) === 62
                                     ? formatNum = getMixedNumber(newAmount, '5/8')
-                                    : Number(`${newAmount.toString()[2]}${newAmount.toString()[3]}${newAmount.toString()[4]}`) === 125
+                                    : Number(`${newAmount.toString()[2]}${newAmount.toString()[3]}`) === 12
                                         ? formatNum = getMixedNumber(newAmount, '1/8')
-                                        : Number(`${newAmount.toString()[2]}${newAmount.toString()[3]}${newAmount.toString()[4]}`) === 875
+                                        : Number(`${newAmount.toString()[2]}${newAmount.toString()[3]}`) === 87
                                             ? formatNum = getMixedNumber(newAmount, '7/8')
-                                            : formatNum = newAmount.toString().length > 5 ? Number(newAmount.toString().slice(0, 5)) : newAmount;
+                                            : Number(`${newAmount.toString()[2]}${newAmount.toString()[3]}`) === 33
+                                                ? formatNum = getMixedNumber(newAmount, '1/3')
+                                                : Number(`${newAmount.toString()[2]}${newAmount.toString()[3]}`) === 66
+                                                    ? formatNum = getMixedNumber(newAmount, '2/3')
+                                                    : formatNum = newAmount.toString().length > 5 ? Number(newAmount.toString().slice(0, 5)) : newAmount;
 
     let string = `${formatNum} ${newUnit}`
 

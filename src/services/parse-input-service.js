@@ -40,14 +40,14 @@ export function parseInput(str) {
         return { amount_str, title };
     }
 
-    if (str.match(/^\d+$|^\d+.$|^\d.\d+$|^\d.\d+\s$|^\d\s\d.\d$|^\d\s\d.$|^\d\s\d.\d\s$/)) {
+    if (str.trim().match(/^\d+$|^\d+.$|^\d.\d+$|^\d\s\d.\d$|^\d\s\d.$|^\d\s\d.\d+\s$/)) {
         amount_str = str;
         title = '';
         return { amount_str, title }
-    } else if (str.match(/^\d+\s[a-z_.\s]+|^\d.\d+\s[a-z_.\s]+/i)) {
+    } else if (str.match(/^\d+\s[a-z\s\d]+$|^\d.\d+\s[a-z\s\d]+$/i)) {
         const checkType = str.split(' ')[1];
         return isValidType(checkType) ? splitToType(str, 2) : splitToType(str, 1);
-    } else if (str.match(/^\d\s\d.\d+\s[a-z_.\s]+/i)) {
+    } else if (str.match(/^\d\s\d.\d+\s[a-z\s\d]+$/i)) {
         const checkType = str.split(' ')[2];
         return isValidType(checkType) ? splitToType(str, 3) : splitToType(str, 2);
     } else {

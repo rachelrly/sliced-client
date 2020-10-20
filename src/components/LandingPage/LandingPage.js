@@ -166,8 +166,8 @@ function LandingPage() {
 
                     <p>Click on the '+' at the top of your recipe list to add your own recipe or copy and paste the one below. Scroll down to preview how Sliced will split the input. </p>
                     <div className='screenshot_wrapper'>
-                        <img className='screenshot' src={recipeList} alt="screenshot of the Sliced scaling down feature " />
-                        <img className='screenshot' src={newRecipe} alt="screenshot of the Sliced scaling up feature " />
+                        <img className='screenshot' src={recipeList} alt="screenshot of the location of the new recipe button" />
+                        <img className='screenshot' src={newRecipe} alt="screenshot of new recipe feature" />
                     </div>
                     <div className='example sample_rec'>
                         <code>Crispy chocolate chip cookies</code> <br /><br />
