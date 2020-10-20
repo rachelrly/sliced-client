@@ -19,12 +19,17 @@ class AddRecipe extends Component {
             title: '',
             url: '',
             ingredients: '',
-            error: false
+            error: null,
+            preview: false
         }
     }
 
 
     parseTextAreaInput = (e) => {
+
+        if (this.state.error) {
+            this.setState({ error: null })
+        }
         const textAreaInput = e.target.value;
         const splitLine = String.fromCharCode(13, 10);
         const formattedInput = textAreaInput
@@ -41,6 +46,18 @@ class AddRecipe extends Component {
             ingredients: formattedInput
         })
 
+        if (this.state.ingredients && this.state.ingredients.find(ing => ing.amount_str || ing.title)) {
+            this.setState({
+                preview: true
+            })
+        }
+
+        if (textAreaInput === '') {
+            this.setState({
+                preview: false
+            })
+        }
+
     }
 
     handleFormSubmit = (e, recipe) => {
@@ -51,7 +68,14 @@ class AddRecipe extends Component {
 
         if (!this.state.title.length || !this.state.ingredients.length) {
             this.setState({
-                error: true
+                error: 'none'
+            })
+            return true;
+        }
+
+        if (!this.state.ingredients.find(ing => ing.amount_str && ing.title)) {
+            this.setState({
+                error: 'invalid'
             })
             return true;
         }
@@ -66,24 +90,31 @@ class AddRecipe extends Component {
 
 
     render() {
+
         const recipe = {
             url: this.state.url,
             title: this.state.title,
             ingredients: this.state.ingredients,
             id: cuid()
         }
-        const previewIng = !this.state.ingredients ? null : this.state.ingredients.map(ing => {
-            if (!ing.title) {
-                return true;
-            }
+        const previewIng = !this.state.preview ? null : this.state.ingredients.map(ing => {
+            let amt = ing.amount_str ? ing.amount_str : ' ';
+            let title = ing.title ? ing.title : '';
             return (
-                <tr key={ing.title}><td>{ing.amount_str ? ing.amount_str : ' '}</td><td>{ing.title}</td></tr>
+                <tr key={cuid()}><td>{amt}</td><td>{title}</td></tr>
             )
         })
+
         const cappedTitle = this.state.title ? formatRecipeTitle(this.state.title) : null;
 
-        let error = this.state.error ? <span className='error_text'>Recipe title and ingredients are required.</span> : null;
-        let err_class = this.state.error ? 'err' : null;
+        let error = this.state.error === 'none'
+            ? <span className='error_text'>Recipe title and ingredients are required.</span>
+            : this.state.error === 'invalid'
+                ? <span className='error_text'>At least one ingredient must start with valid, scalable measurement (number) and end with ingredient's name.</span>
+                : null;
+        let err_none = this.state.error === 'none' ? 'err' : null;
+        let err_invalid = this.state.error === 'invalid' ? 'err' : err_none;
+
         return (
             <section className='add_section' >
                 <div className='goBack_wrapper'>
@@ -104,9 +135,10 @@ class AddRecipe extends Component {
 
                         name='title'
                         type='text'
-                        className={err_class}
+                        className={err_none}
                         onChange={(e) => this.setState({
-                            title: e.target.value
+                            title: e.target.value,
+                            error: null
                         })}
                         placeholder='Crispy chocolate chip cookies' />
 
@@ -123,7 +155,7 @@ class AddRecipe extends Component {
                     <label htmlFor='ingredients'>Ingredients</label>
                     <textarea
                         name='ingredients'
-                        className={err_class}
+                        className={err_invalid}
                         onChange={(e) => this.parseTextAreaInput(e)}
                         placeholder={`1 1/2 cups all-purpose flour
 1/2 teaspoon baking soda
@@ -133,9 +165,9 @@ class AddRecipe extends Component {
 1/4 cup packed light or dark brown sugar
 2 Tablespoons honey or light corn syrup` } />
                     <div className='prev_wrapper'>
-                        {!this.state.ingredients
+                        {!this.state.preview
                             ? null
-                            : <><h3>Preview</h3><h4>{cappedTitle}</h4>
+                            : <><h4>Preview</h4><h3>{cappedTitle}</h3>
                                 <table>
                                     <thead><tr><th>Amount</th><th>Ingredient</th></tr></thead>
                                     <tbody>{previewIng}</tbody>

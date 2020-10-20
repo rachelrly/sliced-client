@@ -34,7 +34,7 @@ function LandingPage() {
                 <article>
                     <h3>What is Sliced?</h3>
 
-                    <p>Sliced is an app that allows you to input your recipes and scale the ingredients down by 3/4, 1/2 or 1/4, or up by 1-1/4, 1-1/2, 1-3/4 or 2.</p>
+                    <p>Sliced is an app that allows you to input your recipes and 'half', 'quarter', or 'double' the amount of ingredients.</p>
                     <div className='screenshot_wrapper'>
                         <img className='screenshot' src={scaleDown} alt="screenshot of the Sliced scaling down feature " />
                         <img className='screenshot' src={scaleUp} alt="screenshot of the Sliced scaling up feature " />
@@ -47,26 +47,46 @@ function LandingPage() {
                     <p>Sliced works by parsing each line of a recipe's ingredient list to find the unit, amount and title.
                 </p>
 
-                    <p>For best results, please follow these guidelines when adding a new recipe:</p>
+                    <p>When adding a new recipe, scroll down to preview how the recipe's ingredients will be parsed by Sliced.</p>
+
+                    <p>Please follow these guidelines to help Sliced accurately find ingredients and amounts:</p>
 
                     <p className='dodont_wrapper'>
-                        <span className='do'>Do</span> list each ingredient is on its own line
+                        <span className='do'>Do</span> put each ingredient is on its own line.
                 </p>
                     <div className='example good'>
                         <code>
-                            1 cup
+                            1 cup chicken broth
                         <br />2 tsp salt
                         <br />1 tsp dried ginger
 </code></div>
-                    <p><span className='dont'>Don't</span> put many ingredients on one line</p>
+                    <p><span className='dont'>Don't</span> put many ingredients on one line.</p>
                     <div className='example bad'>
 
-                        <code>1 cup 2 tsp salt 1 tsp dried ginger</code>
+                        <code>1 cup chicken broth 2 tsp salt 1 tsp dried ginger</code>
+                    </div>
+
+                    <p className='dodont_wrapper'>
+                        <span className='do'>Do</span> include at least one scalable value in a recipe.
+                </p>
+                    <div className='example good'>
+                        <code>
+                            2 c chicken broth
+                        <br />salt
+                        <br />dried ginger
+</code></div>
+                    <p><span className='dont'>Don't</span> submit recipes with no scalable values.</p>
+                    <div className='example bad'>
+                        <code>
+                            chicken broth
+                        <br />salt
+                        <br />dried ginger
+                        </code>
                     </div>
 
 
                     <p className='dodont_wrapper'>
-                        <span className='do'>Do</span> enter ingredient fraction with numbers and slashes
+                        <span className='do'>Do</span> enter fractions with numbers and slashes.
                 </p>
                     <div className='example good'>
                         <code>
@@ -74,7 +94,7 @@ function LandingPage() {
                         <br />1/4 tsp salt
                         <br />1/2 tsp dried ginger
 </code></div>
-                    <p><span className='dont'>Don't</span> use formatted fractions</p>
+                    <p><span className='dont'>Don't</span> use pre-formatted fractions. Scaled does not register these fractions as scalable numbers at this time. </p>
                     <div className='example bad'>
                         <code>
                             ½ cup chicken broth
@@ -83,9 +103,26 @@ function LandingPage() {
                         </code>
                     </div>
 
+                    <p className='dodont_wrapper'>
+                        <span className='do'>Do</span> start each line with a numeric value. If a line does not start with a number, the whole line is considered the ingredient's name.
+                </p>
+                    <div className='example good'>
+                        <code>
+                            2 cup chicken broth
+                        <br />1 tsp salt
+                        <br />1/2 onion
+</code></div>
+                    <p><span className='dont'>Don't</span> start a line with a word. Numbers in the middle of lines will not be scaled.</p>
+                    <div className='example bad'>
+                        <code>
+                            chicken broth - 2 cup
+                        <br />one tsp salt
+                        <br />half an onion
+                        </code>
+                    </div>
 
                     <p className='dodont_wrapper'>
-                        <span className='do'>Do</span> keep a space or hyphen between the ingredient amount and the measurement unit
+                        <span className='do'>Do</span> keep a space or hyphen between the ingredient amount and the measurement unit.
                 </p>
                     <div className='example good'>
                         <code>
@@ -93,7 +130,7 @@ function LandingPage() {
                         <br />1/4 tsp salt
                         <br />1-1/2 tsp dried ginger
 </code></div>
-                    <p><span className='dont'>Don't</span> keep them as one word</p>
+                    <p><span className='dont'>Don't</span> keep them as one word. When parsing input, Sliced does not split any words at this time.</p>
                     <div className='example bad'>
                         <code>
                             1/2cup chicken broth
@@ -101,6 +138,8 @@ function LandingPage() {
                         <br />1and1/4tsp dried ginger
                         </code>
                     </div>
+
+
 
 
 
@@ -125,7 +164,7 @@ function LandingPage() {
                     <h3>Add a Recipe</h3>
 
 
-                    <p>Click on the '+' at the top of your recipe list to add your own recipe or copy and paste the one below: </p>
+                    <p>Click on the '+' at the top of your recipe list to add your own recipe or copy and paste the one below. Scroll down to preview how Sliced will split the input. </p>
                     <div className='screenshot_wrapper'>
                         <img className='screenshot' src={recipeList} alt="screenshot of the Sliced scaling down feature " />
                         <img className='screenshot' src={newRecipe} alt="screenshot of the Sliced scaling up feature " />
@@ -161,4 +200,4 @@ function LandingPage() {
     )
 }
 
-export default LandingPage
+export default LandingPage;

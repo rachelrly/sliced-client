@@ -1,5 +1,6 @@
 .add_section button{
     outline: none;
+    align-self: center;
 }
 
 .add_section button:focus,
@@ -9,11 +10,11 @@
 }
 
 form div{
-    padding-top: var(--spacer--sm);
+    padding-top: var(--spacer--med);
     width: inherit;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 
@@ -24,6 +25,7 @@ form div h3{
 table{
     width: 100%;
     font-size: var(--fontsize--sm);
+    text-align: center;
 }
 
 tr{
