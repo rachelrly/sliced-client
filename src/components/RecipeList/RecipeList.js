@@ -9,7 +9,6 @@ import { VscAdd } from 'react-icons/vsc'
 class RecipeList extends Component {
 
     static contextType = UserContext;
-    //default props for recipe array
 
     render() {
 

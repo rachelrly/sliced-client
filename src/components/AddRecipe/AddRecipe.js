@@ -8,7 +8,8 @@ import TokenService from '../../services/token-service'
 import UserContext from '../../user-context'
 import '../Form.css';
 import './AddRecipe.css';
-import { VscReply } from 'react-icons/vsc'
+import { VscReply } from 'react-icons/vsc';
+
 
 class AddRecipe extends Component {
 
@@ -111,7 +112,7 @@ class AddRecipe extends Component {
         let error = this.state.error === 'none'
             ? <span className='error_text'>Recipe title and ingredients are required.</span>
             : this.state.error === 'invalid'
-                ? <span className='error_text'>At least one ingredient must start with valid, scalable measurement (number) and end with ingredient's name.</span>
+                ? <span className='error_text'>At least one ingredient must start with valid, scalable measurement (number) and end with ingredient's name, i.e. 2 eggs.</span>
                 : null;
         let err_none = this.state.error === 'none' ? 'err' : null;
         let err_invalid = this.state.error === 'invalid' ? 'err' : err_none;

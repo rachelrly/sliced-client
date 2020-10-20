@@ -17,9 +17,11 @@
 
 
 .recipe_title {
-    font-size: var(--fontsize--med);
-    margin: var(--spacer--sm);
-    width: 90%;
+    padding: var(--spacer--med);
+}
+
+.recipe_full .recipe_title{
+    text-align: center;
 }
 
 .recipe_info {
