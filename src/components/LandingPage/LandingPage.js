@@ -175,47 +175,8 @@ function LandingPage() {
 
                 </article>
 
-
-
-
-                <article>
-
-                    <h3>Add a Recipe</h3>
-
-
-                    <p>Click on the '+' at the top of your recipe list to add your own recipe or copy and paste the one below. Scroll down to preview how Sliced will split the input. </p>
-                    <div className='screenshot_wrapper'>
-                        <img className='screenshot' src={recipeList} alt="screenshot of the location of the new recipe button" />
-                        <img className='screenshot' src={newRecipe} alt="screenshot of new recipe feature" />
-                    </div>
-                    <div className='example sample_rec'>
-                        <code>Crispy chocolate chip cookies</code> <br /><br />
-                        <code>sallysbakingaddiction.com/crispy-chocolate-chip-cookies/</code><br /><br />
-                        <code>
-                            1 1/2 cups all-purpose flour
-<br />1/2 teaspoon baking soda
-<br />1/2 teaspoon salt
-<br />10 Tablespoons unsalted butter melted and slightly cooled
-<br />1/2 cup granulated sugar
-<br />1/4 cup packed light or dark brown sugar
-<br />2 Tablespoons honey or light corn syrup
-<br />1 large egg yolk
-<br />2 Tablespoons milk
-<br />2 teaspoons pure vanilla extract
-<br />1 1/4 cups semi-sweet chocolate chips
-                            </code>
-                    </div>
-                    {!TokenService.hasAuthToken()
-
-                        ? null
-
-                        : <Link to={'/add-recipe'}><button className='landing_main add_rec'>Add recipe</button></Link>
-                    }
-
-                </article>
-
-
-            </section ></>
+            </section>
+        </>
     )
 }
 

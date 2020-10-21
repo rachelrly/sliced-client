@@ -99,11 +99,18 @@ class AddRecipe extends Component {
             ingredients: this.state.ingredients,
             id: cuid()
         }
-        const previewIng = !this.state.preview ? null : this.state.ingredients.map(ing => {
+
+        const previewAmt = !this.state.preview ? null : this.state.ingredients.map(ing => {
             let amt = ing.amount_str ? ing.amount_str : ' ';
-            let title = ing.title ? ing.title : '';
             return (
-                <tr key={cuid()}><td>{amt}</td><td>{title}</td></tr>
+                <li key={cuid()} className='preview_item'><p>{amt}</p></li>
+            )
+        })
+
+        const previewTitle = !this.state.preview ? null : this.state.ingredients.map(ing => {
+            let title = ing.title ? ing.title : ' ';
+            return (
+                <li key={cuid()} className='preview_item'><p>{title}</p></li>
             )
         })
 
@@ -169,11 +176,29 @@ class AddRecipe extends Component {
                     <div className='prev_wrapper'>
                         {!this.state.preview
                             ? null
-                            : <><h3>{cappedTitle}</h3>
-                                <table>
-                                    <thead><tr><th>Amount</th><th>Ingredient</th></tr></thead>
-                                    <tbody>{previewIng}</tbody>
-                                </table></>
+                            : <>
+                                <h3>{cappedTitle}</h3>
+                                <div className='preview_wrapper'>
+                                    <div className='preview_category'>
+                                        <h4>Amount</h4>
+                                        <ul>
+
+                                            {previewAmt}
+
+                                        </ul>
+
+                                    </div>
+                                    <div className='preview_category'>
+                                        <h4>Ingredient</h4>
+                                        <ul>
+                                            {previewTitle}
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </>
+
+
 
                         }
                     </div>

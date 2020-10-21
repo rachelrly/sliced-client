@@ -39,7 +39,21 @@ td{
 
 }
 
+.preview_category{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.preview_wrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
 
+.preview_item{
+    height: 30px;
+}
 @media all and (min-width: 600px){
     td{
         padding-left: var(--spacer--med);
