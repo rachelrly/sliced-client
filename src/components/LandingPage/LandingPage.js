@@ -2,8 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './LandingPage.css';
 import TokenService from '../../services/token-service';
-import recipeList from '../../screenshots/recipe-list.png';
-import newRecipe from '../../screenshots/new-recipe.png';
 import scaleDown from '../../screenshots/recipe-scale-down.png';
 import scaleUp from '../../screenshots/recipe-scale-up.png';
 
