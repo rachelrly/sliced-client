@@ -14,7 +14,7 @@ function LandingPage() {
         <>
             <article className='img_wrapper'>
                 <h2 className='landing_title'>Welcome to Sliced!</h2>
-                <h4>Scale down your recipes</h4>
+                <h4>Sliced is down for temporary maintenance and will be back soon.</h4>
                 <>
                     {TokenService.hasAuthToken()
                         ? <div className='button_wrapper'><Link to='/recipe' tabIndex='-1'><button>View Recipes</button></Link></div>
