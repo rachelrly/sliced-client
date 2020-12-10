@@ -100,17 +100,16 @@ class AddRecipe extends Component {
             id: cuid()
         }
 
-        const previewAmt = !this.state.preview ? null : this.state.ingredients.map(ing => {
-            let amt = ing.amount_str ? ing.amount_str : ' ';
-            return (
-                <li key={cuid()} className='preview_item'><p>{amt}</p></li>
-            )
-        })
 
-        const previewTitle = !this.state.preview ? null : this.state.ingredients.map(ing => {
+        const previewItem = !this.state.preview ? null : this.state.ingredients.map(ing => {
             let title = ing.title ? ing.title : ' ';
+            let amt = ing.amount_str ? ing.amount_str : ' ';
+
             return (
-                <li key={cuid()} className='preview_item'><p>{title}</p></li>
+                <li key={cuid()} className='preview_item'>
+                    <div className='col-wrapper-left'><p className='col-left'>{amt}</p></div>
+                    <div className='col-wrapper-right'><p className='col-right'>{title}</p></div>
+                </li>
             )
         })
 
@@ -177,24 +176,14 @@ class AddRecipe extends Component {
                         {!this.state.preview
                             ? null
                             : <>
-                                <h3>{cappedTitle}</h3>
                                 <div className='preview_wrapper'>
-                                    <div className='preview_category'>
-                                        <h4>Amount</h4>
-                                        <ul>
-
-                                            {previewAmt}
-
-                                        </ul>
-
+                                    <div class='preview-title-wrapper preview-item'>
+                                        <h4 className='col-left'>Amount</h4>
+                                        <h4 className='col-right'>Ingredient</h4>
                                     </div>
-                                    <div className='preview_category'>
-                                        <h4>Ingredient</h4>
-                                        <ul>
-                                            {previewTitle}
-                                        </ul>
-
-                                    </div>
+                                    <ul>
+                                        {previewItem}
+                                    </ul>
                                 </div>
                             </>
 

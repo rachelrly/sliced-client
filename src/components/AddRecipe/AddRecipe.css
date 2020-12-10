@@ -13,9 +13,9 @@ form div{
     padding-top: var(--spacer--med);
     width: inherit;
     display: flex;
-    flex-direction: column;
+/* 
     justify-content: flex-start;
-    align-items: center;
+    align-items: center; */
 }
 
 form div h3{
@@ -47,13 +47,40 @@ td{
 }
 .preview_wrapper{
     display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: inherit;
+}
+
+
+.col-left{
+    width: inherit;
+}
+
+.col-right{
+ 
+    width: inherit;
+}
+
+.col-wrapper-left{
+    flex: 1;
+    width: 100px;
+}
+
+.col-wrapper-right{
+    flex: 2;
+    width: 100%;
+}
+
+
+.preview_item{
+    display: flex;
+    width: inherit; 
     flex-direction: row;
+    justify-content: space-between;
     align-items: flex-start;
 }
 
-.preview_item{
-    height: 30px;
-}
 @media all and (min-width: 600px){
     td{
         padding-left: var(--spacer--med);
