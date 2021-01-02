@@ -18,7 +18,7 @@ function LandingPage() {
                 <span>Scale your recipes</span>
                 <>
                     {TokenService.hasAuthToken()
-                        ? <div className='button_wrapper'><Link to='/recipe' tabIndex='-1'><button>View Recipes</button></Link></div>
+                        ? <div className='button_wrapper'><Link to='/recipe' tabIndex='-1'><button>Get Started</button></Link></div>
                         : <div className='button_wrapper'><a href='#login' tabIndex='-1'><button>Get Started</button></a></div>
 
                     }

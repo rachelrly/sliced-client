@@ -9,36 +9,6 @@
     background-color: var(--colors--light); 
 }
 
-form div{
-    padding-top: var(--spacer--med);
-    width: inherit;
-    display: flex;
-/* 
-    justify-content: flex-start;
-    align-items: center; */
-}
-
-form div h3{
-    padding: var(--spacer--sm) 0;
-}
-
-table{
-    width: 100%;
-    font-size: var(--fontsize--sm);
-
-}
-
-tr{
-    height: 40px;
-    width: inherit;
-    
-}
-
-td{
-    width: 50%;
-
-}
-
 .preview_category{
     display: flex;
     flex-direction: column;

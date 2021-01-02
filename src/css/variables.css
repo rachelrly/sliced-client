@@ -35,6 +35,12 @@
   --font: "Verdana", sans-serif;
 }
 
+@media all and (min-width: 400px){
+  :root{
+    --font-size-lg: 3.2rem;
+  }
+}
+
 
 @media all and (min-width: 800px){
   :root{
@@ -42,7 +48,7 @@
    --spacer-lg: 2.4rem;
 
    --font-size-med: 2rem;
-  --font-size-lg: 3.8rem;
+   --font-size-lg: 3.8rem;
 
   } 
 

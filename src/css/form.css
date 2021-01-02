@@ -28,12 +28,15 @@ fieldset .hidden{
 }
 
 input, textarea{
-    flex: 3;
     width: 100%;
     padding: var(--spacer-tiny) ;
     font-size: var(--font-size-sm);
     outline: 0;
     border: var(--border-width) solid grey;
+}
+
+textarea{
+    height: 200px;
 }
 
 input:focus, textarea:focus{
@@ -81,4 +84,27 @@ textarea:active{
 
 .form-login-button-wrapper a{
     text-align: right;
+}
+
+.add-recipe-form{
+    margin-top: var(--spacer-lg);
+    margin-bottom: var(--spacer-lg);
+}
+
+.add-recipe-form fieldset{
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.add-recipe-form button{
+    margin-top: var(--spacer-sm);
+}
+
+
+@media all and (min-width: 500px){
+    .add-recipe-form fieldset{
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+    }
 }

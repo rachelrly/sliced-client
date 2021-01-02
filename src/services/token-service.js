@@ -1,4 +1,5 @@
-
+import jwtDecode from 'jwt-decode';
+require('dotenv').config();
 
 const TokenService = {
 
@@ -16,7 +17,17 @@ const TokenService = {
 
     hasAuthToken() {
         return !!TokenService.getAuthToken()
-    }
+    },
+    parseJwt(jwt) {
+        return jwtDecode(jwt);
+    },
+    parseAuthToken() {
+        const authToken = TokenService.getAuthToken()
+        if (authToken)
+            return TokenService.parseJwt(authToken);
+        else
+            return undefined;
+    },
 }
 
 export default TokenService

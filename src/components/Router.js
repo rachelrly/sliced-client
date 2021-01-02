@@ -7,6 +7,7 @@ import PublicRoute from './Routes/PublicRoute'
 import PrivateRoute from './Routes/PrivateRoute'
 import PageNotFound from './PageNotFound/PageNotFound'
 import RecipeList from './RecipeList/RecipeList'
+import Register from './Register/Register'
 import RecipePage from './RecipePage/RecipePage'
 
 
@@ -22,6 +23,10 @@ const Router = () => (
         <PublicRoute
             path='/login'
             component={Login}
+        />
+        <PublicRoute
+            path='/register'
+            component={Register}
         />
         <PrivateRoute
             exact

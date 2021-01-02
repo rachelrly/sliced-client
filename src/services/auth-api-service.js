@@ -1,6 +1,6 @@
 
 const AuthApiService = {
-    postLogin({ email, password }) {
+    postLogin(email, password) {
         return fetch(`${process.env.REACT_APP_API_ENDPOINT}/auth/login`, {
             method: 'POST',
             headers: {

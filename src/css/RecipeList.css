@@ -1,28 +1,23 @@
 
-
-
-
-a:focus .recipe_thumb{
-    border: 2px solid var(--colors--dark);
-}
-
 section button {
     padding: var(--spacer--sm) var(--spacer--med);
     margin: var(--spacer--med);
-    font-size: var(--fontsize--med);
     background-color: var(--colors--accent-bright);
     border: 0;
-    border-radius: 8px;
     cursor: pointer;
 }
 a .add_recipe{
-    padding: 0;
-    margin: 0;
+    margin: var(--spacer-med);
     outline: none;
 }
 
 .recipe_list a {
     outline: none;  
+}
+
+.recipe_list{
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .add_recipe{
@@ -60,11 +55,19 @@ label{
 }
 .recipe_thumb {
     width: inherit;
-    border-radius: 8px;
     display: flex;
-    padding: var(--spacer--sm);
-    color: var(--colors--black);
-    border: 2px solid var(--colors--light);
+    padding: var(--spacer-sm);
+    color: var(--colors-black);
+    border-radius: var(--button-border-radius);
+    background-color: var(--colors-accent-light);
+    border: 2px solid var(--colors-light);
+    margin-bottom: var(--spacer-sm);
+    cursor: pointer;
+}
+
+.recipe_thumb:hover,
+a:focus .recipe_thumb{
+    background-color: var(--colors-accent);
 }
 
 .recipe_thumb h3 {

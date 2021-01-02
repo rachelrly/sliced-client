@@ -1,24 +1,22 @@
-import React, { useEffect, Fragment } from 'react';
+import React, { useEffect, Fragment, useContext } from 'react';
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
-import UserRecipesApiService from './services/user-recipes-api-service'
 import jwt_decode from "jwt-decode";
-import UserContext from './contexts/user-context'
+import { UserContext } from './contexts/user-context'
 import TokenService from './services/token-service'
 import Router from './components/Router';
 import './css/variables.css';
 import './css/main.css';
 import './css/form.css';
 
-require('dotenv').config();
 
 
 
 function App() {
 
-  useEffect(() => {
+  // useEffect(() => {
 
-  }, [])
+  // }, [])
 
   // const handleIsLoggedIn = async () => {
   //   if (TokenService.hasAuthToken()) {

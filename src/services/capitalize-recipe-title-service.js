@@ -1,4 +1,4 @@
-export default function useFormatRecipeTitle(title) {
+export function useFormatRecipeTitle(title) {
     /*This hook capitalizes the first letter each word of a string
     with O(n) time complexity */
 

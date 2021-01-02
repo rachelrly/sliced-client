@@ -7,7 +7,6 @@ header {
     width: inherit;
     height: var(--button-width);
     text-align: center;
-    flex-wrap: wrap;
     background-color: var(--colors--dark);
 }
 header > * {

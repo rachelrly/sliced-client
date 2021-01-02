@@ -5,7 +5,7 @@ import RecipePageIngredients from './RecipePageIngredients';
 import UserContext from '../../contexts/user-context';
 import jwt_decode from 'jwt-decode';
 import TokenService from '../../services/token-service';
-import formatRecipeTitle from '../../services/capitalize-recipe-title-service'
+import { useFormatRecipeTitle } from '../../services/capitalize-recipe-title-service'
 import { VscTrash, VscReply } from 'react-icons/vsc'
 import Loading from '../Loading/Loading'
 
@@ -80,7 +80,7 @@ class RecipePage extends Component {
 
 
     render() {
-        const capitalizedTitle = this.state.title ? formatRecipeTitle(this.state.title) : this.state.title
+        const capitalizedTitle = this.state.title
         const originalLink = this.state.url ? <a className='link-to-original' target='_blank' href={this.state.url} rel="noopener noreferrer"><p className='url'>Original recipe</p></a> : null;
         const renderPage = this.state.loading
             ? <Loading />
