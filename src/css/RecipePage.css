@@ -119,9 +119,8 @@ input[type=range]:focus{
 
 .goBack_wrapper{
     width: 100%;
-    height: 50px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -129,9 +128,7 @@ input[type=range]:focus{
     background-color: var(--colors--muted);
     color: var(--colors--light);
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    padding: 0;
+    margin: var(--spacer-med);
     text-align: right;
     display: flex;
     justify-content: center;
@@ -155,9 +152,6 @@ button:hover .trash{
 
 
 @media all and (min-width: 400px){
-    .recipe_title{
-        font-size: var(--fontsize--lg);
-    }
 
     .goBack, .delete_button{
         width: 50px;
@@ -178,12 +172,8 @@ button:hover .trash{
 
 
 @media all and (min-width: 600px){
-    .recipe_title{
-        font-size: var(--fontsize--tablet--lg);
-    }
-
     li{
-        font-size: var(--fontsize--lg);
+        font-size: var(--font-size-med);
     }
 
     input[type=range]{

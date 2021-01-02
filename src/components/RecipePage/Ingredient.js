@@ -11,21 +11,21 @@ function Ingredient(props) {
     const [units, setUnits] = useState(null)
 
     useEffect(() => {
-        const { num, unit } = parseAmount(this.props.amount_str)
+        // const { num, unit } = parseAmount(this.props.amount)
 
-        setNumber(num);
-        setUnits(unit);
+        setNumber(props.amount);
+        //setUnits(unit);
     }, [])
 
     const num = scale(number, units, props.multiplyBy)
-    const amount = props.amount_str
+    const amount = props.amount
         ? <span className='ing_amount'>{number}</span>
         : null
 
     return (
         <Fragment>
             {amount}
-            <span className='ing_title'>{this.props.title}</span>
+            <span className='ing_title'>{props.ingredient_name}</span>
         </Fragment>
 
     )
