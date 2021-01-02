@@ -1,13 +1,13 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-import AddRecipe from './components/AddRecipe/AddRecipe'
-import LandingPage from './components/LandingPage/LandingPage'
-import Login from './components/Login/Login'
-import PublicRoute from './components/Routes/PublicRoute'
-import PrivateRoute from './components/Routes/PrivateRoute'
-import PageNotFound from './components/PageNotFound/PageNotFound'
-import RecipeList from './components/RecipeList/RecipeList'
-import RecipePage from './components/RecipePage/RecipePage'
+import AddRecipe from './AddRecipe/AddRecipe'
+import LandingPage from './LandingPage/LandingPage'
+import Login from './Login/Login'
+import PublicRoute from './Routes/PublicRoute'
+import PrivateRoute from './Routes/PrivateRoute'
+import PageNotFound from './PageNotFound/PageNotFound'
+import RecipeList from './RecipeList/RecipeList'
+import RecipePage from './RecipePage/RecipePage'
 
 
 

@@ -5,9 +5,8 @@ import formatRecipeTitle from '../../services/capitalize-recipe-title-service'
 import jwt_decode from 'jwt-decode'
 import cuid from 'cuid'
 import TokenService from '../../services/token-service'
-import UserContext from '../../user-context'
-import '../Form.css';
-import './AddRecipe.css';
+import UserContext from '../../contexts/user-context'
+import '../../css/AddRecipe.css';
 import { VscReply } from 'react-icons/vsc';
 
 

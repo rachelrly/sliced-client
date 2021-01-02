@@ -1,0 +1,49 @@
+:root{
+  --colors-accent: #FF8A65;
+  --colors-accent-dark: #F4511E;
+  --colors-accent-light: #FBE9E7;
+  --colors-black: #212121;
+  --colors-white: #FFF;
+
+  --colors--light: #F5F5F5;
+  --colors--accent-light: #FBE9E7;
+  --colors--accent-bright: #FF8A65;
+  --colors--accent-extreme: #F4511E;
+  --colors--muted: #424242;
+  --colors--dark: #212121;
+  
+
+  --spacer-tiny: 0.2rem;
+  --spacer-sm: 1rem;
+  --spacer-med: 1.4rem;
+  --spacer-lg: 1.8rem;
+
+  --button-width: 6.8rem;
+  --button-height: 2rem;
+  --button-border-radius: 4px;
+
+  --font-size-sm: 1.2rem;
+  --font-size-med: 1.6rem;
+  --font-size-lg: 2rem;
+
+  --max-page-width: 80vw;
+
+  --line-spacing: calc(var(--font-size-sm) * 1.4);
+
+  --border-width: 1px;
+  
+  --font: "Verdana", sans-serif;
+}
+
+
+@media all and (min-width: 800px){
+  :root{
+   --spacer-med: 1.8rem;
+   --spacer-lg: 2.4rem;
+
+   --font-size-med: 2rem;
+  --font-size-lg: 3.8rem;
+
+  } 
+
+}

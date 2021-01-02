@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import RecipeThumbnails from './RecipeThumbnails'
-import UserContext from '../../user-context'
-import './RecipeList.css'
+import UserContext from '../../contexts/user-context'
+import '../../css/RecipeList.css'
 import { VscAdd } from 'react-icons/vsc'
 
 

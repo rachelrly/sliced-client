@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import UserRecipesApiService from '../../services/user-recipes-api-service'
-import './RecipePage.css'
+import '../../css/RecipePage.css'
 import RecipePageIngredients from './RecipePageIngredients';
-import UserContext from '../../user-context';
+import UserContext from '../../contexts/user-context';
 import jwt_decode from 'jwt-decode';
 import TokenService from '../../services/token-service';
 import formatRecipeTitle from '../../services/capitalize-recipe-title-service'

@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './LandingPage.css';
+import '../../css/LandingPage.css';
 import TokenService from '../../services/token-service';
 import scaleDown from '../../screenshots/recipe-scale-down.png';
 import scaleUp from '../../screenshots/recipe-scale-up.png';
+import { Fragment } from 'react';
 
 
 
@@ -11,10 +12,10 @@ function LandingPage() {
 
     return (
 
-        <>
+        <Fragment>
             <article className='img_wrapper'>
                 <h2 className='landing_title'>Welcome to Sliced!</h2>
-                <h4>Scale your recipes</h4>
+                <span>Scale your recipes</span>
                 <>
                     {TokenService.hasAuthToken()
                         ? <div className='button_wrapper'><Link to='/recipe' tabIndex='-1'><button>View Recipes</button></Link></div>
@@ -48,7 +49,7 @@ function LandingPage() {
                             <p>Log in with these credentials:</p>
                             <p>Email: <code>test@gmail.com</code></p>
                             <p>Password: <code>test-password</code></p>
-                            <Link to='/login' tabIndex='-1'><button className='landing_main'>Log in</button></Link>
+                            <Link to='/login' tabIndex='-1' className='article-login-button-wrapper'><button>Log in</button></Link>
                         </>
 
                         : null}
@@ -174,7 +175,7 @@ function LandingPage() {
                 </article>
 
             </section>
-        </>
+        </Fragment>
     )
 }
 

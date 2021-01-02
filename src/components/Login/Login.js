@@ -1,25 +1,21 @@
-import React, { Component } from 'react';
+import React, { useState, useContext, Fragment } from 'react';
 import AuthApiService from '../../services/auth-api-service';
 import TokenService from '../../services/token-service';
-import UserContext from '../../user-context';
-import '../Form.css';
-import Loading from '../Loading/Loading'
+import UserContext from '../../contexts/user-context';
+import Loading from '../Loading/Loading';
+import { Link } from 'react-router-dom';
 
-class Login extends Component {
-    static contextType = UserContext;
+function Login() {
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            error: false,
-            loading: false
-        }
-    }
+    const ctx = useContext(UserContext);
 
 
-    handleSubmitAuth = e => {
+    const handleSubmitAuth = e => {
         e.preventDefault();
-        this.setState({ error: null, loading: true });
+        setError(null);
+        setLoading(true)
         const { email, password } = e.target
 
         AuthApiService.postLogin({
@@ -30,7 +26,7 @@ class Login extends Component {
                 email.value = ''
                 password.value = ''
                 TokenService.saveAuthToken(res.authToken)
-                this.context.onLogin(res.user_id)
+                ctx.onLogin(res.user_id)
 
 
             })
@@ -42,29 +38,39 @@ class Login extends Component {
 
 
 
-    render() {
-        let err = this.state.error ? <span className='error_text'>Invalid email or password</span> : null;
-        let errClass = this.state.error ? 'err' : null
-        const renderPage = this.state.loading ? <Loading /> : <section className='Login_section'>
-            <form
-                autoComplete='off'
-                className='Login_form'
-                onSubmit={this.handleSubmitAuth}>
 
-                <label htmlFor='email'></label>
-                <input name='email' type='text' className={errClass} placeholder='test@gmail.com' />
+    let err = error ? <span className='error_text'>Invalid email or password</span> : null;
+    let errClass = error ? 'err' : null
 
-                <label htmlFor='password'></label>
-                <input name='password' type='password' className={errClass} placeholder='test-password' />
-                {err}
-                <button type='submit' className='form_button' >Log In</button>
-            </form>
-        </section>
-        return (
-            <>{renderPage}</>
+    return (
+        <Fragment>
+            {loading
+                ? <Loading />
+                : <section className='Login_section'>
+                    <form
+                        autoComplete='off'
+                        className='Login_form'
+                        onSubmit={handleSubmitAuth}>
+                        <fieldset>
+                            <label className='hidden' htmlFor='email'></label>
+                            <input name='email' type='text' className={errClass} placeholder='test@gmail.com' />
+                        </fieldset>
+                        <fieldset>
+                            <label className='hidden' htmlFor='password'></label>
+                            <input name='password' type='password' className={errClass} placeholder='test-password' />
+                        </fieldset>
+                        {err}
+                        <div className='form-login-button-wrapper'>
+                            <button type='submit' className='form_button' >Log In</button>
+                            <Link><span>Already have an account?</span></Link>
+                        </div>
+                    </form>
+                </section>}
 
-        )
-    }
+        </Fragment>
+
+    )
 }
+
 
 export default Login

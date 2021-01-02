@@ -1,14 +1,24 @@
-export default function formatRecipeTitle(title) {
-    const arr = title.toLowerCase()
-        .split(' ')
-        .map(word => {
-            if (word.length) {
-                let letters = word.split('')
-                letters[0] = letters[0].toUpperCase()
+export default function useFormatRecipeTitle(title) {
+    /*This hook capitalizes the first letter each word of a string
+    with O(n) time complexity */
 
-                return letters.join('')
-            }
-            return ' ';
-        })
-    return (arr.join(' '))
+    let word = '';
+    let capTitle = ''
+
+    for (let i = 0; i < title.length; i++) {
+        if (!word) {
+            word += title[i].toUpperCase();
+        }
+        else if (title[i] === ' ') {
+            word += ' ';
+            capTitle += word;
+            word = '';
+        }
+        else {
+            word += title[i].toLowerCase();
+        }
+    }
+    capTitle += word;
+
+    return capTitle;
 }

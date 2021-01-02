@@ -1,31 +1,26 @@
-import React, { Component } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import TokenService from '../../services/token-service'
-import './Header.css'
-import UserContext from '../../user-context'
+import '../../css/Header.css'
+import UserContext from '../../contexts/user-context'
 import { RiKnifeLine } from 'react-icons/ri'
 
-class Header extends Component {
+function Header() {
+    const ctx = useContext(UserContext);
 
-    static contextType = UserContext;
+    return (
+        <header>
+            <Link to='/' className='title_link'>
+                <h1><div aria-label='Sliced'><span>S</span><RiKnifeLine /><span>iced</span></div></h1>
+            </Link>
+            <div className='header-link-wrapper'>
+                {TokenService.hasAuthToken()
+                    ? <button onClick={() => ctx.onLogout()}>Log out</button>
+                    : <Link to='/login' tabIndex='-1'><button>Log in</button></Link>}
+            </div>
+        </header >
+    )
 
-
-    render() {
-        const title = <div aria-label='Sliced'><span>S</span><RiKnifeLine /><span>iced</span></div>
-        const toggleButtons = TokenService.hasAuthToken()
-            ? <button onClick={this.context.onLogout}>Log out</button>
-            : <Link to='/login' tabIndex='-1'><button>Log in</button></Link>
-        return (
-            <header>
-                <Link to='/' className='title_link'>
-                    <h1>{title}</h1>
-                </Link>
-                <div className='header-link-wrapper'>
-                    {toggleButtons}
-                </div>
-            </header >
-        )
-    }
 }
 
 export default Header;

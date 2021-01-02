@@ -3,38 +3,38 @@
 header {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
-    width: 100vw;
-    height: 100%;
+    justify-content: space-between;
+    width: inherit;
+    height: var(--button-width);
     text-align: center;
-    padding: var(--spacer--med) var(--spacer--sm);
-    font-size: var(--fontsize--lg);
+    flex-wrap: wrap;
     background-color: var(--colors--dark);
 }
-
-h1{
-    color: var(--colors--accent-light);
+header > * {
+    padding: var(--spacer-sm);
 }
 
 header button{
-    padding: var(--spacer--sm) var(--spacer--med);
     background-color: var(--colors--muted);
     border: 2px solid var(--colors--dark);
     color: var(--colors--light);
-    border-radius: 8px;
-    margin: var(--spacer--sm);
     cursor: pointer;
     font-size: var(--fontsize--sm);
     font-family: var(--font--open-sans);
     outline: 0;
+    margin-top: 0;
     
+}
+
+h1{
+    font-size: var(--font-size-lg);
+    color: var(--colors-accent-light);
 }
 
 header a{
     outline: 0;
-    padding: var(--spacer--sm);
     border-radius: 8px;
-    border: 2px solid var(--colors--dark);
+    padding-top: 0;
 
 }
 
@@ -49,15 +49,4 @@ header button:hover{
 }
 
 
-@media all and (min-width: 600px){
-    header{
-        justify-content: space-between;
-        padding: var(--spacer--med) var(--spacer--lg);
-        
-    }
-
-    header button{
-        font-size: var(--fontsize--med);
-    }
-}
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import './RecipePageIngredient.css'
+import '../../css/RecipePageIngredient.css'
 
 import Ingredient from './Ingredient'
 

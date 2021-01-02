@@ -1,16 +1,6 @@
 
 
-section {
-    padding: var(--spacer--med);
-    height: inherit;
-    width: calc(100vw - 1.9rem);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    overflow-x: hidden;
 
-}
 
 a:focus .recipe_thumb{
     border: 2px solid var(--colors--dark);
@@ -22,7 +12,6 @@ section button {
     font-size: var(--fontsize--med);
     background-color: var(--colors--accent-bright);
     border: 0;
-    color: var(--colors--dark);
     border-radius: 8px;
     cursor: pointer;
 }

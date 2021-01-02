@@ -1,0 +1,35 @@
+footer{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: inherit;
+    height: 100%;
+    background-color: var(--colors-black);
+    color: var(--colors-white);
+    padding: var(--spacer-sm);
+}
+
+footer .icon{
+    color: var(--colors-white);
+    font-size: var(--font-size-med);
+    height: var(--font-size-med);
+    
+}
+
+footer a{
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: 0;
+}
+
+footer a:hover .icon,
+footer a:focus .icon{
+    color: var(--colors-accent);
+}
+
+footer p{
+    padding: 0;
+    font-size: var(--font-size-sm);
+}

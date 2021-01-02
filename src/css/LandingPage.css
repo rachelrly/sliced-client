@@ -1,15 +1,17 @@
-
 article{
     text-align: left;
-    width: 90%;
-    padding: var(--spacer--sm) 0;
-    margin-bottom: var(--spacer--med);
+    max-width: 800px;
+    height: 100%;
+    width: inherit;
+    margin-top: var(--spacer-lg);
+    margin-bottom: var(--spacer-lg);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
    
 }
+
 
 .img_wrapper{
     width: 100vw;
@@ -23,6 +25,11 @@ article{
     align-items: center;
     overflow: hidden;
 }
+
+.img_wrapper h2{
+    margin-bottom: var(--spacer-tiny);
+}
+
 
 .img_wrapper::before{
     z-index: -1;
@@ -43,22 +50,10 @@ article{
 
 
 .landing_title{
-    font-size: var(--fontsize--tablet--lg);
     color: var(--colors--dark);
     z-index: 3;
 }
 
-
-
-article button {
-    padding: var(--spacer--sm) var(--spacer--med);
-    font-size: var(--fontsize--med);
-    background-color: var(--colors--accent-bright);
-    border: 2px solid var(--colors--dark);
-    color: var(--colors--dark);
-    border-radius: 8px;
-    cursor: pointer;
-}
 
 
 
@@ -71,15 +66,18 @@ article button {
 .example{
     height: 100%;
     border: 1px solid var(--colors--black);
-    padding: var(--spacer--sm);
     border-radius: 4px;
     width: 100%;
     overflow-wrap: break-word;
-    margin-bottom: var(--spacer--sm);
+    margin-bottom: var(--spacer-tiny);
+    margin-top: var(--spacer-tiny);
+   
     
 }
+
+
 .dodont_wrapper{
-    margin-top: var(--spacer--med);
+    margin-top: var(--spacer-med);
 }
 .screenshot{
     width: calc(375px * 0.7);
@@ -93,10 +91,13 @@ article button {
     justify-content: center;
     align-items:center;
     width: 100%;
+    margin-top: var(--spacer-sm);
 
 }
 
-
+.article-login-button-wrapper{
+    margin-top:var(--spacer-med);
+}
 .good{
     border: 2px solid var(--colors--accent-bright);
 }
@@ -111,33 +112,15 @@ article button {
 }
 
 article h3{
-    font-size: var(--fontsize--med);
     width: 100%;
     padding: var(--spacer--sm) 0;
+    margin-bottom: var(--spacer-med);
 }
 
 article >*{
     margin: var(--spacer--sm) 0;
 }
 
-
-
-
-
-
-.button_wrapper button{
-    display: flex;
-    justify-content: center;
-    border: 2px solid var(--colors--accent-bright);
-    outline: none;
-}
-
-.button_wrapper button:focus,
-.button_wrapper button:hover{
-    border: 2px solid var(--colors--dark);
-    background-color: var(--colors--light);
-
-}
 
 img{
     width: 100%;
@@ -148,36 +131,14 @@ a{
     outline: 0;
 }
 
-.landing_main{
-    background-color: var(--colors--accent-bright);
-    border: 2px solid var(--colors--accent-bright);
-    color: var(--colors--black);
-    
-    outline: 0;
-    
-}
-
-
-
-.landing_main:focus,
-.landing_main:active,
-.landing_main:hover{
-    background-color: var(--colors--light);
-    border: 2px solid var(--colors--black);
-    color: var(--colors--black);
-    
-}
-
 @media all and (min-width: 600px) {
     .example{
         padding: var(--spacer--med);
     }
     .screenshot_wrapper{
         flex-direction: row;
-        justify-content: space-evenly;
+        justify-content: space-between;
     }
 
-    article h3{
-        font-size: var(--fontsize--lg);
-    }
+   
 }

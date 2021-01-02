@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 import { parseAmount } from '../../services/parse-amount-service'
 import { scale } from '../../services/scale-service'
 
@@ -6,43 +6,36 @@ import { scale } from '../../services/scale-service'
 state that stores the current measurement amount and units, communicating with 
 parseAmount*/
 
-class Ingredient extends Component {
+function Ingredient(props) {
+    const [number, setNumber] = useState(null);
+    const [units, setUnits] = useState(null)
 
-    constructor(props) {
-        super(props)
-
-        this.state = {
-            num: null,
-            unit: null,
-
-        }
-    }
-
-    componentDidMount() {
+    useEffect(() => {
         const { num, unit } = parseAmount(this.props.amount_str)
 
-        this.setState({
-            num,
-            unit
-        })
-    }
+        setNumber(num);
+        setUnits(unit);
+    }, [])
 
+    const num = scale(number, units, props.multiplyBy)
+    const amount = props.amount_str
+        ? <span className='ing_amount'>{number}</span>
+        : null
 
+    return (
+        <Fragment>
+            {amount}
+            <span className='ing_title'>{this.props.title}</span>
+        </Fragment>
 
-    render() {
-        const num = scale(this.state.num, this.state.unit, this.props.multiplyBy)
-        const amount = this.props.amount_str
-            ? <span className='ing_amount'>{num}</span>
-            : null
-
-        return (
-            <>
-                {amount}
-                <span className='ing_title'>{this.props.title}</span>
-            </>
-
-        )
-    }
+    )
 }
 
-export default Ingredient
+
+export default Ingredient;
+
+//convert to lower case
+//neuturalize 
+
+//have aliases for ingredients
+//have sample recipes
