@@ -39,18 +39,18 @@ textarea{
     height: 200px;
 }
 
-input:focus, textarea:focus{
+input[type=text]:focus, textarea:focus{
     outline: var(--border-width) solid var(--colors-accent);
 }
 
 input:focus,
 input:active{
-    border: 2px solid var(--colors--accent-bright);
+    border: 2px solid var(--colors-accent-bright);
 }
 
 textarea:focus,
 textarea:active{
-    border: 2px solid var(--colors--accent-bright);
+    border: 2px solid var(--colors-accent-bright);
 }
 
 .form_button {

@@ -29,7 +29,7 @@
    flex-direction: column;
    justify-content: center;
    align-items: center;
-   padding-top: var(--spacer--med);
+   margin-top: var(--spacer-med);
 
 }
 
@@ -44,6 +44,7 @@ ul {
 datalist{
     display: flex;
     width: 100%;
+    padding: 0;
     justify-content: space-between;
 }
 
@@ -53,14 +54,18 @@ option{
 }
 
 .slider_container{
-    width: inherit;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 
 input[type=range]{
     appearance: none;
-    width: 75vw;
-    height: var(--spacer--sm);
+    width: inherit;
+    height: var(--spacer-sm);
     border: 0;
     border-radius: 8px;
     outline: none;
@@ -170,14 +175,3 @@ button:hover .trash{
 
 }
 
-
-@media all and (min-width: 600px){
-    li{
-        font-size: var(--font-size-med);
-    }
-
-    input[type=range]{
-        max-width: 550px;
-    }
-
-}

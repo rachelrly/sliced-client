@@ -1,13 +1,26 @@
 
 .ingredients_wrapper{
-    width: 90%;
+    width: inherit;
 }
 .ing_item {
     width: inherit;
-    padding: var(--spacer--sm) 0;
+    padding: 0 0 var(--spacer-sm);
+}
+.ing_item:first-of-type{
+    padding-top: var(--spacer-sm);
+}
+.ing_amount {
+    font-weight: 600;
 }
 
-.ing_amount {
-    margin-right: var(--spacer--sm);
-    font-weight: 600;
+li{
+
+    display: grid;
+    grid-template-columns: 70px 70px auto;
+}
+
+li>*{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -7,7 +7,7 @@ header {
     width: inherit;
     height: var(--button-width);
     text-align: center;
-    background-color: var(--colors--dark);
+    background-color: var(--colors-black);
 }
 header > * {
     padding: var(--spacer-sm);
@@ -27,7 +27,7 @@ header button{
 
 h1{
     font-size: var(--font-size-lg);
-    color: var(--colors-accent-light);
+    color: var(--colors-white);
 }
 
 header a{

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import UserRecipesApiService from '../../services/user-recipes-api-service'
 import '../../css/RecipePage.css';
 import { useParams } from 'react-router-dom';
@@ -18,12 +18,16 @@ with state update in componentDidMount.*/
 
 function RecipePage(props) {
     const { id } = useParams();
+    const [multiplyBy, setMultiplyBy] = useState(1)
+
+    useEffect(() => {
+
+    }, [multiplyBy])
+
 
     const getMultiplyBy = (e) => {
         let multiply = e.target.value >= 0.25 ? e.target.value : 0.25;
-        this.setState({
-            multiplyBy: multiply
-        })
+        setMultiplyBy(multiply)
     }
 
     const handleDeleteRecipe = () => {
@@ -55,9 +59,6 @@ function RecipePage(props) {
 
     const { data, loading } = useQuery(recipeQuery)
 
-    console.log(data)
-
-    const multiplyBy = 1;
     return (
         <Fragment>
             {loading
@@ -84,7 +85,7 @@ function RecipePage(props) {
                             max='2'
                             name='slider'
                             className='slider'
-                            onChange={(e) => this.getMultiplyBy(e)}
+                            onChange={(e) => getMultiplyBy(e)}
                             aria-label='A range slider that scales down the recipe' />
                         <datalist id='ticks'>
                             <option>  </option>

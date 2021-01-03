@@ -35,6 +35,9 @@ function AddRecipe(props) {
             setError(null)
         }
         const textAreaInput = e.target.value;
+
+
+
         const splitLine = String.fromCharCode(13, 10);
         const formattedInput = textAreaInput
             .replaceAll('\\n', splitLine)
@@ -136,7 +139,7 @@ function AddRecipe(props) {
                     <label htmlFor='ingredients'>Ingredients</label>
                     <textarea
                         name='ingredients'
-                        onChange={(e) => this.parseTextAreaInput(e)}
+                        onChange={(e) => parseTextAreaInput(e)}
                         placeholder={placeholder} />
                 </fieldset>
                 <div className='prev_wrapper'>
@@ -145,8 +148,8 @@ function AddRecipe(props) {
                         : <Fragment>
                             <div className='preview_wrapper'>
                                 <div class='preview-title-wrapper preview-item'>
-                                    <h4 className='col-left'>Amount</h4>
-                                    <h4 className='col-right'>Ingredient</h4>
+                                    <h3 className='col-left'>Amount</h3>
+                                    <h3 className='col-right'>Ingredient</h3>
                                 </div>
                                 <ul>
                                     {previewItem}

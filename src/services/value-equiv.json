@@ -1,0 +1,40 @@
+{
+  "cups": "cup",
+  "cup": "cup",
+  "c": "cup",
+  "cs": "cup",
+  "c.": "cup",
+  "cs.": "cup",
+
+  "tablespoons": "tbsp",
+  "tablespoon": "tbsp",
+  "tbsp": "tbsp",
+  "tbsps": "tbsp",
+  "tbsp.": "tbsp",
+  "tbsps.": "tbsp",
+
+  "teaspoons": "tsp",
+  "teaspoon": "tsp",
+  "tsps": "tsp",
+  "tsp": "tsp",
+  "tsps.": "tsp",
+  "tsp.": "tsp",
+
+  "oz": "oz",
+  "ounce": "oz",
+  "ounces": "oz",
+  "ozs": "oz",
+  "oz.": "oz",
+  "ozs.": "oz",
+
+  "pounds": "lb",
+  "lb": "lb",
+  "lbs": "lb",
+  "lb.": "lb",
+
+  "gallons": "gallon",
+  "gallon": "gallon",
+
+  "grams": "gram",
+  "gram": "gram"
+}
