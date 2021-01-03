@@ -30,6 +30,7 @@
    justify-content: center;
    align-items: center;
    margin-top: var(--spacer-med);
+   margin-bottom: var(--spacer-med);
 
 }
 
@@ -133,7 +134,7 @@ input[type=range]:focus{
     background-color: var(--colors--muted);
     color: var(--colors--light);
     border-radius: 50%;
-    margin: var(--spacer-med);
+    margin: var(--spacer-med) var(--spacer-med) var(--spacer-med) 0;
     text-align: right;
     display: flex;
     justify-content: center;

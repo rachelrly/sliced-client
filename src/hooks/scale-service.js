@@ -1,7 +1,8 @@
-/*Scales and formats numbers from amount_str that are stored in the state of /components/RecipePage/Ingredients.js   */
+/*Scales and formats units and amounts for recipe page, returning object with keys unit and num  */
 
 
 export function useScale(num, unit, multiply) {
+
     let newAmount = num * multiply
     let newUnit = unit
 
@@ -25,8 +26,6 @@ export function useScale(num, unit, multiply) {
     const getMixedNumber = (num, frac) => {
         const arr = num.toString().split('')
         return arr[0] == 0 ? `${frac}` : `${arr[0]} ${frac}`;
-
-
     }
 
     newAmount === 0.5

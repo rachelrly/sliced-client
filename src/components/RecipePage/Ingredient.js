@@ -1,6 +1,5 @@
 import React, { useState, useEffect, Fragment } from 'react'
-import { parseAmount } from '../../services/parse-amount-service'
-import { useScale } from '../../services/scale-service'
+import { useScale } from '../../hooks/scale-service'
 
 /*This component renders each ingredient in a recipe and controls the 
 state that stores the current measurement amount and units, communicating with 
@@ -8,7 +7,7 @@ parseAmount*/
 
 function Ingredient(props) {
 
-    const { num, unit } = useScale(props.amount, 'cup', props.multiplyBy)
+    const { num, unit } = useScale(props.amount, props.unit, props.multiplyBy)
     return (
         <Fragment>
             <span className='ing_amount'>{props.amount ? num : null}</span>

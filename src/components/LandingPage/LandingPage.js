@@ -54,7 +54,7 @@ function LandingPage() {
 
                         : null}
                 </article>
-                <article>
+                <article className='how-to-wrapper'>
 
                     <h3>How to Slice your recipes</h3>
 

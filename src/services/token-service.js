@@ -1,5 +1,5 @@
 import jwtDecode from 'jwt-decode';
-require('dotenv').config();
+
 
 const TokenService = {
 

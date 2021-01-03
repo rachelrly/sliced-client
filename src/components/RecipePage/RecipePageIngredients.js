@@ -10,7 +10,6 @@ function RecipePageIngredients(props) {
     return (
         <ul className='ingredients_wrapper'>
             {props.ingredients.map(ing => {
-
                 return (
                     <li key={ing.id} className='ing_item'>
                         <Ingredient multiplyBy={props.multiplyBy} {...ing} />

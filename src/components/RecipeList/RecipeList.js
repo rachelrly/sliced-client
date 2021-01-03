@@ -21,8 +21,6 @@ function RecipeList() {
 
     const { loading, data } = useQuery(recQuery)
 
-    console.log(data)
-
     return (
         <Fragment>{
             loading

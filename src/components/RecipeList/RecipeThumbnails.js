@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import { useFormatRecipeTitle } from '../../services/capitalize-recipe-title-service'
+import { useFormatRecipeTitle } from '../../hooks/capitalize-recipe-title-service'
 
 
 

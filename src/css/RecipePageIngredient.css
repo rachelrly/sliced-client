@@ -4,10 +4,13 @@
 }
 .ing_item {
     width: inherit;
-    padding: 0 0 var(--spacer-sm);
+    margin: 0 0 var(--spacer-sm);
+    padding: var(--spacer-tiny);
+    background-color: var(--colors-accent-light);
+    border-radius: var(--button-border-radius);
 }
 .ing_item:first-of-type{
-    padding-top: var(--spacer-sm);
+    margin-top: var(--spacer-med);
 }
 .ing_amount {
     font-weight: 600;

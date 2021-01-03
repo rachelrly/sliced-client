@@ -55,8 +55,13 @@ article{
 }
 
 
+.how-to-wrapper>*{
+    margin-top: var(--spacer-med);
+}
 
-
+.how-to-wrapper{
+    margin-top: 0;
+}
 
 .button_wrapper{
     display: flex;
@@ -76,9 +81,7 @@ article{
 }
 
 
-.dodont_wrapper{
-    margin-top: var(--spacer-med);
-}
+
 .screenshot{
     width: calc(375px * 0.7);
     height: calc(667px * 0.7);

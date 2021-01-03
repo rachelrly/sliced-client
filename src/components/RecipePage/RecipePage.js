@@ -6,7 +6,7 @@ import RecipePageIngredients from './RecipePageIngredients';
 import UserContext from '../../contexts/user-context';
 import jwt_decode from 'jwt-decode';
 import TokenService from '../../services/token-service';
-import { useFormatRecipeTitle } from '../../services/capitalize-recipe-title-service'
+import { useFormatRecipeTitle } from '../../hooks/capitalize-recipe-title-service'
 import { VscTrash, VscReply } from 'react-icons/vsc'
 import Loading from '../Loading/Loading'
 import { gql, useQuery } from '@apollo/client';
@@ -49,6 +49,7 @@ function RecipePage(props) {
             ingredients{
                 id,
                 amount,
+                unit,
                 ingredient_name
             }
 
