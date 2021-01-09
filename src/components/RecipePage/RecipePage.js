@@ -1,11 +1,9 @@
-import React, { Fragment, useState, useEffect } from 'react'
+import React, { Fragment, useState, useEffect, useContext } from 'react'
 import UserRecipesApiService from '../../services/user-recipes-api-service'
 import '../../css/RecipePage.css';
 import { useParams } from 'react-router-dom';
 import RecipePageIngredients from './RecipePageIngredients';
-import UserContext from '../../contexts/user-context';
-import jwt_decode from 'jwt-decode';
-import TokenService from '../../services/token-service';
+import { UserContext } from '../../contexts/user-context';
 import { useFormatRecipeTitle } from '../../hooks/capitalize-recipe-title-service'
 import { VscTrash, VscReply } from 'react-icons/vsc'
 import Loading from '../Loading/Loading'
@@ -18,7 +16,8 @@ with state update in componentDidMount.*/
 
 function RecipePage(props) {
     const { id } = useParams();
-    const [multiplyBy, setMultiplyBy] = useState(1)
+    const [multiplyBy, setMultiplyBy] = useState(1);
+    const { update, setUpdate } = useContext(UserContext);
 
     useEffect(() => {
 
@@ -30,14 +29,15 @@ function RecipePage(props) {
         setMultiplyBy(multiply)
     }
 
-    const handleDeleteRecipe = () => {
-        const token = TokenService.getAuthToken();
-        const user_id = jwt_decode(token).user_id;
-
-        UserRecipesApiService.deleteRecipe(id, user_id)
-            .then(this.context.getRecipesAfterDelete(user_id, id))
-            .then(() => this.props.history.push('/recipe'))
-            .catch(err => console.log(err.message))
+    const handleDeleteRecipe = async () => {
+        try {
+            await UserRecipesApiService.deleteRecipe(id)
+            setUpdate(!update)
+            props.history.push('/recipe')
+        }
+        catch (error) {
+            console.log(error)
+        }
 
     }
 
@@ -59,7 +59,6 @@ function RecipePage(props) {
     `
 
     const { data, loading } = useQuery(recipeQuery)
-    console.log(data)
     return (
         <Fragment>
             {loading
@@ -112,7 +111,7 @@ function RecipePage(props) {
                             : null
                         }
                         <button
-                            onClick={handleDeleteRecipe}
+                            onClick={() => handleDeleteRecipe()}
                             className='delete_button'
                             aria-label="Delete this Recipe">
                             <VscTrash className='trash' />

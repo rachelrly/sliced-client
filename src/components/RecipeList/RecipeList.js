@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import RecipeThumbnails from './RecipeThumbnails'
 import { UserContext } from '../../contexts/user-context'
@@ -10,6 +10,7 @@ import Loading from '../Loading/Loading';
 
 
 function RecipeList() {
+    const { update } = useContext(UserContext);
     const recQuery = gql`{
             recipes{
                 id,
@@ -17,7 +18,8 @@ function RecipeList() {
             }
     }`
 
-    const { loading, data } = useQuery(recQuery)
+    const { loading, data, refetch } = useQuery(recQuery)
+    useEffect(() => { refetch() }, [update])
 
     return (
         <Fragment>{

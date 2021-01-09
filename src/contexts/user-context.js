@@ -9,6 +9,7 @@ function UserContextProvider({ children }) {
     const [userId, setUserId] = useState(null);
     const [loading, setLoading] = useState(null);
     const [recipes, setRecipes] = useState(null);
+    const [update, setUpdate] = useState(false)
 
     const handleLogin = async (email, password) => {
         try {
@@ -44,7 +45,7 @@ function UserContextProvider({ children }) {
     }, [userId, loading])
 
 
-    const value = { recipes, userId, loading, handleLogin, onLogout, onContinuingLogin }
+    const value = { recipes, userId, update, setUpdate, loading, handleLogin, onLogout, onContinuingLogin }
     return <UserContext.Provider value={value}>{children}</UserContext.Provider>
 
 }

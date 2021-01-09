@@ -1,16 +1,14 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { parseTextInput } from '../../services/parse-text-input'
 import UserRecipesApiService from '../../services/user-recipes-api-service'
-import jwt_decode from 'jwt-decode'
-import cuid from 'cuid'
-import TokenService from '../../services/token-service'
+import { UserContext } from '../../contexts/user-context';
 import '../../css/AddRecipe.css';
 import { VscReply } from 'react-icons/vsc';
 import Preview from './Preview';
 
 
 function AddRecipe(props) {
-
+    const { update, setUpdate } = useContext(UserContext);
     const [title, setTitle] = useState('');
     const [ingredients, setIngredients] = useState('');
     const [error, setError] = useState(null);
@@ -20,14 +18,18 @@ function AddRecipe(props) {
 
     const handleFormSubmit = async (e, recipe) => {
         e.preventDefault();
-        if (!title.length || !ingredients.length) {
-            setError(null)
-            return true;
+        try {
+            if (!title.length || !ingredients.length) {
+                setError(null)
+                return true;
+            }
+            await UserRecipesApiService.createRecipe(recipe)
+            setUpdate(!update)
+            props.history.push('/recipe')
         }
-        return await UserRecipesApiService.createRecipe(recipe)
-            .then(props.history.push('/recipe'))
-            .catch(err => console.log(err.message))
-
+        catch (error) {
+            console.log(error)
+        }
 
     }
 
