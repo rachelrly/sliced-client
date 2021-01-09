@@ -39,7 +39,8 @@ textarea{
     height: 200px;
 }
 
-input[type=text]:focus, textarea:focus{
+input[type=text]:focus,
+input[type=password]:focus, textarea:focus{
     outline: var(--border-width) solid var(--colors-accent);
 }
 

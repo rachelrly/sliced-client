@@ -4,6 +4,7 @@ import Footer from './components/Footer/Footer'
 import jwt_decode from "jwt-decode";
 import { UserContext } from './contexts/user-context'
 import TokenService from './services/token-service'
+
 import Router from './components/Router';
 import './css/variables.css';
 import './css/main.css';
@@ -13,30 +14,12 @@ import './css/form.css';
 
 
 function App() {
+  const { userId } = useContext(UserContext);
 
-  // useEffect(() => {
-
-  // }, [])
-
-  // const handleIsLoggedIn = async () => {
-  //   if (TokenService.hasAuthToken()) {
-  //     const token = await TokenService.getAuthToken();
-  //     const user_id = jwt_decode(token).user_id;
-
-  //     const UserRecipesApiService.getRecipes(user_id)
-  //       .then(rec => {
-  //         this.setState({
-  //           currentAuthToken: token,
-  //           user_id,
-  //           recipes: rec
-  //         })
-  //       })
-  //   }
-  // }
-
+  //triggers rerender on login or logout
+  useEffect(() => { }, [userId])
 
   return (
-
     <div className='App'>
       <main>
         <Header />

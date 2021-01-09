@@ -10,8 +10,6 @@ import Loading from '../Loading/Loading';
 
 
 function RecipeList() {
-    const { recipes } = useContext(UserContext);
-
     const recQuery = gql`{
             recipes{
                 id,
@@ -20,7 +18,7 @@ function RecipeList() {
     }`
 
     const { loading, data } = useQuery(recQuery)
-
+    console.log(data)
     return (
         <Fragment>{
             loading
@@ -31,7 +29,7 @@ function RecipeList() {
                             <VscAdd className='plus' />
                         </button>
                     </Link>
-                    {data.recipes
+                    {data && data.recipes
                         ? <div className='recipe-list-wrapper'>
                             {data.recipes.map(r => <RecipeThumbnails id={r.id} key={r.id} title={r.recipe_title} />)}
                         </div>

@@ -13,15 +13,15 @@ function UserContextProvider({ children }) {
     const handleLogin = async (email, password) => {
         try {
             setLoading(true)
-            console.log(email, password)
-            const { authToken } = await AuthApiService.postLogin(email, password)
+            const { authToken } = await AuthApiService.postLogin(email, password).catch(() => setLoading(false))
             await TokenService.saveAuthToken(authToken);
             const jwt = TokenService.parseAuthToken();
             setUserId(jwt.user_id);
+
         }
         catch (error) {
             setLoading(false)
-            console.log(error)
+            console.log('error caught', error)
         }
 
 
@@ -41,7 +41,7 @@ function UserContextProvider({ children }) {
 
     useEffect(() => {
         onContinuingLogin();
-    }, [userId])
+    }, [userId, loading])
 
 
     const value = { recipes, userId, loading, handleLogin, onLogout, onContinuingLogin }

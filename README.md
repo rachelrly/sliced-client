@@ -32,13 +32,11 @@ back-end repo: https://github.com/Rachanastasia/sliced-API
 - React
 - CSS3
 - HTML5
-
-### Testing
-
-- Jest (smoke tests of all React component)
-
-### Production
-
+- GraphQL
+- Apollo Client
+- Apollo Link
+- React Router
+- Jest
 - Deployed with Vercel
 
 ## Codebase Structure

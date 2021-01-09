@@ -33,14 +33,14 @@ a .add_recipe{
 }
 
 
-
+/* 
 .add_recipe:focus, 
 .add_recipe:active,
 .add_recipe:hover{
     background-color: var(--colors--light);
     border: 2px solid var(--colors--dark);
 
-}
+} */
 
 label{
     padding-bottom: var(--spacer--sm);

@@ -66,11 +66,11 @@ button, .button{
     margin-top: var(--spacer-lg);
 }
 
-button:focus, .button:focus,
+/* button:focus, .button:focus,
 button:hover, .button:hover{
     background-color: var(--colors-accent-dark);
-    
-}
+     */
+
 
 section{
     display: flex;
