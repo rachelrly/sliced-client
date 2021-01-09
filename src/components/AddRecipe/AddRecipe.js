@@ -16,29 +16,18 @@ function AddRecipe(props) {
     const [error, setError] = useState(null);
     const [preview, setPreview] = useState(false);
 
-    console.log(ingredients)
-
     useEffect(() => { }, [preview])
 
-    const handleFormSubmit = (e, recipe) => {
+    const handleFormSubmit = async (e, recipe) => {
         e.preventDefault();
-
-        const token = TokenService.getAuthToken();
-        const user_id = jwt_decode(token).user_id;
-
         if (!title.length || !ingredients.length) {
             setError(null)
             return true;
         }
 
-        if (!ingredients.find(ing => ing.amount_str && ing.title)) {
-            setError('invalid')
-            return true;
-        }
-
-        UserRecipesApiService.createRecipe(recipe, user_id)
-            .then(this.context.addRecipe(recipe))
-            .then(this.props.history.push('/recipe'))
+        recipe = { ...recipe, id: cuid() };
+        return await UserRecipesApiService.createRecipe(recipe)
+            .then(props.history.push('/recipe'))
             .catch(err => console.log(err.message))
 
 
