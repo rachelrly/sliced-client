@@ -59,7 +59,7 @@ function RecipePage(props) {
     `
 
     const { data, loading } = useQuery(recipeQuery)
-
+    console.log(data)
     return (
         <Fragment>
             {loading

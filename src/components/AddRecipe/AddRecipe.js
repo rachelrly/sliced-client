@@ -24,8 +24,6 @@ function AddRecipe(props) {
             setError(null)
             return true;
         }
-
-        recipe = { ...recipe, id: cuid() };
         return await UserRecipesApiService.createRecipe(recipe)
             .then(props.history.push('/recipe'))
             .catch(err => console.log(err.message))
@@ -38,7 +36,6 @@ function AddRecipe(props) {
     const recipe = {
         title: title,
         ingredients: ingredients,
-        id: cuid()
     }
 
     return (
