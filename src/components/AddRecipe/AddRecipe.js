@@ -86,4 +86,4 @@ function AddRecipe(props) {
 }
 
 
-export default AddRecipe
+export default AddRecipe;

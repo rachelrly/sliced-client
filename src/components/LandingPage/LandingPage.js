@@ -1,34 +1,36 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import '../../css/LandingPage.css';
 import TokenService from '../../services/token-service';
 import scaleDown from '../../screenshots/recipe-scale-down.png';
 import scaleUp from '../../screenshots/recipe-scale-up.png';
-import { Fragment } from 'react';
 
 
 
 function LandingPage() {
 
     return (
-
         <Fragment>
             <article className='img_wrapper'>
                 <h2 className='landing_title'>Welcome to Sliced!</h2>
                 <span>Scale your recipes</span>
-                <>
+                <Fragment>
                     {TokenService.hasAuthToken()
-                        ? <div className='button_wrapper'><Link to='/recipe' tabIndex='-1'><button>Get Started</button></Link></div>
-                        : <div className='button_wrapper'><a href='#login' tabIndex='-1'><button>Get Started</button></a></div>
-
+                        ? <div className='button_wrapper'>
+                            <Link to='/recipe' tabIndex='-1'>
+                                <button>Get Started</button>
+                            </Link>
+                        </div>
+                        : <div className='button_wrapper'>
+                            <a href='#login' tabIndex='-1'>
+                                <button>Get Started</button>
+                            </a>
+                        </div>
                     }
-                </>
+                </Fragment>
             </article>
 
             <section className='landing_page_wrapper'>
-
-
-
 
                 <article>
                     <h3>What is Sliced?</h3>
@@ -66,40 +68,6 @@ function LandingPage() {
                     <p>Please follow these guidelines to help Sliced accurately find ingredients and amounts:</p>
 
                     <p className='dodont_wrapper'>
-                        <span className='do'>Do</span> put each ingredient is on its own line.
-                </p>
-                    <div className='example good'>
-                        <code>
-                            1 cup chicken broth
-                        <br />2 tsp salt
-                        <br />1 tsp dried ginger
-</code></div>
-                    <p><span className='dont'>Don't</span> put many ingredients on one line.</p>
-                    <div className='example bad'>
-
-                        <code>1 cup chicken broth 2 tsp salt 1 tsp dried ginger</code>
-                    </div>
-
-                    <p className='dodont_wrapper'>
-                        <span className='do'>Do</span> include at least one scalable value in a recipe.
-                </p>
-                    <div className='example good'>
-                        <code>
-                            2 c chicken broth
-                        <br />salt
-                        <br />dried ginger
-</code></div>
-                    <p><span className='dont'>Don't</span> submit recipes with no scalable values.</p>
-                    <div className='example bad'>
-                        <code>
-                            chicken broth
-                        <br />salt
-                        <br />dried ginger
-                        </code>
-                    </div>
-
-
-                    <p className='dodont_wrapper'>
                         <span className='do'>Do</span> enter fractions with numbers and slashes.
                 </p>
                     <div className='example good'>
@@ -108,7 +76,7 @@ function LandingPage() {
                         <br />1/4 tsp salt
                         <br />1/2 tsp dried ginger
 </code></div>
-                    <p><span className='dont'>Don't</span> use pre-formatted fractions. Scaled does not register these fractions as scalable numbers at this time. </p>
+                    <p><span className='dont'>Don't</span> use pre-formatted fractions. Scaled does not register these characters as numbers at this time. </p>
                     <div className='example bad'>
                         <code>
                             ½ cup chicken broth
@@ -118,7 +86,7 @@ function LandingPage() {
                     </div>
 
                     <p className='dodont_wrapper'>
-                        <span className='do'>Do</span> start each line with a numeric value. If a line does not start with a number, the whole line is considered the ingredient's name.
+                        <span className='do'>Do</span> use numeric values to represent ingredient amounts.
                 </p>
                     <div className='example good'>
                         <code>
@@ -126,23 +94,23 @@ function LandingPage() {
                         <br />1 tsp salt
                         <br />1/2 onion
 </code></div>
-                    <p><span className='dont'>Don't</span> start a line with a word. Numbers in the middle of lines will not be scaled.</p>
+                    <p><span className='dont'>Don't</span> use numeric values in ingredient names or spell out numbers.</p>
                     <div className='example bad'>
                         <code>
-                            chicken broth - 2 cup
-                        <br />one tsp salt
+                            2 cups 8oz cans chicken broth
+                        <br />1/3 cup 1% milk
                         <br />half an onion
                         </code>
                     </div>
 
                     <p className='dodont_wrapper'>
-                        <span className='do'>Do</span> keep a space or hyphen between the ingredient amount and the measurement unit.
+                        <span className='do'>Do</span> keep a space between the ingredient amount and the measurement unit.
                 </p>
                     <div className='example good'>
                         <code>
-                            16-oz. chicken broth
+                            16 oz. chicken broth
                         <br />1/4 tsp salt
-                        <br />1-1/2 tsp dried ginger
+                        <br />1 1/2 tsp dried ginger
 </code></div>
                     <p><span className='dont'>Don't</span> keep them as one word. When parsing input, Sliced does not split any words at this time.</p>
                     <div className='example bad'>
@@ -150,24 +118,6 @@ function LandingPage() {
                             1/2cup chicken broth
                         <br />1tsp salt
                         <br />1and1/4tsp dried ginger
-                        </code>
-                    </div>
-
-                    <p className='dodont_wrapper'>
-                        <span className='do'>Do</span> use alphanumeric characters, hyphens, and periods in ingredient name.
-                </p>
-                    <div className='example good'>
-                        <code>
-                            2 c. chicken-broth
-                        <br />1 tsp salt
-                        <br />1-1/2 tsp d. ginger
-</code></div>
-                    <p><span className='dont'>Don't</span> use special characters in ingredient name. Sliced does not parse ingredients that use special characters.</p>
-                    <div className='example bad'>
-                        <code>
-                            2 c. chicken broth (unsalted)
-                        <br />1 tsp salt + pepper
-                        <br />1-1/2 tsp dried ginger & tumeric
                         </code>
                     </div>
 
