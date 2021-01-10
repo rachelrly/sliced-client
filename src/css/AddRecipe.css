@@ -3,12 +3,6 @@
     align-self: center;
 }
 
-.add_section button:focus,
-.add_section button:hover{
-    border: 2px solid var(--colors--dark); 
-    background-color: var(--colors--light); 
-}
-
 .preview_category{
     display: flex;
     flex-direction: column;

@@ -10,6 +10,7 @@ function UserContextProvider({ children }) {
     const [loading, setLoading] = useState(null);
     const [recipes, setRecipes] = useState(null);
     const [update, setUpdate] = useState(false);
+    const [error, setError] = useState(null)
 
     const handleLogin = async (email, password) => {
         try {
@@ -17,6 +18,7 @@ function UserContextProvider({ children }) {
             const { authToken } = await AuthApiService.postLogin(email, password)
 
             if (!authToken) {
+                setError('Incorrect username or password.')
                 setLoading(false);
                 return;
             }
@@ -49,7 +51,7 @@ function UserContextProvider({ children }) {
     }, [userId, loading])
 
 
-    const value = { recipes, userId, update, setUpdate, loading, handleLogin, onLogout, onContinuingLogin }
+    const value = { recipes, userId, update, setUpdate, loading, error, setError, handleLogin, onLogout, onContinuingLogin }
     return <UserContext.Provider value={value}>{children}</UserContext.Provider>
 
 }

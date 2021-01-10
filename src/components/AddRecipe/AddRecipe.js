@@ -5,13 +5,13 @@ import { UserContext } from '../../contexts/user-context';
 import '../../css/AddRecipe.css';
 import { VscReply } from 'react-icons/vsc';
 import Preview from './Preview';
+import ErrorText from '../ErrorText/ErrorText';
 
 
 function AddRecipe(props) {
-    const { update, setUpdate } = useContext(UserContext);
+    const { update, setUpdate, setError } = useContext(UserContext);
     const [title, setTitle] = useState('');
     const [ingredients, setIngredients] = useState('');
-    const [error, setError] = useState(null);
     const [preview, setPreview] = useState(false);
 
     useEffect(() => { }, [preview])
@@ -19,8 +19,12 @@ function AddRecipe(props) {
     const handleFormSubmit = async (e, recipe) => {
         e.preventDefault();
         try {
-            if (!title.length || !ingredients.length) {
-                setError(null)
+            if (!title.length) {
+                setError('Please enter a title')
+                return true;
+            }
+            if (!ingredients.length) {
+                setError('Please enter ingredients')
                 return true;
             }
             await UserRecipesApiService.createRecipe(recipe)
@@ -71,7 +75,7 @@ function AddRecipe(props) {
                         onChange={(e) => setIngredients(parseTextInput(e.target.value))}
                     />
                 </fieldset>
-
+                <ErrorText />
                 {!ingredients.length
                     ? null
                     : <Preview ingredients={ingredients} />}

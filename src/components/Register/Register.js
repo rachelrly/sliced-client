@@ -1,21 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import AuthApiService from '../../services/auth-api-service';
+import { UserContext } from '../../contexts/user-context';
+import ErrorText from '../ErrorText/ErrorText';
 
 function Register(props) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
-  const [error, setError] = useState(null)
+
+  const { setError } = useContext(UserContext);
 
   const handleSubmit = async e => {
     e.preventDefault();
     if (!name || !email || !password || !repeatPassword) {
       setError('Missing fields in registration form.')
+      return;
     }
     if (password !== repeatPassword) {
       setError('Passwords do not match.')
+      return;
     }
     try {
       console.log('BEFORE AWAIT RAN')
@@ -26,6 +31,7 @@ function Register(props) {
       console.log(error)
     }
   }
+
 
 
   return (
@@ -47,6 +53,7 @@ function Register(props) {
           <label htmlFor='register-repeat-password'>Repeat password</label>
           <input type='password' value={repeatPassword} onChange={e => setRepeatPassword(e.target.value)} id='register-repeat-password' name='register-repeat-password' placeholder='test-password!' />
         </fieldset>
+        <ErrorText />
         <div className='form-login-button-wrapper'>
           <button type='submit'>Sign Up</button>
           <Link to='/login'>

@@ -38,32 +38,32 @@ input, textarea{
 textarea{
     height: 200px;
 }
+input:focus,
+input:active{
+    border:var(--border-width) solid var(--colors-accent-bright);
+}
 
 input[type=text]:focus,
 input[type=password]:focus, textarea:focus{
     outline: var(--border-width) solid var(--colors-accent);
 }
 
-input:focus,
-input:active{
-    border: 2px solid var(--colors-accent-bright);
-}
 
 textarea:focus,
 textarea:active{
-    border: 2px solid var(--colors-accent-bright);
+    border:var(--border-width) solid var(--colors-accent-bright);
 }
 
 .form_button {
     outline: 0;
-    border: 2px solid var(--colors--accent-bright);
+    border:var(--border-width) solid var(--colors--accent-bright);
 }
 
 .form_button:focus,
 .form_button:active,
 .form_button:hover{
-    border: 2px solid var(--colors--dark);
-    background-color: var(--colors--light);
+    border: var(--border-width) solid var(--colors-accent-dark);
+    background-color: var(--colors-accent-dark);
 }
 
 .error_text{
@@ -72,7 +72,7 @@ textarea:active{
 }
 
 .err{
-    border: 2px solid var(--colors--accent-extreme);
+    border: var(--border-width) solid var(--colors--accent-extreme);
 }
 
 
