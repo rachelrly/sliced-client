@@ -155,7 +155,10 @@ button:hover .trash{
     color: var(--colors--dark);
 }
 
-
+.goBack{
+    height: 40px;
+    width: 40px;
+}
 
 @media all and (min-width: 400px){
 
