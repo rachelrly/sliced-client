@@ -44,15 +44,20 @@ ul {
 
 datalist{
     display: flex;
-    width: 100%;
+    width: inherit;
     padding: 0;
     justify-content: space-between;
+    margin-top: var(--spacer-tiny);
 }
 
 option{
     font-family: 'Open Sans';
     width: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 
 .slider_container{
     width: 90%;
@@ -66,7 +71,7 @@ option{
 input[type=range]{
     appearance: none;
     width: inherit;
-    height: var(--spacer-sm);
+    height: var(--spacer-tiny);
     border: 0;
     border-radius: 8px;
     outline: none;
