@@ -9,24 +9,22 @@ function Login() {
 
     const { handleLogin, setError } = useContext(UserContext);
 
-    const handleSubmitAuth = e => {
+    const handleSubmitAuth = async e => {
         e.preventDefault();
         setError(null);
         setLoading(true);
         const { email, password } = e.target;
 
-        if (!email || !password) {
+        if (!email.value || !password.value) {
             setError('Please enter valid login credentials.');
             setLoading(false);
-            return null;
+            return;
         }
-        handleLogin(email.value.toLowerCase(), password.value);
+        await handleLogin(email.value.toLowerCase(), password.value);
 
         email.value = '';
         password.value = '';
-
-
-
+        setLoading(false)
 
     }
 

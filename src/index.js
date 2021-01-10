@@ -8,7 +8,7 @@ import { ApolloProvider, ApolloClient, InMemoryCache, HttpLink, ApolloLink, conc
 import UserContextProvider from './contexts/user-context';
 import TokenService from './services/token-service';
 
-const httpLink = new HttpLink({ uri: 'http://localhost:8000/graphql' });
+const httpLink = new HttpLink({ uri: 'https://sliced-updated.herokuapp.com/graphql' });
 
 const authMiddleware = new ApolloLink((operation, forward) => {
   operation.setContext({

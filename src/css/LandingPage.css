@@ -145,9 +145,6 @@ a{
 }
 
 @media all and (min-width: 600px) {
-    .example{
-        padding: var(--spacer--med);
-    }
     .screenshot_wrapper{
         flex-direction: row;
         justify-content: space-between;
