@@ -33,6 +33,7 @@ function RecipePage(props) {
         try {
             await UserRecipesApiService.deleteRecipe(id)
             setUpdate(!update)
+       
             props.history.push('/recipe')
         }
         catch (error) {
