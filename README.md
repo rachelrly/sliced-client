@@ -15,15 +15,15 @@ back-end repo: https://github.com/Rachanastasia/sliced-API
 
 ## Images
 
-![](/screenshots/list.png)
+![](/screenshots/list.jpg)
 
 Users can view all the recipes in a list.
 
-![](/screenshots/input.png)
+![](/screenshots/input.jpg)
 
 Users can view a live preview of how their recipe is being parsed to adjust their input accordingly.
 
-![](/screenshots/recipe.png)
+![](/screenshots/recipe.jpg)
 
 Once a recipe is created, users can scale the list of ingredients up or down by increments of 1/4.
 
