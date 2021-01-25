@@ -15,15 +15,17 @@ back-end repo: https://github.com/Rachanastasia/sliced-API
 
 ## Images
 
-![](src/screenshots/sliced-home.png)
+![](/screenshots/list.png)
 
-![](src/screenshots/sliced-login.png)
+Users can view all the recipes in a list.
 
-![](src/screenshots/recipe-scale-up.png)
+![](/screenshots/input.png)
 
-![](src/screenshots/recipe-scale-down.png)
+Users can view a live preview of how their recipe is being parsed to adjust their input accordingly.
 
-![](src/screenshots/add-recipe.png)
+![](/screenshots/recipe.png)
+
+Once a recipe is created, users can scale the list of ingredients up or down by increments of 1/4.
 
 ## Tech Stack
 
