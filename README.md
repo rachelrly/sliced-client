@@ -29,8 +29,6 @@ Once a recipe is created, users can scale the list of ingredients up or down by 
 
 ## Tech Stack
 
-### Front End
-
 - React
 - CSS3
 - HTML5
@@ -41,50 +39,95 @@ Once a recipe is created, users can scale the list of ingredients up or down by 
 - Jest
 - Deployed with Vercel
 
-## Codebase Structure
+## Codebase
 
-### /src/App.js
+### Components
 
-This is where the user context lives. This component renders the header, footer, and router.
+This folder contains all components for the app. Every component is in its own folder with a file containing a smoke test.
 
-### /src/components
+- Header
+- Footer
+- Loading (renders the loading indicator)
+- AddRecipe (contains Preview)
+- Preview
+- ErrorText (rendered in forms)
+- LandingPage
+- Login
+- PageNotFound
+- RecipeList
+- RecipePage (shows individual recipe with slider)
+- Register
+- Router
 
-All other react components are stored in this folder. Every parent component has its own folder, containing the component file, the test file, and--in most cases--a CSS file.
+### Contexts
 
-The folders for RecipeList and RecipePage also contains relavent child components.
+#### UserContext
 
-#### /Routes
+This file contains the instance of context and a component which renders the context provider.
 
-This folder contains the public and private routes used in src/Router.js, and a componenet that controls scrolling to top between routes.
+UserContextProvider has all the top-level state for the app such as loading, current user's recipes, errors, etc.
 
-### /src/services
+This component also had functions that handle the login and log out.
 
-This folder contains Javascript helper files that function in different ways.
+### Hooks
 
-#### /parse-input-service
+#### useFormatRecipeTitle()
 
-Takes in a string from the user input and splits it into the propor data format based on regex and valid types.
+This hook capitalizes the first letter of every word of a string for titles.
 
-#### /parse-amount-service
+#### useScale()
 
-Parses the amount_str returned from parse-input-service, seperating the number from the unit.
+This hook scales the ingredient amounts based on the position of the slider. The stack of ternary operators renders the appropriate fraction for the float value.
 
-#### /scale-service
+### Services
 
-Provides the scaling functionality in the component RecipePage.js
+This folder contains all non-hook JavaScript helper functions
 
-#### /capitalize-recipe-title-service
+#### UserRecipesApiService
 
-Turns recipe title to lower case and capitalizes the first letter of every word.
+Creates and deletes recipes through the old REST endpoint.
 
-#### /user-recipe-api-services
+#### TokenService
 
-Makes GET, POST, and DELETE requests to server.
+Gets, clears, and verifies JWT auth token.
 
-#### /token-service
+#### AuthApiService
 
-Gets, clears, and verifies auth token.
+Posts login and new user to REST endpoints.
 
-#### /auth-api-service
+#### ParseTextInput
 
-Makes POST request to server.
+This function takes in a long string of recipe ingredients and returns an array of objects, containing the unit, amount, and title for all ingredients.
+
+##### value-equiv.json
+
+This file contains all of the unit equivalencies. If a word matches a key in this file, it is considered a unit by the algorithm and is replaced with the abbreviation.
+
+It is called when the text is being parsed in the function above.
+
+### CSS
+
+#### variables.css
+
+This file contains all CSS variables used throughout the project.
+
+#### main.css
+
+This file styles the DOM elements.
+
+#### form.css
+
+This file sets up a unified form structure that is applied everywhere.
+
+#### Component based stylesheets
+
+The following stylesheets contain class-based styles for the specified component and their children.
+
+- AddRecipe.css
+- Footer.css
+- Header.css
+- LandingPage.css
+- Loading.css
+- RecipeList.css
+- RecipePage.css
+- RecipePageIngredients.css
